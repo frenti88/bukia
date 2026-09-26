@@ -96,11 +96,11 @@ export const ReaderModal: React.FC<ReaderModalProps> = ({
 
           {/* Centro: Título e indicador discreto de muestra */}
           <div className="text-center min-w-0 px-2">
-            <h1 id="reader-book-title" className="font-serif font-bold text-xs sm:text-sm truncate uppercase tracking-tight">
+            <h1 id="reader-book-title" className="font-heading font-bold text-xs sm:text-sm truncate uppercase tracking-tight">
               {book.title}
             </h1>
-            <span className="text-[10px] font-mono opacity-60 tracking-wider block">
-              Muestra gratuita · {samplePage} de 5
+            <span className="text-[10px] font-mono opacity-70 tracking-wider block">
+              Una historia de {writer?.displayName || 'BUKIA'} · Muestra ({samplePage}/5)
             </span>
           </div>
 
@@ -187,7 +187,7 @@ export const ReaderModal: React.FC<ReaderModalProps> = ({
               <span className="font-mono text-[11px] uppercase tracking-widest opacity-60 block mb-2">
                 Capítulo {chapter.chapterNumber}
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal tracking-tight uppercase">
+              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-normal tracking-tight uppercase">
                 {chapter.chapterTitle}
               </h2>
 
@@ -221,7 +221,7 @@ export const ReaderModal: React.FC<ReaderModalProps> = ({
                 PUNTO DE CORTE EDITORIAL
               </span>
 
-              <h3 className="font-serif text-2xl sm:text-3xl font-extrabold mb-3 uppercase tracking-tight">
+              <h3 className="font-heading text-2xl sm:text-3xl font-extrabold mb-3 uppercase tracking-tight">
                 {book.previewContent.cliffhangerTitle || 'Esto apenas comienza.'}
               </h3>
 

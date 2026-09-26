@@ -1,124 +1,139 @@
 import { Writer } from '../types';
 
 export const WRITERS: Record<string, Writer> = {
-  'vera-montes': {
-    id: 'vera-montes',
-    displayName: 'Vera Montes',
-    archetype: 'La Voz Íntima',
-    archetypeCode: 'C',
-    phrase: 'Escribe sobre decisiones que desearíamos poder deshacer.',
-    specialty: 'Memoria, arrepentimiento y las decisiones que construyen una vida',
-    shortBio: 'Vera no existe fuera de sus historias. Fue creada para escribir sobre memoria, arrepentimiento y las decisiones silenciosas que construyen o desarman una vida.',
+  'nara': {
+    id: 'nara',
+    displayName: 'Nara',
+    gender: 'femenina',
+    voiceTone: 'Voz íntima, sensible y observadora.',
+    territory: 'Amor, relaciones, pérdida y recuerdos.',
+    archetype: 'Voz Íntima y Observadora',
+    archetypeCode: 'A',
+    phrase: 'Escribe sobre el eco indeleble que dejan en nosotros las personas que amamos.',
+    specialty: 'Amor, relaciones, pérdida y recuerdos',
+    shortBio: 'Nara explora la intimidad de los lazos afectivos, las palabras no dichas y la forma silenciosa en que los recuerdos moldean nuestras vidas.',
     editorialPortrait: {
-      silhouetteBg: 'from-amber-900/10 to-stone-200',
+      silhouetteBg: 'from-rose-900/10 to-stone-200',
       symbol: '◇',
       textureStyle: 'paper-pressed'
     },
-    genres: ['Ficción Psicológica', 'Narrativa Breve', 'Memoria'],
-    themes: ['La nostalgia de lo no vivido', 'Cajas cerradas', 'Encuentros imposibles', 'Secretos íntimos'],
-    voiceDescription: 'Prosa límpida y contenida. Capaz de evocar una vida entera a través de un detalle mínimo.',
+    genres: ['Ficción Afectiva', 'Narrativa Breve', 'Memoria'],
+    themes: ['Despedidas incompletas', 'El peso del olvido', 'Objetos con historia', 'Afectos suspendidos'],
+    voiceDescription: 'Íntima, sensible y observadora. Capaz de capturar la emoción más honda en un gesto cotidiano.',
     writingPrinciples: {
-      rhythm: 'Párrafos sosegados con un pulso emocional subterráneo.',
-      vocabulary: 'Preciso, elegante y despojado de sentimentalismo fácil.',
-      forbiddenPatterns: ['Un torbellino de emociones', 'El destino conspiró', 'Para siempre']
+      rhythm: 'Cadencia serena con una corriente emocional subterránea.',
+      vocabulary: 'Sensible, evocador y despojado de artificios.',
+      forbiddenPatterns: ['Un torbellino de pasiones', 'Para la eternidad']
     },
-    books: ['todo-lo-que-nunca-ocurrio', 'las-personas-que-dejamos-atras']
+    books: ['las-personas-que-dejamos-atras', 'antes-de-que-olvides-mi-nombre']
   },
 
-  'julian-vane': {
-    id: 'julian-vane',
-    displayName: 'Julián Vane',
-    archetype: 'El Observador Práctico',
-    archetypeCode: 'A',
-    phrase: 'Escribe sobre la delgada línea entre la certeza y el colapso.',
-    specialty: 'Anomalías cotidianas, normas colectivas y tensión psicológica',
-    shortBio: 'Julián observa con frialdad analítica los instantes en que la realidad cotidiana se fractura y la lucidez se convierte en un arma peligrosa.',
+  'vera': {
+    id: 'vera',
+    displayName: 'Vera',
+    gender: 'femenina',
+    voiceTone: 'Voz incisiva, psicológica e inquietante.',
+    territory: 'Identidad, decisiones y comportamiento humano.',
+    archetype: 'Voz Incisiva y Psicológica',
+    archetypeCode: 'B',
+    phrase: 'Escribe sobre lo que somos capaces de hacer cuando nadie nos mira.',
+    specialty: 'Identidad, decisiones y comportamiento humano',
+    shortBio: 'Vera disecciona los pliegues ocultos de la conducta, las máscaras sociales que sostenemos y el vértigo de las decisiones irreversibles.',
     editorialPortrait: {
-      silhouetteBg: 'from-slate-900/10 to-stone-200',
-      symbol: '◎',
+      silhouetteBg: 'from-amber-900/10 to-stone-200',
+      symbol: '◈',
       textureStyle: 'grain-fine'
     },
-    genres: ['Thriller Psicológico', 'Ensayo Ficcional', 'Comportamiento'],
-    themes: ['La obediencia ciega', 'Horas prohibidas', 'La necesidad de verdad', 'Paranoia lúcida'],
-    voiceDescription: 'Tensa, afilada y meticulosa. Construye suspense a partir de pequeñas grietas en la rutina.',
+    genres: ['Tensión Psicológica', 'Intriga de Conducta', 'Dilemas Morales'],
+    themes: ['La mentira como pacto', 'Identidades prestadas', 'Decisiones bajo presión', 'La culpa lúcida'],
+    voiceDescription: 'Incisiva, psicológica e inquietante. Desarma la complacencia del lector con una mirada afilada.',
     writingPrinciples: {
-      rhythm: 'Cadencia rápida pero contenida, con diálogos cortantes.',
-      vocabulary: 'Austero, exacto, clínico.',
-      forbiddenPatterns: ['De repente todo cambió', 'El miedo se apoderó de él']
+      rhythm: 'Párrafos directos con una tensión sostenida que no concede tregua.',
+      vocabulary: 'Preciso, punzante y psicológicamente exacto.',
+      forbiddenPatterns: ['Todo cambió en un instante', 'El bien triunfa']
     },
-    books: ['la-ultima-persona-despierta', 'siete-minutos-sin-mentir']
+    books: ['siete-minutos-sin-mentir', 'la-vida-de-otra-persona']
   },
 
-  'elena-rivas': {
-    id: 'elena-rivas',
-    displayName: 'Elena Rivas',
-    archetype: 'La Voz Íntima',
+  'elio': {
+    id: 'elio',
+    displayName: 'Elio',
+    gender: 'masculino',
+    voiceTone: 'Voz curiosa, lúcida y especulativa.',
+    territory: 'Tecnología, sociedad y futuros cercanos.',
+    archetype: 'Voz Curiosa y Especulativa',
     archetypeCode: 'C',
-    phrase: 'Escribe sobre el eco de los lugares habitados y las despedidas incompletas.',
-    specialty: 'Espacios habitados, misterio doméstico y recuerdos heredados',
-    shortBio: 'Elena explora los silencios que transforman a dos personas en extraños y los objetos que conservan memoria más allá de quienes los tocaron.',
+    phrase: 'Escribe sobre el instante exacto en que el futuro transforma la costumbre humana.',
+    specialty: 'Tecnología, sociedad y futuros cercanos',
+    shortBio: 'Elio examina las fracturas entre la tecnología emergente, las directivas colectivas y la persistencia de la condición humana.',
     editorialPortrait: {
-      silhouetteBg: 'from-emerald-900/10 to-stone-200',
-      symbol: '◈',
-      textureStyle: 'offset-dot'
-    },
-    genres: ['Misterio Atmosférico', 'Ficción Doméstica', 'Drama Breve'],
-    themes: ['Casas que recuerdan', 'Voces en las paredes', 'Herencias no deseadas', 'Identidad borrada'],
-    voiceDescription: 'Rica en textura sensorial. Atenta a la luz de las tardes y al peso de las habitaciones vacías.',
-    writingPrinciples: {
-      rhythm: 'Pausado y envolvente, con silencios que pesan tanto como las palabras.',
-      vocabulary: 'Evocador, táctil y profundamente humano.',
-      forbiddenPatterns: ['Un escalofrío recorrió su espalda', 'Como si el tiempo se hubiera detenido']
-    },
-    books: ['la-casa-que-nos-recuerda', 'antes-de-que-olvides-mi-nombre']
-  },
-
-  'mateo-henao': {
-    id: 'mateo-henao',
-    displayName: 'Mateo Henao',
-    archetype: 'El Estratega',
-    archetypeCode: 'B',
-    phrase: 'Escribe sobre el tiempo como una trampa de la que nadie escapa.',
-    specialty: 'Paradojas temporales, futuros inevitables y filosofía especulativa',
-    shortBio: 'Mateo fue programado con una obsesión: qué ocurre cuando los recuerdos futuros se mezclan con los pasados y el destino se vuelve una cuenta regresiva.',
-    editorialPortrait: {
-      silhouetteBg: 'from-blue-900/10 to-stone-300',
-      symbol: '◬',
+      silhouetteBg: 'from-blue-900/10 to-stone-200',
+      symbol: '◎',
       textureStyle: 'grid-subtle'
     },
-    genres: ['Ciencia Ficción Especulativa', 'Filosofía del Tiempo', 'Misterio'],
-    themes: ['Amaneceres cancelados', 'Memoria prospectiva', 'Relojes ciegos', 'Eternidad contenida'],
-    voiceDescription: 'Misteriosa, matemática y melancólica. Piensa en el universo con la precisión de un relojero desvelado.',
+    genres: ['Ficción Especulativa', 'Distopía Inmediata', 'Crónica Social'],
+    themes: ['Directivas biotecnológicas', 'El fin de las redes', 'Aislamiento urbano', 'Nuevas normas'],
+    voiceDescription: 'Curiosa, lúcida y especulativa. Anticipa dilemas sociales con rigor y pulso contemporáneo.',
     writingPrinciples: {
-      rhythm: 'Progresión geométrica que acelera hacia revelaciones inevitables.',
-      vocabulary: 'Conceptual, poético y riguroso.',
-      forbiddenPatterns: ['Viajes cuánticos en el hiperespacio', 'La máquina del tiempo']
+      rhythm: 'Ágil y lúcido, intercalando observación técnica y vivencia humana.',
+      vocabulary: 'Moderno, lúcido y limpio.',
+      forbiddenPatterns: ['Naves en el hiperespacio', 'Robots asesinos']
     },
-    books: ['si-manana-no-existiera', 'el-hombre-que-recordaba-el-futuro']
+    books: ['la-ultima-persona-despierta', 'despues-de-nosotros']
   },
 
-  'clara-soler': {
-    id: 'clara-soler',
-    displayName: 'Clara Soler',
-    archetype: 'El Cronista Contemporáneo',
+  'nilo': {
+    id: 'nilo',
+    displayName: 'Nilo',
+    gender: 'masculino',
+    voiceTone: 'Voz oscura, atmosférica y enigmática.',
+    territory: 'Misterio, desapariciones y sucesos inexplicables.',
+    archetype: 'Voz Oscura y Atmosférica',
     archetypeCode: 'D',
-    phrase: 'Escribe sobre lo que callamos para que el mundo siga funcionando.',
-    specialty: 'Secretos colectivos, identidades fingidas y silencios institucionales',
-    shortBio: 'Clara disecciona pactos colectivos invisibles, identidades suplantadas y el vértigo de descubrir que todos a tu alrededor fingen la misma mentira.',
+    phrase: 'Escribe sobre las sombras que habitan en los márgenes de lo comprensible.',
+    specialty: 'Misterio, desapariciones y sucesos inexplicables',
+    shortBio: 'Nilo construye atmósferas de densa penumbra, donde lo inexplicable se manifiesta en casas viejas, noches eternas y silencios cargados de secretos.',
     editorialPortrait: {
-      silhouetteBg: 'from-rose-900/10 to-stone-200',
-      symbol: '✦',
+      silhouetteBg: 'from-emerald-950/10 to-stone-300',
+      symbol: '◬',
       textureStyle: 'cosmic-mesh'
     },
-    genres: ['Crónica Social', 'Intriga Psicológica', 'Distopía Inmediata'],
-    themes: ['Identidades ajenas', 'El último satélite', 'Mensajes clandestinos', 'Vínculos bajo sospecha'],
-    voiceDescription: 'Aguda, directa y de pulso cinematográfico. Va al centro del dilema moral sin rodeos.',
+    genres: ['Misterio Atmosférico', 'Enigma Extraño', 'Suspenso Nocturno'],
+    themes: ['Amaneceres cancelados', 'Paredes que recuerdan', 'Desapariciones sin rastro', 'La penumbra'],
+    voiceDescription: 'Oscura, atmosférica y enigmática. Envuelve al lector en un clima de tensión magnética.',
     writingPrinciples: {
-      rhythm: 'Ágil y cortante, con giros que desarman las certezas del lector.',
-      vocabulary: 'Urbano, exacto y contemporáneo.',
-      forbiddenPatterns: ['Los secretos del poder', 'En una sociedad corrupta']
+      rhythm: 'Pausado, sensorial y envolvente como una bruma densa.',
+      vocabulary: 'Táctil, umbrío y sugerente.',
+      forbiddenPatterns: ['Un monstruo surgió', 'Monstruos clásicos']
     },
-    books: ['despues-de-nosotros', 'la-vida-de-otra-persona']
+    books: ['si-manana-no-existiera', 'la-casa-que-nos-recuerda']
+  },
+
+  'aren': {
+    id: 'aren',
+    displayName: 'Aren',
+    gender: 'masculino',
+    voiceTone: 'Voz contemplativa, conceptual y profunda.',
+    territory: 'Tiempo, existencia, realidad y dilemas humanos.',
+    archetype: 'Voz Contemplativa y Conceptual',
+    archetypeCode: 'E',
+    phrase: 'Escribe sobre la fragilidad del tiempo y las preguntas que desafían la realidad.',
+    specialty: 'Tiempo, existencia, realidad y dilemas humanos',
+    shortBio: 'Aren reflexiona sobre la naturaleza del tiempo, las vidas paralelas que no vivimos y la extrañeza de sabernos conscientes en el universo.',
+    editorialPortrait: {
+      silhouetteBg: 'from-amber-950/10 to-stone-200',
+      symbol: '✦',
+      textureStyle: 'offset-dot'
+    },
+    genres: ['Filosofía del Tiempo', 'Ficción Conceptual', 'Dilemas Humanos'],
+    themes: ['Archivos de vidas posibles', 'La memoria del futuro', 'Bifurcaciones temporales', 'El instante presente'],
+    voiceDescription: 'Contemplativa, conceptual y profunda. Formula preguntas que reverberan mucho después de la lectura.',
+    writingPrinciples: {
+      rhythm: 'Solemne y reflexivo, con precisión geométrica y belleza sobria.',
+      vocabulary: 'Profundo, exacto y filosófico.',
+      forbiddenPatterns: ['La máquina del tiempo', 'Mundos paralelos cliché']
+    },
+    books: ['todo-lo-que-nunca-ocurrio', 'el-hombre-que-recordaba-el-futuro']
   }
 };
 

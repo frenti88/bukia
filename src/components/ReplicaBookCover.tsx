@@ -30,7 +30,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
 
   return (
     <div
-      className={`relative select-none aspect-book overflow-hidden rounded-[3px] bg-white border border-gray-200/80 transition-all duration-300 ${sizeMap[size]} ${shadowClass} ${className}`}
+      className={`relative select-none aspect-book overflow-hidden rounded-[3px] bg-white dark:bg-[#151619] border border-gray-200/80 dark:border-white/15 transition-all duration-300 ${sizeMap[size]} ${shadowClass} ${className}`}
       role="img"
       aria-label={`${title} por ${author}`}
     >
@@ -81,7 +81,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
             </div>
             <div className="w-full border-t border-white/15 pt-1.5 flex flex-col items-center">
               <span className="font-sans font-bold text-[9px] sm:text-[10px] tracking-widest uppercase text-white">
-                JULIÁN VANE
+                ELIO
               </span>
               <span className="text-[6px] font-mono text-amber-300/70 tracking-widest uppercase">
                 AUTOR ARTIFICIAL
@@ -121,10 +121,10 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
             </div>
             <div className="w-full border-t border-stone-200 pt-1.5 flex flex-col items-center">
               <span className="font-sans font-bold text-[9px] sm:text-[10px] tracking-widest uppercase text-stone-900">
-                VERA MONTES
+                AREN
               </span>
               <span className="text-[6px] font-mono text-amber-800 tracking-widest uppercase">
-                AUTORA ARTIFICIAL
+                AUTOR ARTIFICIAL
               </span>
             </div>
           </div>
@@ -167,7 +167,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
             </div>
             <div className="w-full border-t border-slate-200 pt-1.5 flex flex-col items-center">
               <span className="font-sans font-bold text-[9px] sm:text-[10px] tracking-widest uppercase text-slate-900">
-                VERA MONTES
+                NARA
               </span>
               <span className="text-[6px] font-mono text-slate-500 tracking-widest uppercase">
                 AUTORA ARTIFICIAL
@@ -205,7 +205,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
             </div>
             <div className="w-full border-t border-white/15 pt-1.5 flex flex-col items-center">
               <span className="font-sans font-bold text-[9px] sm:text-[10px] tracking-widest uppercase text-white">
-                MATEO HENAO
+                NILO
               </span>
               <span className="text-[6px] font-mono text-sky-400/80 tracking-widest uppercase">
                 AUTOR ARTIFICIAL
@@ -245,10 +245,10 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
             </div>
             <div className="w-full border-t border-white/15 pt-1.5 flex flex-col items-center">
               <span className="font-sans font-bold text-[9px] sm:text-[10px] tracking-widest uppercase text-white">
-                ELENA RIVAS
+                NILO
               </span>
               <span className="text-[6px] font-mono text-emerald-400/80 tracking-widest uppercase">
-                AUTORA ARTIFICIAL
+                AUTOR ARTIFICIAL
               </span>
             </div>
           </div>
@@ -285,10 +285,10 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
             </div>
             <div className="w-full border-t border-zinc-200 pt-1.5 flex flex-col items-center">
               <span className="font-sans font-bold text-[9px] sm:text-[10px] tracking-widest uppercase text-zinc-950">
-                JULIÁN VANE
+                VERA
               </span>
               <span className="text-[6px] font-mono text-red-600 tracking-widest uppercase">
-                AUTOR ARTIFICIAL
+                AUTORA ARTIFICIAL
               </span>
             </div>
           </div>
@@ -323,7 +323,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
             </div>
             <div className="w-full border-t border-white/15 pt-1.5 flex flex-col items-center">
               <span className="font-sans font-bold text-[9px] sm:text-[10px] tracking-widest uppercase text-white">
-                MATEO HENAO
+                AREN
               </span>
               <span className="text-[6px] font-mono text-indigo-300 tracking-widest uppercase">
                 AUTOR ARTIFICIAL
@@ -361,10 +361,10 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
             </div>
             <div className="w-full border-t border-stone-800 pt-1.5 flex flex-col items-center">
               <span className="font-sans font-bold text-[9px] sm:text-[10px] tracking-widest uppercase text-stone-100">
-                CLARA SOLER
+                ELIO
               </span>
               <span className="text-[6px] font-mono text-amber-500 tracking-widest uppercase">
-                AUTORA ARTIFICIAL
+                AUTOR ARTIFICIAL
               </span>
             </div>
           </div>
@@ -400,7 +400,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
             </div>
             <div className="w-full border-t border-zinc-800 pt-1.5 flex flex-col items-center">
               <span className="font-sans font-bold text-[9px] sm:text-[10px] tracking-widest uppercase text-zinc-100">
-                CLARA SOLER
+                VERA
               </span>
               <span className="text-[6px] font-mono text-zinc-400 tracking-widest uppercase">
                 AUTORA ARTIFICIAL
@@ -438,7 +438,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
             </div>
             <div className="w-full border-t border-rose-200 pt-1.5 flex flex-col items-center">
               <span className="font-sans font-bold text-[9px] sm:text-[10px] tracking-widest uppercase text-rose-950">
-                ELENA RIVAS
+                NARA
               </span>
               <span className="text-[6px] font-mono text-rose-800 tracking-widest uppercase">
                 AUTORA ARTIFICIAL

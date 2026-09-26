@@ -6,6 +6,56 @@ export default {
   ],
   theme: {
     extend: {
+      textColor: {
+        ink: '#282828',
+        'ink-muted': '#282828',
+        'ink-faint': '#282828',
+        gray: {
+          400: '#282828',
+          500: '#282828',
+          600: '#282828',
+          700: '#282828',
+          800: '#282828',
+          900: '#282828',
+          950: '#282828',
+        },
+        stone: {
+          400: '#282828',
+          500: '#282828',
+          600: '#282828',
+          700: '#282828',
+          800: '#282828',
+          900: '#282828',
+          950: '#282828',
+        },
+        zinc: {
+          400: '#282828',
+          500: '#282828',
+          600: '#282828',
+          700: '#282828',
+          800: '#282828',
+          900: '#282828',
+          950: '#282828',
+        },
+        slate: {
+          400: '#282828',
+          500: '#282828',
+          600: '#282828',
+          700: '#282828',
+          800: '#282828',
+          900: '#282828',
+          950: '#282828',
+        },
+        neutral: {
+          400: '#282828',
+          500: '#282828',
+          600: '#282828',
+          700: '#282828',
+          800: '#282828',
+          900: '#282828',
+          950: '#282828',
+        },
+      },
       colors: {
         brand: {
           50: '#F9FAFB',
@@ -28,7 +78,10 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        sans: ['"Google Sans"', 'Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        heading: ['Montserrat', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
+        'google-sans': ['"Google Sans"', 'sans-serif'],
         serif: ['Newsreader', 'Georgia', 'serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },

@@ -13,7 +13,7 @@ export const REPLICA_BOOKS: Book[] = [
     shortDescription: 'Lecciones atemporales sobre riqueza, codicia y felicidad.',
     coverArt: {
       bgColor: '#FFFFFF',
-      textColor: '#111827',
+      textColor: '#282828',
       accentColor: '#059669',
       styleVariant: 'minimal-grid'
     },
@@ -156,7 +156,7 @@ export const REPLICA_BOOKS: Book[] = [
     shortDescription: 'Por qué juzgar mal al desconocido fragmenta la convivencia.',
     coverArt: {
       bgColor: '#FAF8F5',
-      textColor: '#111827',
+      textColor: '#282828',
       accentColor: '#10B981',
       styleVariant: 'minimal-grid'
     },
@@ -248,7 +248,7 @@ export const REPLICA_BOOKS: Book[] = [
     shortDescription: 'Aplicar el design thinking a tu vocación y vida diaria.',
     coverArt: {
       bgColor: '#FFFFFF',
-      textColor: '#111827',
+      textColor: '#282828',
       accentColor: '#EC4899',
       styleVariant: 'minimal-grid'
     },
@@ -294,7 +294,7 @@ export const REPLICA_BOOKS: Book[] = [
     shortDescription: 'Cuestionar la escala corporativa interminable en favor de la libertad.',
     coverArt: {
       bgColor: '#FFFFFF',
-      textColor: '#111827',
+      textColor: '#282828',
       accentColor: '#1F2937',
       styleVariant: 'minimal-grid'
     },

@@ -54,8 +54,11 @@ export interface Book {
 export interface Writer {
   id: string;
   displayName: string;
-  archetype: 'El Observador Práctico' | 'El Estratega' | 'La Voz Íntima' | 'El Cronista Contemporáneo' | 'El Explorador';
-  archetypeCode: 'A' | 'B' | 'C' | 'D' | 'E';
+  gender?: 'femenina' | 'masculino';
+  voiceTone?: string;
+  territory?: string;
+  archetype?: string;
+  archetypeCode?: string;
   phrase?: string;
   specialty?: string;
   shortBio: string;

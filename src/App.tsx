@@ -44,6 +44,14 @@ export const App: React.FC = () => {
   // Estado de la Página de Producto dedicada
   const [currentProductBook, setCurrentProductBook] = useState<Book | null>(() => parseBookFromLocation());
 
+  // Limpiar cualquier estado residual de dark mode en navegador
+  useEffect(() => {
+    document.documentElement.classList.remove('dark');
+    try {
+      localStorage.removeItem('bukia_theme');
+    } catch {}
+  }, []);
+
   // Estados de modales
   const [previewBook, setPreviewBook] = useState<Book | null>(null);
   const [checkoutBook, setCheckoutBook] = useState<Book | null>(null);

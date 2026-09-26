@@ -7,8 +7,8 @@ export const BOOKS: Record<string, Book> = {
     title: 'La Última Persona Despierta',
     subtitle: 'Durante una noche, toda una ciudad recibe la misma orden: dormir.',
     premise: 'A las 3:17 de la mañana, todos los habitantes de la ciudad reciben exactamente el mismo mensaje: duerman durante las próximas 24 horas. Daniel decide no hacerlo.',
-    writerId: 'julian-vane',
-    category: 'Tensión Psicológica',
+    writerId: 'elio',
+    category: 'Tecnología & Sociedad',
     thesisStatement: 'La obediencia colectiva es el sedante más barato que conoce una civilización.',
     description: 'A las 3:17 de la mañana, todas las pantallas, teléfonos y altavoces públicos emiten una notificación breve: una directiva civil de descanso obligatorio durante veinticuatro horas. Sin explicaciones sanitarias ni amenazas explícitas. Daniel, un encuadernador insomne en el centro histórico, apaga el teléfono y decide salir a comprobar qué ocurre cuando una metrópoli de cuatro millones de personas acata la misma orden al unísono.',
     shortDescription: 'Toda una ciudad recibe la misma orden: dormir durante 24 horas. Daniel decide no hacerlo.',
@@ -36,7 +36,7 @@ export const BOOKS: Record<string, Book> = {
           chapterTitle: 'La directiva de las 3:17',
           epigraph: {
             quote: 'No hay nada más ruidoso que el silencio concertado de cuatro millones de personas.',
-            source: 'Julián Vane'
+            source: 'Elio'
           },
           paragraphs: [
             'El pitido no sonó como una alarma de catástrofe, sino como el recordatorio amable de una lavadora que termina su ciclo. Un tono triple, amortiguado, emitido simultáneamente por el teléfono sobre la mesa de noche, el televisor en modo reposo y la pantalla del refrigerador inteligente.',
@@ -59,7 +59,7 @@ export const BOOKS: Record<string, Book> = {
     featured: true,
     releaseDate: '2026-08-10',
     keywords: ['insomnio', 'ciudad', 'misterio', 'obediencia', 'noche'],
-    nextRecommendedId: 'todo-lo-que-nunca-ocurrio'
+    nextRecommendedId: 'despues-de-nosotros'
   },
 
   'todo-lo-que-nunca-ocurrio': {
@@ -68,8 +68,8 @@ export const BOOKS: Record<string, Book> = {
     title: 'Todo lo que Nunca Ocurrió',
     subtitle: 'Un hombre empieza a recordar una vida que jamás vivió.',
     premise: 'Un archivista encuentra en los sótanos del registro civil los certificados de matrimonio y defunción de una vida que está seguro de no haber vivido jamás.',
-    writerId: 'vera-montes',
-    category: 'Memoria & Ficción',
+    writerId: 'aren',
+    category: 'Filosofía del Tiempo',
     thesisStatement: 'A veces la memoria no es un registro de lo vivido, sino un refugio inventado contra lo insoportable.',
     description: 'Sebastián lleva veinte años catalogando expedientes civiles en el sótano del archivo municipal. Durante un inventario de rutina en la sección de actas no reclamadas de 1994, tropieza con una carpeta a su nombre: su número de identidad, su tipografía dactilar y un acta matrimonial con una mujer de la que jamás ha oído hablar, acompañada de una dirección en una ciudad donde nunca ha puesto un pie.',
     shortDescription: 'Un archivista encuentra los certificados oficiales de una vida que nunca vivió.',
@@ -97,7 +97,7 @@ export const BOOKS: Record<string, Book> = {
           chapterTitle: 'El acta 414',
           epigraph: {
             quote: 'El pasado es el único territorio donde todo puede haber sucedido sin dejar rastro.',
-            source: 'Vera Montes'
+            source: 'Aren'
           },
           paragraphs: [
             'El polvo de los archivos viejos tiene un olor mineral y dulce, similar a la harina guardada demasiado tiempo en un cajón de pino. Sebastián reconocía ese olor a ciegas desde 2004.',
@@ -118,7 +118,7 @@ export const BOOKS: Record<string, Book> = {
     featured: true,
     releaseDate: '2026-08-15',
     keywords: ['archivo', 'memoria', 'identidad', 'pasado', 'recuerdos'],
-    nextRecommendedId: 'las-personas-que-dejamos-atras'
+    nextRecommendedId: 'el-hombre-que-recordaba-el-futuro'
   },
 
   'las-personas-que-dejamos-atras': {
@@ -127,8 +127,8 @@ export const BOOKS: Record<string, Book> = {
     title: 'Las Personas que Dejamos Atrás',
     subtitle: 'En una estación sin nombre, los trenes traen de vuelta a quienes intentaste olvidar.',
     premise: 'En una pequeña estación de tren olvidada por los mapas, los pasajeros que descienden son idénticos a las personas de las que huiste en tu juventud.',
-    writerId: 'vera-montes',
-    category: 'Ficción Íntima',
+    writerId: 'nara',
+    category: 'Amor & Recuerdos',
     thesisStatement: 'No se huye de un lugar para llegar a otro, sino para no tener que mirar hacia atrás.',
     description: 'Martín vive en una población costera donde el ferrocarril dejó de operar formalmente en los años ochenta. Sin embargo, cada primer jueves de mes, un convoy sin rotular frena en el andén secundario durante exactamente cuatro minutos. Quienes bajan no son turistas: son réplicas exactas de aquellos amigos, amores y parientes a los que Martín dejó de llamar sin ofrecer una explicación.',
     shortDescription: 'En una estación abandonada, cada tren trae a alguien a quien traicionaste.',
@@ -156,7 +156,7 @@ export const BOOKS: Record<string, Book> = {
           chapterTitle: 'El andén de las cuatro',
           epigraph: {
             quote: 'El olvido no es una facultad de la mente, es una cobardía del cuerpo.',
-            source: 'Vera Montes'
+            source: 'Nara'
           },
           paragraphs: [
             'Los habitantes del pueblo fingían no escuchar el silbato de vapor que rasgaba la bruma a las 04:12. Era un pacto tácito: bajar las persianas, no encender linternas y dejar que el convoy de cuatro vagones vacíos se detuviera sin testigos.',
@@ -177,7 +177,7 @@ export const BOOKS: Record<string, Book> = {
     featured: false,
     releaseDate: '2026-08-18',
     keywords: ['estación', 'culpa', 'tren', 'despedidas', 'fantasmas'],
-    nextRecommendedId: 'la-casa-que-nos-recuerda'
+    nextRecommendedId: 'antes-de-que-olvides-mi-nombre'
   },
 
   'si-manana-no-existiera': {
@@ -186,8 +186,8 @@ export const BOOKS: Record<string, Book> = {
     title: 'Si Mañana No Existiera',
     subtitle: 'El reloj municipal se detiene a la medianoche y la luz del alba nunca llega.',
     premise: 'A las doce en punto de la noche, el reloj de la torre municipal se detiene y la luz del amanecer nunca llega. El mundo debe aprender a negociar a oscuras.',
-    writerId: 'mateo-henao',
-    category: 'Filosofía Especulativa',
+    writerId: 'nilo',
+    category: 'Misterio & Enigma',
     thesisStatement: 'La civilización no descansa sobre leyes escritas, sino sobre la certeza biológica del amanecer.',
     description: 'Eran las 06:45 cuando los despertadores sonaron en millones de hogares. Pero al descorrer las cortinas, el cielo conservaba la misma densidad oscura y helada de las tres de la madrugada. A las diez de la mañana la oscuridad continuaba intacta. Un físico aficionado descubre que el tiempo atómico sigue avanzando, pero la rotación de la luz sobre el hemisferio se ha congelado.',
     shortDescription: 'Las horas pasan pero el amanecer nunca llega. La oscuridad se vuelve permanente.',
@@ -215,7 +215,7 @@ export const BOOKS: Record<string, Book> = {
           chapterTitle: 'La hora que no amaneció',
           epigraph: {
             quote: 'Creíamos que la noche era una pausa; era simplemente una tregua concedida por el sol.',
-            source: 'Mateo Henao'
+            source: 'Nilo'
           },
           paragraphs: [
             'A las seis de la mañana, el panadero de la plaza encendió los hornos convencido de que la niebla demoraba el alba. A las ocho, el tráfico de camiones encendió las luces altas. A las doce del mediodía, las campanas de la basílica tocaron a muerto por primera vez en cincuenta años.',
@@ -235,7 +235,7 @@ export const BOOKS: Record<string, Book> = {
     featured: true,
     releaseDate: '2026-08-22',
     keywords: ['noche', 'tiempo', 'colapso', 'astronomía', 'oscuridad'],
-    nextRecommendedId: 'el-hombre-que-recordaba-el-futuro'
+    nextRecommendedId: 'la-casa-que-nos-recuerda'
   },
 
   'la-casa-que-nos-recuerda': {
@@ -244,7 +244,7 @@ export const BOOKS: Record<string, Book> = {
     title: 'La Casa que Nos Recuerda',
     subtitle: 'Heredó una mansión donde las paredes reproducen las conversaciones de hace cuarenta años.',
     premise: 'Tras la muerte de su abuela, Sofía hereda una mansión donde cada habitación reproduce en susurro las conversaciones que ocurrieron allí cuarenta años atrás.',
-    writerId: 'elena-rivas',
+    writerId: 'nilo',
     category: 'Misterio Atmosférico',
     thesisStatement: 'Las paredes no guardan silencio; solo esperan a que nos quedemos solos para devolvernos lo que dijimos.',
     description: 'Cuando Sofía entra en la casona de campo de su familia tras treinta años de ausencia, nota que los pasillos no tienen eco convencional. Al apoyar la oreja en el empapelado descolorido del salón principal, percibe un zumbido idéntico al de una cena familiar de 1982: copas de cristal chocando, risas de parientes ya fallecidos y una discusión entre sus padres que cambiaría el rumbo de su infancia.',
@@ -273,7 +273,7 @@ export const BOOKS: Record<string, Book> = {
           chapterTitle: 'El empapelado del comedor',
           epigraph: {
             quote: 'Las casas viejas nunca están deshabitadas; solo están llenas de tiempo condensado.',
-            source: 'Elena Rivas'
+            source: 'Nilo'
           },
           paragraphs: [
             'El cerrajero tardó cuarenta minutos en abrir la cerradura de bronce de la puerta principal. Cuando por fin cedió con un chasquido pesado, el aire que salió de la casa no era húmedo ni mohoso: olía a tabaco de pipa holandés, cáscara de naranja amarga y alfombra recién cepillada.',
@@ -293,7 +293,7 @@ export const BOOKS: Record<string, Book> = {
     featured: false,
     releaseDate: '2026-08-25',
     keywords: ['casa', 'herencia', 'voces', 'secreto', 'infancia'],
-    nextRecommendedId: 'antes-de-que-olvides-mi-nombre'
+    nextRecommendedId: 'si-manana-no-existiera'
   },
 
   'siete-minutos-sin-mentir': {
@@ -302,7 +302,7 @@ export const BOOKS: Record<string, Book> = {
     title: 'Siete Minutos Sin Mentir',
     subtitle: 'Durante una cena de Estado, una copa rota obliga a todos a decir la verdad durante 420 segundos.',
     premise: 'Durante una cena diplomática de alto nivel, una copa rota esparce un compuesto invisible que impide que cualquiera de los comensales mienta durante siete minutos.',
-    writerId: 'julian-vane',
+    writerId: 'vera',
     category: 'Tensión Psicológica',
     thesisStatement: 'La cortesía es el único pegamento que mantiene la paz entre quienes tienen el poder de destruirse.',
     description: 'En el salón de banquetes del palacio consular se reúnen ocho diplomáticos y tres ministros para firmar un tratado que evitará una guerra económica. Cuando una camarera tropieza y quiebra una copa de licor aromático sobre la alfombra persa, un reactivo neuroquímico inodoro entra en los pulmones de todos los presentes. Durante exactamente 420 segundos, el lóbulo frontal pierde la capacidad biológica del engaño.',
@@ -331,7 +331,7 @@ export const BOOKS: Record<string, Book> = {
           chapterTitle: 'El brindis interrumpido',
           epigraph: {
             quote: 'Si todos los seres humanos dijeran la verdad durante diez minutos seguidos, el mundo ardería.',
-            source: 'Julián Vane'
+            source: 'Vera'
           },
           paragraphs: [
             'El embajador alzó su copa de cristal de Bohemia con una sonrisa adiestrada en tres décadas de embajadas y recepciones protocolares. Iba a pronunciar el elogio de rigor al primer ministro del país vecino.',
@@ -351,7 +351,7 @@ export const BOOKS: Record<string, Book> = {
     featured: false,
     releaseDate: '2026-08-28',
     keywords: ['diplomacia', 'mentira', 'poder', 'cena', 'tensión'],
-    nextRecommendedId: 'la-ultima-persona-despierta'
+    nextRecommendedId: 'la-vida-de-otra-persona'
   },
 
   'el-hombre-que-recordaba-el-futuro': {
@@ -360,7 +360,7 @@ export const BOOKS: Record<string, Book> = {
     title: 'El Hombre que Recordaba el Futuro',
     subtitle: 'Recuerda el próximo jueves como tú recuerdas ayer. Su pesadilla es el presente.',
     premise: 'Samuel recuerda lo que cenará el próximo jueves y el funeral de su mejor amigo con la misma claridad con que recuerda su infancia. Su único problema es el presente.',
-    writerId: 'mateo-henao',
+    writerId: 'aren',
     category: 'Filosofía Especulativa',
     thesisStatement: 'Saber lo que ocurrirá no te da poder; te arrebata la única libertad humana: la sorpresa.',
     description: 'Samuel no predice el porvenir mediante cartas ni visiones místicas: simplemente lo recuerda con el mismo mecanismo neurológico que nosotros usamos para rememorar las vacaciones del año pasado. Conoce el titular de los diarios de dentro de dos semanas y las frases de despedida de personas que todavía no ha conocido. Hasta que un martes por la mañana descubre que sus recuerdos futuros se interrumpen de golpe el viernes a las tres de la tarde.',
@@ -389,7 +389,7 @@ export const BOOKS: Record<string, Book> = {
           chapterTitle: 'La memoria hacia adelante',
           epigraph: {
             quote: 'El dolor no está en saber que alguien morirá; está en tener que fingir alegría cuando todavía te sonríe.',
-            source: 'Mateo Henao'
+            source: 'Aren'
           },
           paragraphs: [
             'Para Samuel el café con leche del desayuno de hoy sabía a despedida porque recordaba vívidamente la discusión conyugal del próximo sábado por la tarde en el aparcamiento del supermercado.',
@@ -410,7 +410,7 @@ export const BOOKS: Record<string, Book> = {
     featured: true,
     releaseDate: '2026-09-01',
     keywords: ['tiempo', 'futuro', 'destino', 'memoria', 'reloj'],
-    nextRecommendedId: 'si-manana-no-existiera'
+    nextRecommendedId: 'todo-lo-que-nunca-ocurrio'
   },
 
   'despues-de-nosotros': {
@@ -419,7 +419,7 @@ export const BOOKS: Record<string, Book> = {
     title: 'Después de Nosotros',
     subtitle: 'En el silencio del último satélite caído, un transmisor manual recibe una voz familiar.',
     premise: 'Dos científicos son los únicos testigos del colapso de la última red de satélites. En el silencio absoluto del desierto, un transmisor manual comienza a recibir una voz humana.',
-    writerId: 'clara-soler',
+    writerId: 'elio',
     category: 'Intriga & Distopía',
     thesisStatement: 'El fin del mundo no empieza con fuego, sino con la interrupción gradual de las respuestas.',
     description: 'En una estación de monitoreo geomagnético en el desierto de Atacama, Irene y Tomás registran la caída silenciosa del último satélite de comunicaciones que unía los continentes. El planeta queda mudo de un instante a otro. Mientras empaquetan las raciones para emprender el viaje de regreso a pie hacia la costa, un viejo transmisor de emergencia analógico de onda corta enciende su luz roja y emite un susurro con sus nombres completos.',
@@ -448,7 +448,7 @@ export const BOOKS: Record<string, Book> = {
           chapterTitle: 'El último pulso en la antena',
           epigraph: {
             quote: 'No temíamos la soledad; temíamos descubrir que la soledad era lo único que quedaba.',
-            source: 'Clara Soler'
+            source: 'Elio'
           },
           paragraphs: [
             'El cielo del desierto a cuatro mil metros sobre el nivel del mar es de un azul tan denso que parece un domo de vidrio templado. A las 14:22, la pantalla de telemetría orbital trazó la última curva del satélite Eos-7 antes de desintegrarse en la atmósfera sobre el Pacífico sur.',
@@ -469,7 +469,7 @@ export const BOOKS: Record<string, Book> = {
     featured: false,
     releaseDate: '2026-09-05',
     keywords: ['desierto', 'satélites', 'aislamiento', 'radio', 'supervivencia'],
-    nextRecommendedId: 'la-vida-de-otra-persona'
+    nextRecommendedId: 'la-ultima-persona-despierta'
   },
 
   'la-vida-de-otra-persona': {
@@ -478,7 +478,7 @@ export const BOOKS: Record<string, Book> = {
     title: 'La Vida de Otra Persona',
     subtitle: 'Tomó la maleta y el abrigo equivocados en el tren. Al abrir el teléfono, le rogaban que no volviera.',
     premise: 'Una mañana, Lucas recibe por error la maleta, el abrigo y el teléfono de un desconocido. Cuando atiende la primera llamada, se da cuenta de que la voz le suplica que no regrese a casa.',
-    writerId: 'clara-soler',
+    writerId: 'vera',
     category: 'Intriga & Ficción',
     thesisStatement: 'Nadie es completamente irreemplazable hasta que alguien más se pone su abrigo y nadie nota la diferencia.',
     description: 'En el vestuario de una estación de tren, el conserje le entrega a Lucas por confusión un sobretodo de paño azul marino idéntico al suyo. En el bolsillo interior hay una billetera con tarjetas a nombre de Roberto Ramos, una llave dorada de hotel y un teléfono que no deja de vibrar. Al descolgar, una mujer le dice entre lágrimas: «Roberto, encontraron el informe en la bodega. No vuelvas a casa o no saldrás vivo.»',
@@ -507,7 +507,7 @@ export const BOOKS: Record<string, Book> = {
           chapterTitle: 'El abrigo azul marino',
           epigraph: {
             quote: 'Basta ponerse la ropa de otro hombre para heredar todos sus enemigos.',
-            source: 'Clara Soler'
+            source: 'Vera'
           },
           paragraphs: [
             'El corte de las solapas era impecable: paño de lana pura, forro de raso gris grafito y un aroma tenue a jabón de cedro. Lucas no sospechó nada hasta que metió las manos en los bolsillos para buscar las llaves de su automóvil.',
@@ -527,7 +527,7 @@ export const BOOKS: Record<string, Book> = {
     featured: false,
     releaseDate: '2026-09-10',
     keywords: ['abrigo', 'identidad', 'huida', 'hotel', 'teléfono'],
-    nextRecommendedId: 'despues-de-nosotros'
+    nextRecommendedId: 'siete-minutos-sin-mentir'
   },
 
   'antes-de-que-olvides-mi-nombre': {
@@ -536,7 +536,7 @@ export const BOOKS: Record<string, Book> = {
     title: 'Antes de que Olvides mi Nombre',
     subtitle: 'Le encargan escribir su propio obituario para un cliente misterioso.',
     premise: 'Una biógrafa especializada en reconstruir vidas anónimas recibe el encargo de escribir su propio obituario por parte de un cliente que nunca ha visto.',
-    writerId: 'elena-rivas',
+    writerId: 'nara',
     category: 'Misterio Atmosférico',
     thesisStatement: 'Morimos dos veces: cuando se detiene el corazón y cuando la última persona que nos conoció pronuncia nuestro nombre por error.',
     description: 'Camila se gana la vida redactando homenajes póstumos y biografías privadas para familias adineradas que desean preservar la memoria de sus antepasados. Un día recibe un sobre lacrado con un anticipo generoso y una ficha detallada que describe con precisión quirúrgica su propia fecha de nacimiento, sus viajes, sus miedos secretos y un borrador con su propio obituario fechado el mes próximo.',
@@ -565,7 +565,7 @@ export const BOOKS: Record<string, Book> = {
           chapterTitle: 'El sobre lacrado en rojo',
           epigraph: {
             quote: 'Escribir sobre los muertos es fácil; lo aterrador es escribir sobre quien todavía está aprendiendo a morir.',
-            source: 'Elena Rivas'
+            source: 'Nara'
           },
           paragraphs: [
             'El cartero le hizo firmar una planilla electrónica especial para envíos confidenciales de notaría. El sobre era grueso, de papel verjurado con fibras de algodón visibles y un sello de lacre bermellón sin monograma.',
@@ -585,7 +585,7 @@ export const BOOKS: Record<string, Book> = {
     featured: false,
     releaseDate: '2026-09-14',
     keywords: ['obituario', 'biografía', 'memoria', 'carta', 'secreto'],
-    nextRecommendedId: 'la-casa-que-nos-recuerda'
+    nextRecommendedId: 'las-personas-que-dejamos-atras'
   }
 };
 

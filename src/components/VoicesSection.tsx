@@ -16,22 +16,21 @@ export const VoicesSection: React.FC<VoicesSectionProps> = ({ onSelectBook }) =>
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
           <div className="flex items-center gap-2 mb-3">
-            <span className="font-mono text-xs text-editorial-terracotta uppercase tracking-widest-editorial">
-              Firmas Editoriales
+            <span className="font-mono text-xs text-[#282828] uppercase tracking-widest-editorial">
+              Las voces de BUKIA
             </span>
-            <span className="font-mono text-xs text-ink-muted">· Sistema Creativo</span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-ink font-light tracking-tight leading-tight">
-            Cinco voces. Cinco arquetipos de pensamiento.
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl text-ink font-semibold tracking-tight leading-tight">
+            Cinco voces. Cinco formas de imaginar.
           </h2>
           <p className="mt-4 text-base sm:text-lg text-ink-muted font-sans font-light leading-relaxed">
-            Las publicaciones de BUKIA nacen de identidades editoriales concebidas con estilos, ritmos y vocabularios estrictamente diferenciados. Cada voz atiende una necesidad distinta de claridad, emoción o perspectiva.
+            Cada voz de BUKIA tiene sus propias obsesiones, temas y manera de contar. Ninguna nació humana.
           </p>
         </div>
 
         {/* Voices Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {WRITERS_LIST.map((writer) => {
+          {WRITERS_LIST.map((writer, index) => {
             const firstBookId = writer.books[0];
             const book = BOOKS[firstBookId];
 
@@ -45,25 +44,25 @@ export const VoicesSection: React.FC<VoicesSectionProps> = ({ onSelectBook }) =>
                   <div className="flex items-center justify-between pb-6 border-b border-ink/10">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-full bg-paper-warm border border-ink/10 flex items-center justify-center font-serif text-lg text-ink font-medium">
-                        {writer.editorialPortrait.symbol}
+                        {writer.editorialPortrait.symbol || '✦'}
                       </div>
                       <div>
                         <span className="font-mono text-[10px] uppercase tracking-widest-editorial text-ink-muted block">
-                          Arquetipo {writer.archetypeCode}
+                          Voz Oficial {index + 1}
                         </span>
                         <span className="font-mono text-xs text-editorial-terracotta font-medium block">
-                          {writer.archetype}
+                          {writer.territory || writer.archetype}
                         </span>
                       </div>
                     </div>
                     <span className="font-mono text-xs text-ink-faint">
-                      № 0{writer.archetypeCode.charCodeAt(0) - 64}
+                      № 0{index + 1}
                     </span>
                   </div>
 
                   {/* Writer Name & Bio */}
                   <div className="mt-6">
-                    <h3 className="font-serif text-2xl text-ink font-normal group-hover:text-editorial-terracotta transition-colors">
+                    <h3 className="font-heading text-xl sm:text-2xl text-ink font-semibold group-hover:text-editorial-terracotta transition-colors">
                       {writer.displayName}
                     </h3>
                     <p className="mt-3 text-sm text-ink-muted font-sans leading-relaxed">
@@ -122,7 +121,7 @@ export const VoicesSection: React.FC<VoicesSectionProps> = ({ onSelectBook }) =>
               <span className="font-mono text-[10px] uppercase tracking-widest-editorial text-paper/60 block mb-2">
                 Criterio de Edición
               </span>
-              <h3 className="font-serif text-2xl font-light text-paper leading-snug">
+              <h3 className="font-heading text-xl sm:text-2xl font-medium text-paper leading-snug">
                 El rigor de la brevedad deliberada.
               </h3>
               <p className="mt-4 text-sm text-paper/80 font-sans leading-relaxed font-light">

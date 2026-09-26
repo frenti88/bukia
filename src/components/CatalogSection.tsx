@@ -30,18 +30,18 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
   };
 
   return (
-    <section id="catalog" className="py-16 sm:py-20 bg-white border-t border-gray-100">
+    <section id="catalog" className="py-16 sm:py-20 bg-white dark:bg-[#0C0D0E] border-t border-gray-100 dark:border-white/10 transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Cabecera del Catálogo */}
         <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-          <span className="font-mono text-xs uppercase tracking-widest text-gray-400 font-semibold block mb-2">
+          <span className="font-mono text-xs uppercase tracking-widest text-gray-400 dark:text-stone-400 font-semibold block mb-2">
             Colección Curada
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-950 tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-950 dark:text-white tracking-tight leading-tight">
             Diez historias. Elige una.
           </h2>
-          <p className="mt-3 text-base sm:text-lg text-gray-500 font-serif italic">
+          <p className="mt-3 text-base sm:text-lg text-gray-500 dark:text-stone-300 font-serif italic">
             Puedes empezar cualquiera gratis.
           </p>
         </div>

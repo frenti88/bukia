@@ -1,5 +1,6 @@
 import React from 'react';
 import { Search } from 'lucide-react';
+import { BukiaLogo } from './BukiaLogo';
 
 interface HeaderProps {
   onOpenSearch: () => void;
@@ -10,42 +11,33 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({
   onOpenSearch,
   onNavigateToSection,
-  onJoinClick,
 }) => {
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 py-3 transition-all">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 py-3">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4">
           
           {/* Logo + Enlaces de navegación */}
           <div className="flex items-center gap-8">
-            {/* Ícono de logotipo + Nombre editorial */}
+            {/* Logotipo BUKIA + Subtítulo editorial */}
             <button
               onClick={() => onNavigateToSection('hero')}
               className="flex items-center gap-2.5 group text-left focus:outline-none"
               aria-label="BUKIA Editorial Experimental"
             >
-              <div className="w-7 h-7 flex items-center justify-center text-black">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-                  <path d="M12 4v16" />
-                  <path d="M4 18c4-2 8-2 8 0" />
-                  <path d="M20 18c-4-2-8-2-8 0" />
-                  <path d="M8 8c2-2 4-2 4 0" />
-                  <path d="M16 8c-2-2-4-2-4 0" />
-                </svg>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-extrabold text-sm tracking-tight text-gray-950 leading-none">
-                  BUKIA
+              <BukiaLogo className="h-[18px] sm:h-[21px] w-auto transition-transform group-hover:scale-[1.02] text-[#282828]" />
+              <div className="hidden sm:flex flex-col border-l border-stone-300 pl-2">
+                <span className="text-[8px] font-mono text-[#282828] font-medium tracking-wider uppercase leading-none">
+                  EDITORIAL
                 </span>
-                <span className="text-[9px] font-mono text-gray-400 tracking-wider uppercase mt-0.5">
-                  EDITORIAL EXPERIMENTAL
+                <span className="text-[7px] font-mono text-[#282828] font-medium tracking-wider uppercase mt-0.5 leading-none">
+                  EXPERIMENTAL
                 </span>
               </div>
             </button>
 
             {/* Enlaces de navegación alineados al journey */}
-            <nav className="hidden md:flex items-center gap-6 text-xs sm:text-sm font-medium text-gray-700">
+            <nav className="hidden md:flex items-center gap-6 text-xs sm:text-sm font-semibold text-[#282828]">
               <button
                 onClick={() => onNavigateToSection('catalog')}
                 className="hover:text-black transition-colors"
@@ -62,7 +54,7 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={() => onNavigateToSection('autores')}
                 className="hover:text-black transition-colors"
               >
-                Autores Artificiales
+                Las Voces
               </button>
             </nav>
           </div>
@@ -71,18 +63,18 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="flex-1 max-w-xs hidden sm:block">
             <button
               onClick={onOpenSearch}
-              className="w-full bg-[#F3F4F6] hover:bg-[#EAEAEA] text-gray-500 rounded-full py-1.5 px-4 flex items-center gap-2 text-xs font-normal transition-colors text-left"
+              className="w-full bg-[#F3F4F6] hover:bg-[#EAEAEA] text-[#282828] rounded-full py-1.5 px-4 flex items-center gap-2 text-xs font-medium transition-colors text-left"
             >
-              <Search className="w-3.5 h-3.5 text-gray-400" />
-              <span>Buscar por historia o autor...</span>
+              <Search className="w-3.5 h-3.5 text-[#282828]" />
+              <span className="text-[#282828]">Buscar por historia o autor...</span>
             </button>
           </div>
 
           {/* Acciones derecha */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5 sm:gap-3">
             <button
               onClick={onOpenSearch}
-              className="sm:hidden p-2 text-gray-600 hover:text-black"
+              className="sm:hidden p-2 text-[#282828] hover:text-black"
               aria-label="Buscar"
             >
               <Search className="w-4 h-4" />
