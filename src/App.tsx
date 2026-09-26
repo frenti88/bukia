@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Book } from './types';
 import { ALL_REPLICA_BOOKS } from './data/replicaBooks';
 import { BOOKS_LIST } from './data/books';
@@ -10,7 +10,7 @@ import { ArticlesSection } from './components/ArticlesSection';
 import { StatsBannerSection } from './components/StatsBannerSection';
 import { CtaBanner } from './components/CtaBanner';
 import { Footer } from './components/Footer';
-import { BookDetailModal } from './components/BookDetailModal';
+import { ProductPage } from './pages/ProductPage';
 import { ReaderModal } from './components/ReaderModal';
 import { CheckoutModal } from './components/CheckoutModal';
 import { SearchModal } from './components/SearchModal';
@@ -19,26 +19,100 @@ export const App: React.FC = () => {
   // Combine replica books from screenshot with Bookia original editions
   const allAvailableBooks: Book[] = [...ALL_REPLICA_BOOKS, ...BOOKS_LIST];
 
-  // Active modal states
-  const [selectedBook, setSelectedBook] = useState<Book | null>(null);
+  // Helper to parse book from URL pathname (/libro/:slug) or hash (#/libro/:slug)
+  const parseBookFromLocation = (): Book | null => {
+    try {
+      const path = window.location.pathname;
+      const hash = window.location.hash;
+
+      let identifier = '';
+      if (path.startsWith('/libro/')) {
+        identifier = decodeURIComponent(path.replace('/libro/', '').split('/')[0].trim());
+      } else if (path.startsWith('/book/')) {
+        identifier = decodeURIComponent(path.replace('/book/', '').split('/')[0].trim());
+      } else if (hash.startsWith('#/libro/')) {
+        identifier = decodeURIComponent(hash.replace('#/libro/', '').split('/')[0].trim());
+      } else if (hash.startsWith('#libro/')) {
+        identifier = decodeURIComponent(hash.replace('#libro/', '').split('/')[0].trim());
+      }
+
+      if (!identifier) return null;
+      return allAvailableBooks.find((b) => b.slug === identifier || b.id === identifier) || null;
+    } catch {
+      return null;
+    }
+  };
+
+  // Dedicated Product Page State
+  const [currentProductBook, setCurrentProductBook] = useState<Book | null>(() => parseBookFromLocation());
+
+  // Interactive modals
   const [previewBook, setPreviewBook] = useState<Book | null>(null);
   const [checkoutBook, setCheckoutBook] = useState<Book | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
+  // Sync browser history with URL on back/forward buttons
+  useEffect(() => {
+    const handlePopState = () => {
+      const matchedBook = parseBookFromLocation();
+      setCurrentProductBook(matchedBook);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Update dynamic document title based on current view
+  useEffect(() => {
+    if (currentProductBook) {
+      document.title = `${currentProductBook.title} — BOOKIA`;
+    } else {
+      document.title = 'BOOKIA — Lectura Concentrada · Editorial Digital';
+    }
+  }, [currentProductBook]);
+
+  // Navigate to dedicated product detail page
+  const handleSelectBook = (book: Book) => {
+    setCurrentProductBook(book);
+    const targetUrl = `/libro/${book.slug || book.id}`;
+    window.history.pushState({ bookId: book.id }, '', targetUrl);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Navigate back to the home catalog
+  const handleBackToHome = () => {
+    setCurrentProductBook(null);
+    window.history.pushState({}, '', '/');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Handle section scrolling and home navigation
   const handleNavigateToSection = (sectionId: string) => {
-    const el = document.getElementById(sectionId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+    if (currentProductBook) {
+      setCurrentProductBook(null);
+      window.history.pushState({}, '', '/');
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
   const handleOpenPreview = (book: Book) => {
-    setSelectedBook(null);
     setPreviewBook(book);
   };
 
   const handleDirectBuy = (book: Book) => {
-    setSelectedBook(null);
     setPreviewBook(null);
     setCheckoutBook(book);
   };
@@ -46,72 +120,75 @@ export const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans flex flex-col antialiased selection:bg-black selection:text-white">
       
-      {/* 1. Exact Header */}
+      {/* 1. Global Header with intentional reading styling */}
       <Header
         onOpenSearch={() => setIsSearchOpen(true)}
         onNavigateToSection={handleNavigateToSection}
         onJoinClick={() => handleNavigateToSection('catalog')}
       />
 
-      {/* Main Page Layout matching the reference images */}
+      {/* 2. Main Page: Standalone Product Page OR Complete Home Experience */}
       <main className="flex-1">
-        
-        {/* 2. Hero Section: "Dive into the world of intentional reading!" */}
-        <Hero
-          onSelectBook={(book) => setSelectedBook(book)}
-          onOpenPreview={handleOpenPreview}
-          onExploreCatalog={() => handleNavigateToSection('catalog')}
-          allBooks={allAvailableBooks}
-        />
+        {currentProductBook ? (
+          <ProductPage
+            book={currentProductBook}
+            allBooks={allAvailableBooks}
+            onBackToHome={handleBackToHome}
+            onOpenPreview={handleOpenPreview}
+            onBuyBook={handleDirectBuy}
+            onSelectBook={handleSelectBook}
+          />
+        ) : (
+          <>
+            {/* Hero Section: "Dive into the world of intentional reading!" */}
+            <Hero
+              onSelectBook={handleSelectBook}
+              onOpenPreview={handleOpenPreview}
+              onExploreCatalog={() => handleNavigateToSection('catalog')}
+              allBooks={allAvailableBooks}
+            />
 
-        {/* 3. Catalog Section: "You Reading Intentionally" (4x2 Grid) */}
-        <CatalogSection
-          books={allAvailableBooks}
-          onSelectBook={(book) => setSelectedBook(book)}
-          onPreviewBook={handleOpenPreview}
-          onBuyBook={handleDirectBuy}
-        />
+            {/* Catalog Section: "You Reading Intentionally" (4x2 Grid) */}
+            <CatalogSection
+              books={allAvailableBooks}
+              onSelectBook={handleSelectBook}
+              onPreviewBook={handleOpenPreview}
+              onBuyBook={handleDirectBuy}
+            />
 
-        {/* 4. Feature Section: "COMING SOON" + "Harness Your Creative Confidence" */}
-        <CountdownSection
-          onPreorder={() => {
-            const creativeBook = allAvailableBooks.find((b) => b.id === 'creative-confidence');
-            if (creativeBook) handleDirectBuy(creativeBook);
-          }}
-        />
+            {/* Feature Section: "COMING SOON" + "Harness Your Creative Confidence" */}
+            <CountdownSection
+              onPreorder={() => {
+                const creativeBook = allAvailableBooks.find((b) => b.id === 'creative-confidence');
+                if (creativeBook) handleSelectBook(creativeBook);
+              }}
+            />
 
-        {/* 5. Articles Slider: "Maximize Your Reading Results" */}
-        <ArticlesSection
-          onReadArticle={(article) => {
-            const related = allAvailableBooks.find((b) => b.id === article.bookId);
-            if (related) handleOpenPreview(related);
-          }}
-        />
+            {/* Articles Slider: "Maximize Your Reading Results" */}
+            <ArticlesSection
+              onReadArticle={(article) => {
+                const related = allAvailableBooks.find((b) => b.id === article.bookId);
+                if (related) handleSelectBook(related);
+              }}
+            />
 
-        {/* 6. Stats & Fanned Arc: "Elevate Your Library. Expand Your Mind" */}
-        <StatsBannerSection
-          onExplore={() => handleNavigateToSection('catalog')}
-          onSelectBook={(book) => setSelectedBook(book)}
-          allBooks={allAvailableBooks}
-        />
+            {/* Stats & Fanned Arc: "Elevate Your Library. Expand Your Mind" */}
+            <StatsBannerSection
+              onExplore={() => handleNavigateToSection('catalog')}
+              onSelectBook={handleSelectBook}
+              allBooks={allAvailableBooks}
+            />
 
-        {/* 7. Call-to-Action Dark Card: "Ready to Read With Purpose?" */}
-        <CtaBanner />
-
+            {/* Call-to-Action Dark Card: "Ready to Read With Purpose?" */}
+            <CtaBanner />
+          </>
+        )}
       </main>
 
-      {/* 8. Minimalist Footer */}
+      {/* 3. Minimalist Footer */}
       <Footer onNavigateToSection={handleNavigateToSection} />
 
-      {/* Full Functional Modals */}
-      <BookDetailModal
-        book={selectedBook}
-        onClose={() => setSelectedBook(null)}
-        onOpenPreview={handleOpenPreview}
-        onBuy={handleDirectBuy}
-        onSelectRelated={(book) => setSelectedBook(book)}
-      />
-
+      {/* 4. Global Modals (Work seamlessly from both Home & Product Page) */}
       <ReaderModal
         book={previewBook}
         isOpen={Boolean(previewBook)}
@@ -132,7 +209,10 @@ export const App: React.FC = () => {
       <SearchModal
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
-        onSelectBook={(book) => setSelectedBook(book)}
+        onSelectBook={(book) => {
+          setIsSearchOpen(false);
+          handleSelectBook(book);
+        }}
       />
 
     </div>
