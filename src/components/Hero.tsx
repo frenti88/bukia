@@ -17,16 +17,16 @@ export const Hero: React.FC<HeroProps> = ({
   onExploreCatalog,
   allBooks,
 }) => {
-  // Lista de libros para el carrusel de exhibición
+  // Lista de 5 libros de la colección para el carrusel de exhibición
   const heroBooks = [
-    { id: 'start-with-why', title: 'Empieza con el Porqué', author: 'Simon Sinek' },
-    { id: 'blink', title: 'Inteligencia Intuitiva', author: 'Malcolm Gladwell' },
-    { id: 'psychology-of-money', title: 'La Psicología del Dinero', author: 'Morgan Housel' },
-    { id: 'atomic-habits', title: 'Hábitos Atómicos', author: 'James Clear' },
-    { id: 'grit', title: 'Grit: El Poder de la Pasión', author: 'Angela Duckworth' },
+    { id: 'la-casa-que-nos-recuerda', title: 'La Casa que Nos Recuerda', author: 'Elena Rivas' },
+    { id: 'todo-lo-que-nunca-ocurrio', title: 'Todo lo que Nunca Ocurrió', author: 'Vera Montes' },
+    { id: 'la-ultima-persona-despierta', title: 'La Última Persona Despierta', author: 'Julián Vane' },
+    { id: 'si-manana-no-existiera', title: 'Si Mañana No Existiera', author: 'Mateo Henao' },
+    { id: 'siete-minutos-sin-mentir', title: 'Siete Minutos Sin Mentir', author: 'Julián Vane' },
   ];
 
-  const [activeIndex, setActiveIndex] = useState(2); // Libro central (Psicología del Dinero)
+  const [activeIndex, setActiveIndex] = useState(2); // Libro central (La Última Persona Despierta)
 
   const handleBookClick = (bookData: { id: string; title: string; author: string }) => {
     const found = allBooks.find((b) => b.id === bookData.id || b.slug === bookData.id);
@@ -43,36 +43,36 @@ export const Hero: React.FC<HeroProps> = ({
       {/* Contenedor del titular principal */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
         
-        {/* Titular en dos pesos tipográficos */}
+        {/* Eyebrow */}
+        <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-stone-100 text-stone-800 text-[11px] font-mono tracking-widest uppercase border border-stone-200">
+          <span>BOOKIA · EDITORIAL EXPERIMENTAL</span>
+        </div>
+
+        {/* Titular: "Historias que ningún humano escribió." */}
         <h1 className="text-3xl sm:text-5xl md:text-6xl font-light text-gray-900 tracking-tight leading-[1.15] sm:leading-[1.12]">
-          <span>Sumérgete en </span>
-          <span className="inline-flex items-center align-middle mx-1 px-1.5 py-0.5 bg-amber-100/80 border border-amber-300 rounded text-amber-900 text-xs sm:text-sm font-mono transform -rotate-3 shadow-xs">
-            📖 FILOSOFÍA PRÁCTICA
-          </span>
-          <span> el mundo</span> <br />
-          <span>de la </span>
-          <strong className="font-extrabold text-black">lectura intencional!</strong>
+          <span>Historias que </span>
+          <strong className="font-extrabold text-black">ningún humano escribió.</strong>
         </h1>
 
-        {/* Subtítulo */}
-        <p className="mt-4 text-xs sm:text-sm md:text-base text-gray-500 max-w-xl mx-auto leading-relaxed">
-          Ediciones digitales curadas diseñadas para asimilarse en menos de 30 minutos. Ideas profundas, síntesis rigurosa y máximo valor para tu tiempo.
+        {/* Supporting copy */}
+        <p className="mt-4 text-sm sm:text-base md:text-lg text-gray-600 max-w-xl mx-auto leading-relaxed">
+          Libros breves creados por autores artificiales y seleccionados para humanos curiosos.
         </p>
 
-        {/* Botones de acción */}
+        {/* Botones de acción: "Explorar los libros" y "¿Qué es Bookia?" */}
         <div className="mt-6 flex items-center justify-center gap-3">
           <button
             onClick={onExploreCatalog}
             className="bg-black hover:bg-gray-800 text-white text-xs sm:text-sm font-medium px-6 py-2.5 rounded-full transition-all shadow-sm"
           >
-            Comenzar ahora
+            Explorar los libros
           </button>
-          <button
-            onClick={onExploreCatalog}
-            className="bg-white hover:bg-gray-50 text-black border border-gray-300 text-xs sm:text-sm font-medium px-6 py-2.5 rounded-full transition-all"
+          <a
+            href="#experimento"
+            className="bg-white hover:bg-gray-50 text-black border border-gray-300 text-xs sm:text-sm font-medium px-6 py-2.5 rounded-full transition-all inline-flex items-center"
           >
-            Registrarse
-          </button>
+            ¿Qué es Bookia?
+          </a>
         </div>
 
       </div>

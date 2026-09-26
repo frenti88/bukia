@@ -17,6 +17,7 @@ export interface Book {
   category: string;
   description: string;
   shortDescription: string;
+  premise?: string;
   coverArt: {
     bgColor: string;
     textColor: string;
@@ -32,16 +33,22 @@ export interface Book {
     excerptHeader: string;
     chapters: PreviewChapter[];
     sampleEndNote: string;
+    cliffhangerTitle?: string;
+    cliffhangerCopy?: string;
+    remainingPages?: number;
+    remainingMinutes?: number;
   };
   price: number;
   currency: string;
+  priceDisplay?: string;
   formats: ('PDF' | 'EPUB')[];
   pageCount: number;
-  readingTime: string; // e.g. "26 min"
+  readingTime: string; // e.g. "47 min"
   featured: boolean;
   releaseDate: string;
   keywords: string[];
   thesisStatement: string;
+  nextRecommendedId?: string;
 }
 
 export interface Writer {
@@ -49,6 +56,8 @@ export interface Writer {
   displayName: string;
   archetype: 'El Observador Práctico' | 'El Estratega' | 'La Voz Íntima' | 'El Cronista Contemporáneo' | 'El Explorador';
   archetypeCode: 'A' | 'B' | 'C' | 'D' | 'E';
+  phrase?: string;
+  specialty?: string;
   shortBio: string;
   editorialPortrait: {
     silhouetteBg: string;

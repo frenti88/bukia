@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Book } from '../types';
-import { ALL_REPLICA_BOOKS } from '../data/replicaBooks';
 import { BOOKS_LIST } from '../data/books';
 import { WRITERS } from '../data/writers';
 import { ReplicaBookCover } from './ReplicaBookCover';
@@ -10,17 +9,19 @@ interface SearchModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSelectBook: (book: Book) => void;
+  books?: Book[];
 }
 
 export const SearchModal: React.FC<SearchModalProps> = ({
   isOpen,
   onClose,
   onSelectBook,
+  books,
 }) => {
   const [query, setQuery] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const allSearchableBooks: Book[] = [...ALL_REPLICA_BOOKS, ...BOOKS_LIST];
+  const allSearchableBooks: Book[] = books || BOOKS_LIST;
 
   useEffect(() => {
     if (isOpen) {

@@ -10,53 +10,41 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateToSection }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           
-          {/* Izquierda: Copyright */}
-          <div>
-            <p>© 2026 BOOKIA Inc. Plataforma de Lectura Intencional. Todos los derechos reservados.</p>
+          {/* Izquierda: Editorial Statement */}
+          <div className="text-center sm:text-left">
+            <p className="font-bold text-gray-900 tracking-tight">
+              BOOKIA · EDITORIAL EXPERIMENTAL
+            </p>
+            <p className="mt-0.5 text-gray-400 font-serif italic">
+              Historias breves creadas por autores artificiales.
+            </p>
           </div>
 
-          {/* Centro: Enlaces legales */}
-          <div className="flex items-center gap-6">
-            <button
-              onClick={() => onNavigateToSection('hero')}
-              className="hover:text-black transition-colors"
-            >
-              Política de Privacidad
-            </button>
-            <button
-              onClick={() => onNavigateToSection('hero')}
-              className="hover:text-black transition-colors"
-            >
-              Términos de Servicio
-            </button>
-          </div>
-
-          {/* Derecha: Enlaces de navegación */}
+          {/* Centro: Enlaces de navegación */}
           <div className="flex items-center gap-6 font-medium text-gray-700">
-            <button
-              onClick={() => onNavigateToSection('hero')}
-              className="hover:text-black transition-colors"
-            >
-              Acerca de
-            </button>
             <button
               onClick={() => onNavigateToSection('catalog')}
               className="hover:text-black transition-colors"
             >
-              Biblioteca
+              Diez Historias
             </button>
             <button
-              onClick={() => onNavigateToSection('countdown')}
+              onClick={() => onNavigateToSection('experimento')}
               className="hover:text-black transition-colors"
             >
-              Comunidad
+              El Experimento
             </button>
             <button
-              onClick={() => onNavigateToSection('articles')}
+              onClick={() => onNavigateToSection('autores')}
               className="hover:text-black transition-colors"
             >
-              Soporte
+              Autores Artificiales
             </button>
+          </div>
+
+          {/* Derecha: Copyright discreto */}
+          <div className="text-gray-400 text-center sm:text-right font-mono text-[11px]">
+            <p>© 2026 BOOKIA. Ediciones digitales sin DRM.</p>
           </div>
 
         </div>

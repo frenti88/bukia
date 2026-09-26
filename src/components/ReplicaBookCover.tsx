@@ -44,6 +44,411 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
       {/* DISEÑOS DE PORTADAS */}
       <div className="relative w-full h-full flex flex-col justify-between p-3 sm:p-4 text-center z-10 overflow-hidden font-sans">
         
+        {/* === COLECCIÓN 10 LIBROS BOOKIA (AUTORES ARTIFICIALES) === */}
+
+        {/* 01. LA ÚLTIMA PERSONA DESPIERTA */}
+        {id === 'la-ultima-persona-despierta' && (
+          <div className="h-full flex flex-col justify-between items-center text-center bg-[#0B1329] text-white py-1">
+            <div className="flex items-center justify-between w-full text-[7px] sm:text-[8px] font-mono tracking-widest uppercase text-amber-300/80 px-1 border-b border-white/10 pb-1">
+              <span>BOOKIA · N.º 01</span>
+              <span>47 MIN</span>
+            </div>
+            <div className="my-auto flex flex-col items-center w-full px-2">
+              <span className="font-serif italic text-xs text-slate-400 block">La</span>
+              <h4 className="font-serif text-base sm:text-lg font-bold leading-tight tracking-tight text-white uppercase">
+                Última Persona
+              </h4>
+              <h4 className="font-serif text-lg sm:text-xl font-bold leading-tight tracking-tight text-amber-400 uppercase mt-0.5">
+                Despierta
+              </h4>
+
+              {/* Grilla nocturna con una sola ventana encendida */}
+              <div className="my-3 w-14 h-14 sm:w-16 sm:h-16 border border-white/20 grid grid-cols-3 gap-1 p-1.5 bg-black/40 rounded-sm">
+                <div className="bg-white/10 rounded-[1px]" />
+                <div className="bg-white/10 rounded-[1px]" />
+                <div className="bg-white/10 rounded-[1px]" />
+                <div className="bg-white/10 rounded-[1px]" />
+                <div className="bg-amber-400 shadow-sm shadow-amber-400/80 rounded-[1px] animate-pulse" />
+                <div className="bg-white/10 rounded-[1px]" />
+                <div className="bg-white/10 rounded-[1px]" />
+                <div className="bg-white/10 rounded-[1px]" />
+                <div className="bg-white/10 rounded-[1px]" />
+              </div>
+
+              <span className="text-[6.5px] text-slate-400 font-mono tracking-wider block">
+                03:17 H · DESCANSO OBLIGATORIO
+              </span>
+            </div>
+            <div className="w-full border-t border-white/15 pt-1.5 flex flex-col items-center">
+              <span className="font-sans font-bold text-[9px] sm:text-[10px] tracking-widest uppercase text-white">
+                JULIÁN VANE
+              </span>
+              <span className="text-[6px] font-mono text-amber-300/70 tracking-widest uppercase">
+                AUTOR ARTIFICIAL
+              </span>
+            </div>
+          </div>
+        )}
+
+        {/* 02. TODO LO QUE NUNCA OCURRIÓ */}
+        {id === 'todo-lo-que-nunca-ocurrio' && (
+          <div className="h-full flex flex-col justify-between items-center text-center bg-[#FAF6ED] text-stone-900 py-1">
+            <div className="flex items-center justify-between w-full text-[7px] sm:text-[8px] font-mono tracking-widest uppercase text-amber-800/80 px-1 border-b border-stone-200 pb-1">
+              <span>BOOKIA · N.º 02</span>
+              <span>42 MIN</span>
+            </div>
+            <div className="my-auto flex flex-col items-center w-full px-1">
+              <h4 className="font-serif text-sm sm:text-base font-bold tracking-tight text-stone-950 uppercase leading-snug">
+                Todo lo que
+              </h4>
+              <span className="font-serif italic text-lg sm:text-xl font-normal text-amber-800 block my-0.5">
+                Nunca
+              </span>
+              <h4 className="font-serif text-base sm:text-lg font-bold tracking-tight text-stone-950 uppercase leading-snug">
+                Ocurrió
+              </h4>
+
+              {/* Arco arquitectónico de capas de tiempo */}
+              <div className="my-3 w-14 h-16 sm:w-16 sm:h-18 border-2 border-stone-800 border-b-0 rounded-t-full flex items-center justify-center p-2 bg-stone-100/60">
+                <div className="w-8 h-10 border border-amber-800/60 border-b-0 rounded-t-full flex items-center justify-center">
+                  <div className="w-3 h-3 rounded-full bg-amber-800/80" />
+                </div>
+              </div>
+
+              <span className="text-[6.5px] text-stone-500 font-mono tracking-wider block">
+                EXPEDIENTE 414 · ACTAS EXTRAVIADAS
+              </span>
+            </div>
+            <div className="w-full border-t border-stone-200 pt-1.5 flex flex-col items-center">
+              <span className="font-sans font-bold text-[9px] sm:text-[10px] tracking-widest uppercase text-stone-900">
+                VERA MONTES
+              </span>
+              <span className="text-[6px] font-mono text-amber-800 tracking-widest uppercase">
+                AUTORA ARTIFICIAL
+              </span>
+            </div>
+          </div>
+        )}
+
+        {/* 03. LAS PERSONAS QUE DEJAMOS ATRÁS */}
+        {id === 'las-personas-que-dejamos-atras' && (
+          <div className="h-full flex flex-col justify-between items-center text-center bg-[#F1F5F9] text-slate-900 py-1">
+            <div className="flex items-center justify-between w-full text-[7px] sm:text-[8px] font-mono tracking-widest uppercase text-slate-500 px-1 border-b border-slate-200 pb-1">
+              <span>BOOKIA · N.º 03</span>
+              <span>38 MIN</span>
+            </div>
+            <div className="my-auto flex flex-col items-center w-full px-2">
+              <span className="font-mono text-[8px] text-slate-400 tracking-widest uppercase block mb-1">
+                ESTACIÓN SECUNDARIA
+              </span>
+              <h4 className="font-serif text-sm sm:text-base font-bold leading-tight text-slate-950 uppercase">
+                Las Personas
+              </h4>
+              <span className="font-serif italic text-xs text-slate-600 block my-0.5">que dejamos</span>
+              <h4 className="font-serif text-base sm:text-lg font-bold leading-tight text-slate-700 uppercase">
+                Atrás
+              </h4>
+
+              {/* Rieles de tren en perspectiva */}
+              <div className="my-3 w-16 h-12 flex flex-col justify-center items-center">
+                <svg viewBox="0 0 80 40" className="w-full h-full text-slate-700 stroke-current fill-none">
+                  <line x1="10" y1="38" x2="35" y2="4" strokeWidth="1.5" />
+                  <line x1="70" y1="38" x2="45" y2="4" strokeWidth="1.5" />
+                  <line x1="18" y1="32" x2="62" y2="32" strokeWidth="1" />
+                  <line x1="24" y1="24" x2="56" y2="24" strokeWidth="1" />
+                  <line x1="29" y1="16" x2="51" y2="16" strokeWidth="0.8" />
+                  <line x1="33" y1="10" x2="47" y2="10" strokeWidth="0.6" />
+                </svg>
+              </div>
+
+              <span className="text-[6.5px] text-slate-400 font-mono tracking-wider block">
+                CONVOY 04:12 · ANDÉN SIN REGISTRO
+              </span>
+            </div>
+            <div className="w-full border-t border-slate-200 pt-1.5 flex flex-col items-center">
+              <span className="font-sans font-bold text-[9px] sm:text-[10px] tracking-widest uppercase text-slate-900">
+                VERA MONTES
+              </span>
+              <span className="text-[6px] font-mono text-slate-500 tracking-widest uppercase">
+                AUTORA ARTIFICIAL
+              </span>
+            </div>
+          </div>
+        )}
+
+        {/* 04. SI MAÑANA NO EXISTIERA */}
+        {id === 'si-manana-no-existiera' && (
+          <div className="h-full flex flex-col justify-between items-center text-center bg-[#0B0F19] text-white py-1">
+            <div className="flex items-center justify-between w-full text-[7px] sm:text-[8px] font-mono tracking-widest uppercase text-blue-400/80 px-1 border-b border-white/10 pb-1">
+              <span>BOOKIA · N.º 04</span>
+              <span>52 MIN</span>
+            </div>
+            <div className="my-auto flex flex-col items-center w-full px-2">
+              <span className="font-serif italic text-xs text-blue-300 block">Si</span>
+              <h4 className="font-serif text-lg sm:text-xl font-bold leading-tight text-white uppercase">
+                Mañana
+              </h4>
+              <h4 className="font-serif text-sm sm:text-base font-bold leading-tight text-sky-400 uppercase mt-0.5">
+                No Existiera
+              </h4>
+
+              {/* Eclipse lunar / sol congelado */}
+              <div className="my-3 w-14 h-14 sm:w-16 sm:h-16 rounded-full border border-sky-400/50 flex items-center justify-center p-1 relative">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-sky-600 to-indigo-900 relative shadow-inner">
+                  <div className="absolute top-0 right-0 w-8 h-8 rounded-full bg-[#0B0F19]" />
+                </div>
+              </div>
+
+              <span className="text-[6.5px] text-sky-300/80 font-mono tracking-wider block">
+                00:00 H · MEDIANOCHE PERMANENTE
+              </span>
+            </div>
+            <div className="w-full border-t border-white/15 pt-1.5 flex flex-col items-center">
+              <span className="font-sans font-bold text-[9px] sm:text-[10px] tracking-widest uppercase text-white">
+                MATEO HENAO
+              </span>
+              <span className="text-[6px] font-mono text-sky-400/80 tracking-widest uppercase">
+                AUTOR ARTIFICIAL
+              </span>
+            </div>
+          </div>
+        )}
+
+        {/* 05. LA CASA QUE NOS RECUERDA */}
+        {id === 'la-casa-que-nos-recuerda' && (
+          <div className="h-full flex flex-col justify-between items-center text-center bg-[#112318] text-white py-1">
+            <div className="flex items-center justify-between w-full text-[7px] sm:text-[8px] font-mono tracking-widest uppercase text-emerald-400/80 px-1 border-b border-white/10 pb-1">
+              <span>BOOKIA · N.º 05</span>
+              <span>45 MIN</span>
+            </div>
+            <div className="my-auto flex flex-col items-center w-full px-2">
+              <span className="font-serif italic text-xs text-emerald-300/80 block">La</span>
+              <h4 className="font-serif text-base sm:text-lg font-bold leading-tight text-white uppercase">
+                Casa que nos
+              </h4>
+              <h4 className="font-serif text-lg sm:text-xl font-bold leading-tight text-emerald-400 uppercase mt-0.5">
+                Recuerda
+              </h4>
+
+              {/* Plano arquitectónico de habitación */}
+              <div className="my-3 w-16 h-12 border border-emerald-500/50 p-1 flex flex-col justify-between relative bg-black/20">
+                <div className="w-full h-1/2 border-b border-emerald-500/30 flex justify-between">
+                  <div className="w-1/3 border-r border-emerald-500/30" />
+                  <div className="w-2 h-2 rounded-full border border-emerald-400/60 self-center" />
+                </div>
+                <div className="text-[5px] font-mono text-emerald-400/60 text-right">SALA 1982</div>
+              </div>
+
+              <span className="text-[6.5px] text-emerald-300/70 font-mono tracking-wider block">
+                ECOS RESIDUALES DE 40 AÑOS
+              </span>
+            </div>
+            <div className="w-full border-t border-white/15 pt-1.5 flex flex-col items-center">
+              <span className="font-sans font-bold text-[9px] sm:text-[10px] tracking-widest uppercase text-white">
+                ELENA RIVAS
+              </span>
+              <span className="text-[6px] font-mono text-emerald-400/80 tracking-widest uppercase">
+                AUTORA ARTIFICIAL
+              </span>
+            </div>
+          </div>
+        )}
+
+        {/* 06. SIETE MINUTOS SIN MENTIR */}
+        {id === 'siete-minutos-sin-mentir' && (
+          <div className="h-full flex flex-col justify-between items-center text-center bg-white text-zinc-950 py-1">
+            <div className="flex items-center justify-between w-full text-[7px] sm:text-[8px] font-mono tracking-widest uppercase text-red-600 px-1 border-b border-zinc-200 pb-1">
+              <span>BOOKIA · N.º 06</span>
+              <span>35 MIN</span>
+            </div>
+            <div className="my-auto flex flex-col items-center w-full px-2">
+              <div className="inline-block px-2 py-0.5 bg-red-600 text-white font-mono text-[9px] font-bold rounded-sm mb-1">
+                420 SEGUNDOS
+              </div>
+              <h4 className="font-sans font-black text-lg sm:text-xl tracking-tighter leading-none text-zinc-950 uppercase">
+                SIETE MINUTOS
+              </h4>
+              <h5 className="font-serif italic text-sm text-red-600 tracking-normal mt-0.5">
+                sin mentir
+              </h5>
+
+              {/* Cronómetro minimalista con 7 marcas */}
+              <div className="my-3 w-14 h-14 rounded-full border-2 border-zinc-900 flex items-center justify-center p-1 relative">
+                <div className="w-1.5 h-1.5 rounded-full bg-red-600" />
+                <div className="absolute top-1 w-0.5 h-2.5 bg-red-600" />
+                <div className="absolute right-1 w-2.5 h-0.5 bg-zinc-900" />
+              </div>
+
+              <span className="text-[6.5px] text-zinc-500 font-mono tracking-wider block">
+                CENA DIPLOMÁTICA · COMPUESTO INODORO
+              </span>
+            </div>
+            <div className="w-full border-t border-zinc-200 pt-1.5 flex flex-col items-center">
+              <span className="font-sans font-bold text-[9px] sm:text-[10px] tracking-widest uppercase text-zinc-950">
+                JULIÁN VANE
+              </span>
+              <span className="text-[6px] font-mono text-red-600 tracking-widest uppercase">
+                AUTOR ARTIFICIAL
+              </span>
+            </div>
+          </div>
+        )}
+
+        {/* 07. EL HOMBRE QUE RECORDABA EL FUTURO */}
+        {id === 'el-hombre-que-recordaba-el-futuro' && (
+          <div className="h-full flex flex-col justify-between items-center text-center bg-[#1A163B] text-white py-1">
+            <div className="flex items-center justify-between w-full text-[7px] sm:text-[8px] font-mono tracking-widest uppercase text-indigo-300 px-1 border-b border-white/10 pb-1">
+              <span>BOOKIA · N.º 07</span>
+              <span>49 MIN</span>
+            </div>
+            <div className="my-auto flex flex-col items-center w-full px-2">
+              <span className="font-serif italic text-xs text-indigo-300/80 block">El</span>
+              <h4 className="font-serif text-base sm:text-lg font-bold leading-tight text-white uppercase">
+                Hombre que
+              </h4>
+              <h4 className="font-serif text-sm sm:text-base font-bold leading-tight text-indigo-300 uppercase">
+                Recordaba el Futuro
+              </h4>
+
+              {/* Órbitas concéntricas de tiempo */}
+              <div className="my-3 w-16 h-12 flex items-center justify-center relative">
+                <div className="w-14 h-8 rounded-[100%] border border-indigo-400/60 transform rotate-12" />
+                <div className="w-14 h-8 rounded-[100%] border border-indigo-300/30 transform -rotate-12 absolute" />
+                <div className="w-2 h-2 rounded-full bg-white shadow-sm shadow-indigo-300" />
+              </div>
+
+              <span className="text-[6.5px] text-indigo-300/70 font-mono tracking-wider block">
+                VIERNES 14:00 H · EL VACÍO TOTAL
+              </span>
+            </div>
+            <div className="w-full border-t border-white/15 pt-1.5 flex flex-col items-center">
+              <span className="font-sans font-bold text-[9px] sm:text-[10px] tracking-widest uppercase text-white">
+                MATEO HENAO
+              </span>
+              <span className="text-[6px] font-mono text-indigo-300 tracking-widest uppercase">
+                AUTOR ARTIFICIAL
+              </span>
+            </div>
+          </div>
+        )}
+
+        {/* 08. DESPUÉS DE NOSOTROS */}
+        {id === 'despues-de-nosotros' && (
+          <div className="h-full flex flex-col justify-between items-center text-center bg-[#1C1917] text-stone-100 py-1">
+            <div className="flex items-center justify-between w-full text-[7px] sm:text-[8px] font-mono tracking-widest uppercase text-amber-500 px-1 border-b border-stone-800 pb-1">
+              <span>BOOKIA · N.º 08</span>
+              <span>44 MIN</span>
+            </div>
+            <div className="my-auto flex flex-col items-center w-full px-2">
+              <h4 className="font-serif text-base sm:text-lg font-bold leading-tight text-stone-100 uppercase tracking-tight">
+                Después de
+              </h4>
+              <h4 className="font-serif text-lg sm:text-xl font-bold leading-tight text-amber-500 uppercase tracking-tight mt-0.5">
+                Nosotros
+              </h4>
+
+              {/* Onda concéntrica de antena analógica */}
+              <div className="my-3 w-14 h-12 flex flex-col justify-center items-center relative">
+                <div className="w-2 h-2 rounded-full bg-amber-500 mb-1" />
+                <div className="w-6 h-3 border-t-2 border-amber-500/70 rounded-t-full" />
+                <div className="w-10 h-5 border-t-2 border-amber-500/40 rounded-t-full" />
+                <div className="w-14 h-7 border-t border-amber-500/20 rounded-t-full" />
+              </div>
+
+              <span className="text-[6.5px] text-stone-400 font-mono tracking-wider block">
+                ÚLTIMO SATÉLITE EOS-7 · SEÑAL MANUAL
+              </span>
+            </div>
+            <div className="w-full border-t border-stone-800 pt-1.5 flex flex-col items-center">
+              <span className="font-sans font-bold text-[9px] sm:text-[10px] tracking-widest uppercase text-stone-100">
+                CLARA SOLER
+              </span>
+              <span className="text-[6px] font-mono text-amber-500 tracking-widest uppercase">
+                AUTORA ARTIFICIAL
+              </span>
+            </div>
+          </div>
+        )}
+
+        {/* 09. LA VIDA DE OTRA PERSONA */}
+        {id === 'la-vida-de-otra-persona' && (
+          <div className="h-full flex flex-col justify-between items-center text-center bg-[#18181B] text-zinc-100 py-1">
+            <div className="flex items-center justify-between w-full text-[7px] sm:text-[8px] font-mono tracking-widest uppercase text-zinc-400 px-1 border-b border-zinc-800 pb-1">
+              <span>BOOKIA · N.º 09</span>
+              <span>40 MIN</span>
+            </div>
+            <div className="my-auto flex flex-col items-center w-full px-2">
+              <span className="font-serif italic text-xs text-zinc-400 block">La</span>
+              <h4 className="font-serif text-base sm:text-lg font-bold leading-tight text-white uppercase">
+                Vida de
+              </h4>
+              <h4 className="font-serif text-base sm:text-lg font-bold leading-tight text-zinc-300 uppercase">
+                Otra Persona
+              </h4>
+
+              {/* Dos perfiles contrapuestos en silueta */}
+              <div className="my-3 w-14 h-12 border border-zinc-700 flex items-center justify-center p-1 bg-black/40">
+                <svg viewBox="0 0 60 40" className="w-full h-full text-zinc-400 stroke-current fill-none">
+                  <path d="M15,35 Q15,20 25,18 Q30,15 28,10 Q25,5 20,8" strokeWidth="1.2" />
+                  <path d="M45,35 Q45,20 35,18 Q30,15 32,10 Q35,5 40,8" strokeWidth="1.2" strokeDasharray="2 1" />
+                </svg>
+              </div>
+
+              <span className="text-[6.5px] text-zinc-500 font-mono tracking-wider block">
+                EL ABRIGO AJENO · LLAMADA DE AUXILIO
+              </span>
+            </div>
+            <div className="w-full border-t border-zinc-800 pt-1.5 flex flex-col items-center">
+              <span className="font-sans font-bold text-[9px] sm:text-[10px] tracking-widest uppercase text-zinc-100">
+                CLARA SOLER
+              </span>
+              <span className="text-[6px] font-mono text-zinc-400 tracking-widest uppercase">
+                AUTORA ARTIFICIAL
+              </span>
+            </div>
+          </div>
+        )}
+
+        {/* 10. ANTES DE QUE OLVIDES MI NOMBRE */}
+        {id === 'antes-de-que-olvides-mi-nombre' && (
+          <div className="h-full flex flex-col justify-between items-center text-center bg-[#FAF0F4] text-rose-950 py-1">
+            <div className="flex items-center justify-between w-full text-[7px] sm:text-[8px] font-mono tracking-widest uppercase text-rose-800 px-1 border-b border-rose-200 pb-1">
+              <span>BOOKIA · N.º 10</span>
+              <span>46 MIN</span>
+            </div>
+            <div className="my-auto flex flex-col items-center w-full px-2">
+              <h4 className="font-serif text-sm sm:text-base font-bold leading-tight text-rose-950 uppercase">
+                Antes de que
+              </h4>
+              <span className="font-serif italic text-base sm:text-lg font-normal text-rose-800 block my-0.5">
+                Olvides
+              </span>
+              <h4 className="font-serif text-sm sm:text-base font-bold leading-tight text-rose-950 uppercase">
+                Mi Nombre
+              </h4>
+
+              {/* Sello de lacre rojo */}
+              <div className="my-3 w-12 h-12 rounded-full bg-rose-900 text-rose-100 flex items-center justify-center shadow-xs">
+                <span className="font-serif text-base font-bold italic">E</span>
+              </div>
+
+              <span className="text-[6.5px] text-rose-700/80 font-mono tracking-wider block">
+                OBITUARIO POR ENCARGO · NOTA EN LACRE
+              </span>
+            </div>
+            <div className="w-full border-t border-rose-200 pt-1.5 flex flex-col items-center">
+              <span className="font-sans font-bold text-[9px] sm:text-[10px] tracking-widest uppercase text-rose-950">
+                ELENA RIVAS
+              </span>
+              <span className="text-[6px] font-mono text-rose-800 tracking-widest uppercase">
+                AUTORA ARTIFICIAL
+              </span>
+            </div>
+          </div>
+        )}
+
+        {/* === FIN COLECCIÓN 10 LIBROS === */}
+
         {/* 1. LA PSICOLOGÍA DEL DINERO */}
         {(id === 'psychology-of-money' || id === 'the-psychology-of-money') && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-white text-gray-900 py-1">

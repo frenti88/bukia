@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Book } from './types';
-import { ALL_REPLICA_BOOKS } from './data/replicaBooks';
 import { BOOKS_LIST } from './data/books';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { CatalogSection } from './components/CatalogSection';
-import { CountdownSection } from './components/CountdownSection';
-import { ArticlesSection } from './components/ArticlesSection';
-import { StatsBannerSection } from './components/StatsBannerSection';
+import { ManifestoSection } from './components/ManifestoSection';
+import { AuthorsSection } from './components/AuthorsSection';
 import { CtaBanner } from './components/CtaBanner';
 import { Footer } from './components/Footer';
 import { ProductPage } from './pages/ProductPage';
@@ -16,10 +14,10 @@ import { CheckoutModal } from './components/CheckoutModal';
 import { SearchModal } from './components/SearchModal';
 
 export const App: React.FC = () => {
-  // Combine replica books from screenshot with Bookia original editions
-  const allAvailableBooks: Book[] = [...ALL_REPLICA_BOOKS, ...BOOKS_LIST];
+  // Colección deliberada y curada: exactamente 10 historias de autores artificiales
+  const allAvailableBooks: Book[] = BOOKS_LIST;
 
-  // Helper to parse book from URL pathname (/libro/:slug) or hash (#/libro/:slug)
+  // Helper para resolver el libro desde la URL pathname (/libro/:slug) o hash (#/libro/:slug)
   const parseBookFromLocation = (): Book | null => {
     try {
       const path = window.location.pathname;
@@ -43,15 +41,15 @@ export const App: React.FC = () => {
     }
   };
 
-  // Dedicated Product Page State
+  // Estado de la Página de Producto dedicada
   const [currentProductBook, setCurrentProductBook] = useState<Book | null>(() => parseBookFromLocation());
 
-  // Interactive modals
+  // Estados de modales
   const [previewBook, setPreviewBook] = useState<Book | null>(null);
   const [checkoutBook, setCheckoutBook] = useState<Book | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
-  // Sync browser history with URL on back/forward buttons
+  // Sincronización de navegación con el historial del navegador (botones Atrás y Adelante)
   useEffect(() => {
     const handlePopState = () => {
       const matchedBook = parseBookFromLocation();
@@ -63,16 +61,16 @@ export const App: React.FC = () => {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  // Update dynamic document title based on current view
+  // Sincronización del título del documento con la vista activa
   useEffect(() => {
     if (currentProductBook) {
       document.title = `${currentProductBook.title} — BOOKIA`;
     } else {
-      document.title = 'BOOKIA — Lectura Concentrada · Editorial Digital';
+      document.title = 'BOOKIA — Editorial Experimental · Historias por Autores Artificiales';
     }
   }, [currentProductBook]);
 
-  // Navigate to dedicated product detail page
+  // Navegar a la página de producto de un libro
   const handleSelectBook = (book: Book) => {
     setCurrentProductBook(book);
     const targetUrl = `/libro/${book.slug || book.id}`;
@@ -80,14 +78,14 @@ export const App: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Navigate back to the home catalog
+  // Navegar de vuelta al catálogo principal
   const handleBackToHome = () => {
     setCurrentProductBook(null);
     window.history.pushState({}, '', '/');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Handle section scrolling and home navigation
+  // Navegar suavemente a secciones específicas
   const handleNavigateToSection = (sectionId: string) => {
     if (currentProductBook) {
       setCurrentProductBook(null);
@@ -120,14 +118,13 @@ export const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans flex flex-col antialiased selection:bg-black selection:text-white">
       
-      {/* 1. Global Header with intentional reading styling */}
+      {/* 1. Header Global Editorial */}
       <Header
         onOpenSearch={() => setIsSearchOpen(true)}
         onNavigateToSection={handleNavigateToSection}
-        onJoinClick={() => handleNavigateToSection('catalog')}
       />
 
-      {/* 2. Main Page: Standalone Product Page OR Complete Home Experience */}
+      {/* 2. Cuerpo Principal: Página de Producto Dedicada O Experiencia de Descubrimiento Home */}
       <main className="flex-1">
         {currentProductBook ? (
           <ProductPage
@@ -140,7 +137,7 @@ export const App: React.FC = () => {
           />
         ) : (
           <>
-            {/* Hero Section: "Dive into the world of intentional reading!" */}
+            {/* HERO: "Historias que ningún humano escribió." */}
             <Hero
               onSelectBook={handleSelectBook}
               onOpenPreview={handleOpenPreview}
@@ -148,47 +145,38 @@ export const App: React.FC = () => {
               allBooks={allAvailableBooks}
             />
 
-            {/* Catalog Section: "You Reading Intentionally" (4x2 Grid) */}
+            {/* CATÁLOGO: "Diez historias. Elige una." con Microinterrupción Editorial */}
             <CatalogSection
               books={allAvailableBooks}
               onSelectBook={handleSelectBook}
               onPreviewBook={handleOpenPreview}
-              onBuyBook={handleDirectBuy}
+              onNavigateToSection={handleNavigateToSection}
             />
 
-            {/* Feature Section: "COMING SOON" + "Harness Your Creative Confidence" */}
-            <CountdownSection
-              onPreorder={() => {
-                const creativeBook = allAvailableBooks.find((b) => b.id === 'creative-confidence');
-                if (creativeBook) handleSelectBook(creativeBook);
-              }}
+            {/* MANIFIESTO BREVE: "Autores que nunca nacieron. Historias que sí puedes leer." */}
+            <ManifestoSection
+              onNavigateToAuthors={() => handleNavigateToSection('autores')}
             />
 
-            {/* Articles Slider: "Maximize Your Reading Results" */}
-            <ArticlesSection
-              onReadArticle={(article) => {
-                const related = allAvailableBooks.find((b) => b.id === article.bookId);
-                if (related) handleSelectBook(related);
-              }}
-            />
-
-            {/* Stats & Fanned Arc: "Elevate Your Library. Expand Your Mind" */}
-            <StatsBannerSection
-              onExplore={() => handleNavigateToSection('catalog')}
-              onSelectBook={handleSelectBook}
+            {/* AUTORES ARTIFICIALES: Afinidad con cada voz autoral */}
+            <AuthorsSection
               allBooks={allAvailableBooks}
+              onSelectBook={handleSelectBook}
+              onExploreCatalog={() => handleNavigateToSection('catalog')}
             />
 
-            {/* Call-to-Action Dark Card: "Ready to Read With Purpose?" */}
-            <CtaBanner />
+            {/* CTA BANNER: "Tu próxima historia te espera." */}
+            <CtaBanner
+              onExploreCatalog={() => handleNavigateToSection('catalog')}
+            />
           </>
         )}
       </main>
 
-      {/* 3. Minimalist Footer */}
+      {/* 3. Footer Minimalista */}
       <Footer onNavigateToSection={handleNavigateToSection} />
 
-      {/* 4. Global Modals (Work seamlessly from both Home & Product Page) */}
+      {/* 4. Modales Globales (Funcionan desde Home y desde la Página de Producto) */}
       <ReaderModal
         book={previewBook}
         isOpen={Boolean(previewBook)}
@@ -204,6 +192,10 @@ export const App: React.FC = () => {
           setCheckoutBook(null);
           setPreviewBook(book);
         }}
+        onSelectRecommended={(recBook) => {
+          setCheckoutBook(null);
+          handleSelectBook(recBook);
+        }}
       />
 
       <SearchModal
@@ -213,6 +205,7 @@ export const App: React.FC = () => {
           setIsSearchOpen(false);
           handleSelectBook(book);
         }}
+        books={allAvailableBooks}
       />
 
     </div>

@@ -1,73 +1,110 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Book } from '../types';
 import { BookCard } from './BookCard';
+import { Sparkles, ArrowDown } from 'lucide-react';
 
 interface CatalogSectionProps {
   books: Book[];
   onSelectBook: (book: Book) => void;
   onPreviewBook: (book: Book) => void;
-  onBuyBook: (book: Book) => void;
+  onNavigateToSection?: (sectionId: string) => void;
 }
 
 export const CatalogSection: React.FC<CatalogSectionProps> = ({
   books,
   onSelectBook,
   onPreviewBook,
-  onBuyBook,
+  onNavigateToSection,
 }) => {
-  const [showAll, setShowAll] = useState(false);
+  // Garantizar exactamente la colección de 10 libros
+  const firstBatch = books.slice(0, 5);
+  const secondBatch = books.slice(5, 10);
 
-  // Cuadrícula inicial de 8 libros
-  const gridBooks = showAll
-    ? books
-    : books.slice(0, 8);
+  const handleScrollToExperiment = () => {
+    if (onNavigateToSection) {
+      onNavigateToSection('experimento');
+    } else {
+      const el = document.getElementById('experimento');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
-    <section id="catalog" className="py-14 bg-white border-t border-gray-100">
+    <section id="catalog" className="py-16 sm:py-20 bg-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Cabecera de la sección */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
-          <div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-gray-900 tracking-tight">
-              <span>Tu Lectura </span>
-              <strong className="font-extrabold text-black">Intencional</strong>
-            </h2>
-            <p className="mt-2 text-xs sm:text-sm text-gray-500 max-w-lg">
-              Explora modelos mentales y marcos esenciales en formatos digitales de alta retención y rápida asimilación.
-            </p>
-          </div>
-
-          <button
-            onClick={() => setShowAll(!showAll)}
-            className="self-start sm:self-auto bg-black hover:bg-gray-800 text-white text-xs sm:text-sm font-medium px-5 py-2 rounded-full transition-all shadow-sm"
-          >
-            Comenzar ahora
-          </button>
+        {/* Cabecera del Catálogo */}
+        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+          <span className="font-mono text-xs uppercase tracking-widest text-gray-400 font-semibold block mb-2">
+            Colección Curada
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-950 tracking-tight leading-tight">
+            Diez historias. Elige una.
+          </h2>
+          <p className="mt-3 text-base sm:text-lg text-gray-500 font-serif italic">
+            Puedes empezar cualquiera gratis.
+          </p>
         </div>
 
-        {/* Cuadrícula 4x2 de libros */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-          {gridBooks.map((book, idx) => (
+        {/* Primera Parte: 5 Libros */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+          {firstBatch.map((book, idx) => (
             <BookCard
               key={book.id}
               book={book}
-              isNew={idx !== 1} // El segundo libro no lleva badge tal como en la captura
+              numberTag={`0${idx + 1}`}
               onSelect={onSelectBook}
               onPreview={onPreviewBook}
-              onDirectBuy={onBuyBook}
             />
           ))}
         </div>
 
-        {/* Botón central Ver más */}
-        <div className="mt-10 flex justify-center">
-          <button
-            onClick={() => setShowAll(!showAll)}
-            className="bg-white hover:bg-gray-50 text-gray-800 border border-gray-200 text-xs font-semibold px-6 py-2.5 rounded-full transition-all shadow-xs"
-          >
-            {showAll ? 'Ver menos' : 'Ver más libros'}
-          </button>
+        {/* 3. Microinterrupción Editorial (después de los primeros libros) */}
+        <div className="my-14 sm:my-20">
+          <div className="relative rounded-2xl bg-[#111215] text-white p-8 sm:p-12 text-center overflow-hidden border border-white/10 shadow-xl">
+            
+            {/* Efecto de textura sutil de semitono */}
+            <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+
+            <div className="relative z-10 max-w-xl mx-auto">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-amber-300 text-[11px] font-mono tracking-widest uppercase mb-4">
+                <Sparkles className="w-3 h-3" />
+                <span>NOTICIA EDITORIAL</span>
+              </span>
+
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-white tracking-tight">
+                Hay algo diferente en estos autores.
+              </h3>
+
+              <p className="mt-3 text-lg sm:text-xl font-serif italic text-stone-300">
+                Ninguno existe.
+              </p>
+
+              <div className="mt-6">
+                <button
+                  onClick={handleScrollToExperiment}
+                  className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-black hover:bg-stone-200 rounded-full text-xs sm:text-sm font-semibold transition-all shadow-sm"
+                >
+                  <span>Conocer el experimento</span>
+                  <ArrowDown className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* Segunda Parte: Continuación del Catálogo (5 Libros restantes) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+          {secondBatch.map((book, idx) => (
+            <BookCard
+              key={book.id}
+              book={book}
+              numberTag={idx + 6 < 10 ? `0${idx + 6}` : `${idx + 6}`}
+              onSelect={onSelectBook}
+              onPreview={onPreviewBook}
+            />
+          ))}
         </div>
 
       </div>

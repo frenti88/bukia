@@ -11,10 +11,10 @@ import {
   Bookmark, 
   Clock, 
   FileText, 
-  Sparkles, 
   ShieldCheck, 
-  Smartphone,
-  ChevronRight
+  ChevronRight,
+  Sparkles,
+  ArrowRight
 } from 'lucide-react';
 
 interface ProductPageProps {
@@ -38,9 +38,16 @@ export const ProductPage: React.FC<ProductPageProps> = ({
   const [isBookmarked, setIsBookmarked] = useState(false);
 
   const writer = WRITERS[book.writerId];
-  const relatedBooks = allBooks.filter((b) => b.id !== book.id).slice(0, 4);
+  
+  // Encontrar la recomendación principal para el loop de recompra
+  const recommendedBook = (book.nextRecommendedId && allBooks.find((b) => b.id === book.nextRecommendedId))
+    || allBooks.find((b) => b.id !== book.id && b.writerId === book.writerId)
+    || allBooks.find((b) => b.id !== book.id)
+    || allBooks[0];
 
-  // Scroll to top on page load
+  const otherAuthorBooks = allBooks.filter((b) => b.writerId === book.writerId && b.id !== book.id);
+
+  // Scroll al inicio al cambiar de libro
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [book.id]);
@@ -51,33 +58,35 @@ export const ProductPage: React.FC<ProductPageProps> = ({
     setTimeout(() => setCopiedLink(false), 3000);
   };
 
+  const formattedPrice = book.priceDisplay || `$${book.price.toLocaleString('es-CO')} COP`;
+
   return (
     <div className="min-h-screen bg-white text-gray-900 pb-24 font-sans">
       
-      {/* 1. Breadcrumbs & Top Bar */}
-      <div className="border-b border-gray-100 bg-[#FAFAFA]/80 backdrop-blur-md sticky top-0 z-30">
+      {/* 1. Barra superior de navegación y migas de pan */}
+      <div className="border-b border-gray-100 bg-[#FAFAFA]/90 backdrop-blur-md sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
           
-          {/* Breadcrumb links */}
+          {/* Breadcrumbs */}
           <div className="flex items-center gap-2 text-xs text-gray-500 overflow-x-auto no-scrollbar whitespace-nowrap">
             <button
               onClick={onBackToHome}
               className="hover:text-black transition-colors flex items-center gap-1 font-medium"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Volver a la biblioteca</span>
+              <span>Volver a las historias</span>
             </button>
             <ChevronRight className="w-3 h-3 text-gray-300 flex-shrink-0" />
-            <span className="hover:text-black cursor-pointer" onClick={onBackToHome}>
+            <span className="text-gray-400 font-mono text-[11px]">
               {book.category}
             </span>
             <ChevronRight className="w-3 h-3 text-gray-300 flex-shrink-0" />
-            <span className="font-semibold text-gray-900 truncate max-w-[200px]">
+            <span className="font-semibold text-gray-950 truncate max-w-[220px]">
               {book.title}
             </span>
           </div>
 
-          {/* Share & Bookmark Actions */}
+          {/* Acciones de compartir y favoritos */}
           <div className="flex items-center gap-2 flex-shrink-0">
             <button
               onClick={handleCopyLink}
@@ -102,7 +111,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
               className={`p-1.5 bg-white border border-gray-200 hover:border-black rounded-full text-xs transition-colors shadow-xs ${
                 isBookmarked ? 'text-black fill-current border-black' : 'text-gray-500'
               }`}
-              title="Guardar en lista de lectura"
+              title="Guardar en favoritos"
               aria-label="Guardar"
             >
               <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-black' : ''}`} />
@@ -112,19 +121,19 @@ export const ProductPage: React.FC<ProductPageProps> = ({
         </div>
       </div>
 
-      {/* 2. Main Product Hero (2 columns) */}
+      {/* 2. Hero de Producto (2 Columnas) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           
-          {/* Left Column: Big Book Cover Showcase (5 cols) */}
+          {/* Columna Izquierda: Portada en Gran Formato (5 columnas) */}
           <div className="lg:col-span-5 flex flex-col items-center">
             
-            <div className="w-full max-w-[320px] sm:max-w-[360px] flex justify-center py-4 bg-gradient-to-b from-gray-50/50 to-gray-100/30 rounded-2xl border border-gray-100 p-6 shadow-xs">
+            <div className="w-full max-w-[320px] sm:max-w-[360px] flex justify-center py-6 bg-gradient-to-b from-stone-50 to-stone-100/50 rounded-2xl border border-stone-200/60 p-6 shadow-xs">
               <div className="transform hover:scale-105 transition-transform duration-500">
                 <ReplicaBookCover
                   id={book.id}
                   title={book.title}
-                  author={book.subtitle}
+                  author={writer?.displayName || book.subtitle}
                   size="hero"
                   showShadow
                   className="w-64 sm:w-72 h-[380px] sm:h-[426px]"
@@ -132,7 +141,7 @@ export const ProductPage: React.FC<ProductPageProps> = ({
               </div>
             </div>
 
-            {/* Formats and Digital Features Pill */}
+            {/* Píldora de formatos y lectura sin DRM */}
             <div className="mt-6 w-full max-w-[360px] space-y-2.5">
               <div className="flex items-center justify-between text-xs font-mono bg-[#FAFAFA] border border-gray-200 px-4 py-2.5 rounded-xl text-gray-600">
                 <span className="font-semibold text-gray-900">Formatos incluidos:</span>
@@ -151,118 +160,129 @@ export const ProductPage: React.FC<ProductPageProps> = ({
 
           </div>
 
-          {/* Right Column: Title, Author, Pricing & Purchase CTA (7 cols) */}
+          {/* Columna Derecha: Título, Premisa Cinematográfica y Acciones (7 columnas) */}
           <div className="lg:col-span-7 flex flex-col">
             
-            {/* Category and Archetype tag */}
+            {/* Categoría y etiqueta de Autor Artificial */}
             <div className="flex items-center gap-2 mb-3">
-              <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-[#EBF8F2] text-[#1B7A52] uppercase tracking-wider">
+              <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-stone-100 text-stone-800 uppercase tracking-wider font-mono">
                 {book.category}
               </span>
               <span className="text-gray-300">·</span>
-              <span className="text-xs font-mono text-gray-500">
-                Lectura Concentrada
+              <span className="text-xs font-mono text-amber-900 font-semibold bg-amber-50 border border-amber-200/80 px-2 py-0.5 rounded-full">
+                Autor Artificial
               </span>
             </div>
 
-            {/* Book Title */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-950 tracking-tight leading-[1.12]">
+            {/* Título de la obra */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-950 tracking-tight leading-[1.12] uppercase font-serif">
               {book.title}
             </h1>
 
-            {/* Subtitle */}
-            <p className="mt-3 font-serif italic text-lg sm:text-xl text-gray-600 leading-relaxed">
-              {book.subtitle}
-            </p>
+            {/* Premisa cinematográfica de 20-40 palabras (establece personaje, situación, anomalía y pregunta implícita) */}
+            <div className="mt-4 p-4 rounded-xl bg-stone-50 border-l-4 border-black">
+              <p className="font-serif italic text-base sm:text-lg md:text-xl text-gray-900 leading-relaxed">
+                «{book.premise || book.subtitle}»
+              </p>
+            </div>
 
-            {/* Author info */}
+            {/* Ficha de autor */}
             <div className="mt-4 flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center font-bold text-xs text-gray-800">
-                {(writer?.displayName || book.subtitle).charAt(0)}
+              <div className="w-9 h-9 rounded-full bg-white border border-gray-300 flex items-center justify-center font-serif text-sm font-bold text-gray-900 shadow-xs">
+                {writer?.editorialPortrait.symbol || (writer?.displayName || 'B').charAt(0)}
               </div>
               <div>
-                <span className="block text-xs font-bold text-gray-900">
-                  {writer?.displayName || book.subtitle}
+                <span className="block text-xs font-bold text-gray-950 uppercase tracking-tight">
+                  {writer?.displayName || 'Autor Artificial'}
                 </span>
-                <span className="block text-[11px] font-mono text-gray-400">
-                  {writer?.archetype || 'Firma de Lectura Intencional'}
+                <span className="block text-[11px] font-mono text-gray-500">
+                  {writer?.phrase || 'Voz creada para explorar lo no dicho'}
                 </span>
               </div>
             </div>
 
-            {/* Pricing Box & Purchase CTAs */}
-            <div className="mt-8 p-6 bg-[#FAFAFA] rounded-2xl border border-gray-200/80">
+            {/* CAJA DE ACCIÓN: VENDER MEDIANTE CURIOSIDAD, NO PRESIÓN */}
+            <div className="mt-8 p-6 bg-[#FAFAFA] rounded-2xl border border-gray-200">
               
               <div className="flex items-baseline justify-between mb-4">
                 <div>
                   <span className="text-xs font-mono text-gray-500 uppercase tracking-wider block">
-                    Precio de lanzamiento
+                    Precio por historia
                   </span>
                   <div className="flex items-baseline gap-2 mt-0.5">
-                    <span className="text-3xl sm:text-4xl font-black text-gray-950">
-                      US${book.price}.00
+                    <span className="text-3xl sm:text-4xl font-extrabold text-gray-950 font-mono">
+                      {formattedPrice}
                     </span>
-                    <span className="text-xs font-mono text-gray-400">USD</span>
                   </div>
                 </div>
 
                 <div className="text-right">
-                  <span className="inline-block px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-semibold">
+                  <span className="inline-block px-2.5 py-1 rounded-full bg-stone-200/80 text-stone-800 text-[11px] font-mono font-medium">
                     Acceso Digital Vitalicio
                   </span>
                 </div>
               </div>
 
-              {/* Action Buttons */}
+              {/* ACCIONES: CTA PRINCIPAL DOMINANTE = "Leer gratis" */}
               <div className="flex flex-col sm:flex-row gap-3 mt-4">
-                <button
-                  onClick={() => onBuyBook(book)}
-                  className="flex-1 py-3.5 px-6 bg-black hover:bg-gray-800 text-white rounded-full font-medium text-sm flex items-center justify-center gap-2 transition-all shadow-sm"
-                >
-                  <ShoppingBag className="w-4 h-4" />
-                  <span>Comprar ahora por US${book.price}.00</span>
-                </button>
-
+                
+                {/* CTA DOMINANTE: LEER GRATIS */}
                 <button
                   onClick={() => onOpenPreview(book)}
+                  className="flex-1 py-3.5 px-6 bg-black hover:bg-stone-800 text-white rounded-full font-medium text-sm sm:text-base flex items-center justify-center gap-2.5 transition-all shadow-md"
+                >
+                  <BookOpen className="w-4 h-4 text-amber-400" />
+                  <span>Leer gratis</span>
+                </button>
+
+                {/* CTA SECUNDARIO: COMPRAR */}
+                <button
+                  onClick={() => onBuyBook(book)}
                   className="py-3.5 px-6 bg-white hover:bg-gray-50 text-gray-900 border border-gray-300 rounded-full font-medium text-sm flex items-center justify-center gap-2 transition-all"
                 >
-                  <BookOpen className="w-4 h-4 text-emerald-600" />
-                  <span>Leer muestra gratuita</span>
+                  <ShoppingBag className="w-4 h-4 text-gray-500" />
+                  <span>Comprar · {formattedPrice}</span>
                 </button>
+
               </div>
 
-              <p className="mt-3 text-[11px] font-mono text-gray-400 text-center sm:text-left">
-                Pago demo seguro de 1 clic · Descarga inmediata de PDF y EPUB sin registro
+              <p className="mt-3.5 text-[11px] font-mono text-gray-400 text-center sm:text-left">
+                Lectura inmediata de muestra sin registro ni tarjeta · Si te gusta, continúa la historia por {formattedPrice}
               </p>
 
             </div>
 
-            {/* Reading Specifications Strip */}
+            {/* Tira de especificaciones de lectura */}
             <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-xl border border-gray-100 bg-white shadow-xs">
               <div className="text-center sm:text-left">
                 <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wider block">
-                  Extensión
+                  Tiempo Estimado
                 </span>
-                <span className="text-sm font-bold text-gray-900 mt-0.5 block">
-                  {book.pageCount} páginas
-                </span>
+                <div className="flex items-center gap-1.5 mt-0.5 justify-center sm:justify-start">
+                  <Clock className="w-3.5 h-3.5 text-gray-400" />
+                  <span className="text-sm font-bold text-gray-900 font-mono">
+                    {book.readingTime}
+                  </span>
+                </div>
               </div>
 
               <div className="text-center sm:text-left sm:border-l sm:border-gray-100 sm:pl-4">
                 <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wider block">
-                  Lectura Aprox.
+                  Extensión
                 </span>
-                <span className="text-sm font-bold text-gray-900 mt-0.5 block">
-                  {book.readingTime}
-                </span>
+                <div className="flex items-center gap-1.5 mt-0.5 justify-center sm:justify-start">
+                  <FileText className="w-3.5 h-3.5 text-gray-400" />
+                  <span className="text-sm font-bold text-gray-900 font-mono">
+                    {book.pageCount} páginas
+                  </span>
+                </div>
               </div>
 
               <div className="text-center sm:text-left sm:border-l sm:border-gray-100 sm:pl-4">
                 <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wider block">
                   Formatos
                 </span>
-                <span className="text-sm font-bold text-gray-900 mt-0.5 block">
+                <span className="text-sm font-bold text-gray-900 mt-0.5 block font-mono">
                   PDF + EPUB
                 </span>
               </div>
@@ -277,10 +297,10 @@ export const ProductPage: React.FC<ProductPageProps> = ({
               </div>
             </div>
 
-            {/* Central Thesis Quote Callout */}
-            <div className="mt-8 p-5 bg-[#FAFAFA] border-l-4 border-black rounded-r-xl">
-              <span className="text-[10px] font-mono uppercase tracking-wider text-gray-400 font-semibold block mb-1">
-                Tesis Central de la Obra
+            {/* Tesis / Cita de tensión */}
+            <div className="mt-8 p-5 bg-[#FAFAFA] border-l-4 border-amber-800/80 rounded-r-xl">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-amber-900 font-semibold block mb-1">
+                Tesis Central
               </span>
               <p className="font-serif italic text-base sm:text-lg text-gray-900 leading-snug">
                 «{book.thesisStatement}»
@@ -292,219 +312,196 @@ export const ProductPage: React.FC<ProductPageProps> = ({
         </div>
       </div>
 
-      {/* 3. Deep Dive: Synopsis & Key Takeaways */}
+      {/* 3. Inmersión Editorial: De qué trata la historia */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-12 border-t border-gray-100">
-        <div className="max-w-4xl mx-auto space-y-10">
+        <div className="max-w-3xl mx-auto space-y-8">
           
-          {/* Synopsis */}
           <div>
-            <span className="font-mono text-xs uppercase tracking-widest text-emerald-800 font-semibold block mb-2">
-              Resumen Editorial
+            <span className="font-mono text-xs uppercase tracking-widest text-gray-400 font-semibold block mb-2">
+              Sinopsis Curada
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-950 tracking-tight">
-              De qué trata esta publicación
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-950 tracking-tight font-serif">
+              El dilema de esta historia
             </h2>
-            <div className="mt-4 text-base text-gray-600 leading-relaxed space-y-4">
+            <div className="mt-4 text-base text-gray-600 leading-relaxed space-y-4 font-sans">
               <p>{book.description}</p>
               <p>
-                Diseñado para profesionales y lectores rigurosos que valoran la claridad sobre el volumen. Cada capítulo va directo al núcleo del problema sin anécdotas accesorias ni rodeos innecesarios.
+                Diseñado para leerse de principio a fin en una sola sesión de aproximadamente {book.readingTime}. Una narrativa condensada donde cada frase impulsa el desenlace.
               </p>
             </div>
           </div>
 
-          {/* Key Takeaways */}
-          <div className="p-6 sm:p-8 bg-[#FAFAFA] rounded-2xl border border-gray-200">
-            <h3 className="font-bold text-lg text-gray-950 mb-4 flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-emerald-600" />
-              <span>Lo que aprenderás en menos de media hora</span>
-            </h3>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-700">
-              <div className="flex items-start gap-2.5">
-                <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center flex-shrink-0 mt-0.5 text-xs font-bold">
-                  ✓
-                </div>
-                <span>Modelos mentales para evaluar escenarios complejos con serenidad y lucidez.</span>
-              </div>
-              <div className="flex items-start gap-2.5">
-                <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center flex-shrink-0 mt-0.5 text-xs font-bold">
-                  ✓
-                </div>
-                <span>Identificación de sesgos cognitivos automáticos que distorsionan nuestras elecciones.</span>
-              </div>
-              <div className="flex items-start gap-2.5">
-                <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center flex-shrink-0 mt-0.5 text-xs font-bold">
-                  ✓
-                </div>
-                <span>Estrategias de bajo rozamiento para aplicar conocimiento inmediato en proyectos reales.</span>
-              </div>
-              <div className="flex items-start gap-2.5">
-                <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center flex-shrink-0 mt-0.5 text-xs font-bold">
-                  ✓
-                </div>
-                <span>Un marco estructurado y portable para compartir con tu equipo o círculo cercano.</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Editorial Sample Excerpt Preview Banner */}
-          <div className="p-6 rounded-2xl border border-gray-200 bg-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs">
+          {/* Banner de inicio de lectura inmediata */}
+          <div className="p-6 rounded-2xl border border-stone-200 bg-stone-50 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs">
             <div>
-              <span className="font-mono text-[10px] text-gray-400 uppercase tracking-wider block mb-1">
+              <span className="font-mono text-[10px] text-amber-900 uppercase tracking-wider font-semibold block mb-1">
                 Lectura libre sin registro
               </span>
-              <h4 className="font-bold text-lg text-gray-900">
-                ¿Prefieres comprobar la prosa antes de comprar?
+              <h4 className="font-bold text-base sm:text-lg text-gray-900">
+                ¿Prefieres empezar a leer ahora mismo?
               </h4>
               <p className="text-xs text-gray-500 mt-1">
-                Lee el primer capítulo completo en nuestro lector web sin descargas ni formularios.
+                Lee las primeras páginas en nuestro lector web sin descargas ni formularios.
               </p>
             </div>
 
             <button
               onClick={() => onOpenPreview(book)}
-              className="flex-shrink-0 bg-black hover:bg-gray-800 text-white rounded-full px-5 py-2.5 text-xs font-semibold flex items-center gap-2 transition-all shadow-sm"
+              className="flex-shrink-0 bg-black hover:bg-stone-800 text-white rounded-full px-6 py-3 text-xs font-semibold flex items-center gap-2 transition-all shadow-sm"
             >
-              <BookOpen className="w-4 h-4 text-emerald-400" />
-              <span>Abrir primer capítulo</span>
+              <BookOpen className="w-4 h-4 text-amber-400" />
+              <span>Empezar a leer gratis</span>
             </button>
           </div>
 
         </div>
       </div>
 
-      {/* 4. Atmosphere Photography Section (if available) */}
-      {book.editorialImages && book.editorialImages[0] && (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-12 border-t border-gray-100">
-          <div className="max-w-4xl mx-auto">
-            <span className="font-mono text-xs uppercase tracking-widest text-gray-400 font-semibold block mb-3">
-              Atmósfera y Contexto Editorial
-            </span>
-            <div className="relative rounded-2xl overflow-hidden aspect-[21/9] bg-gray-100 shadow-sm">
-              <img
-                src={book.editorialImages[0].url}
-                alt={book.editorialImages[0].caption}
-                className="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-700"
-                loading="lazy"
-              />
-            </div>
-            <p className="mt-2 text-xs font-mono text-gray-400 text-right">
-              {book.editorialImages[0].caption}
-            </p>
-          </div>
-        </div>
-      )}
-
-      {/* 5. Author / Voice Card */}
+      {/* 4. PERFIL DEL AUTOR ARTIFICIAL */}
       {writer && (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-12 border-t border-gray-100">
-          <div className="max-w-4xl mx-auto p-6 sm:p-8 bg-[#FAFAFA] rounded-2xl border border-gray-200">
+          <div className="max-w-3xl mx-auto p-6 sm:p-8 bg-[#FAFAFA] rounded-2xl border border-gray-200">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+              
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-white border border-gray-200 flex items-center justify-center font-bold text-xl text-gray-900 shadow-xs">
-                  {writer.displayName.charAt(0)}
+                <div className="w-14 h-14 rounded-full bg-white border border-gray-200 flex items-center justify-center font-serif text-2xl text-gray-900 shadow-xs flex-shrink-0">
+                  {writer.editorialPortrait.symbol || '✦'}
                 </div>
                 <div>
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-emerald-700 font-semibold block">
-                    Firma Editorial · Arquetipo {writer.archetypeCode}
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-amber-900 font-semibold block">
+                    Conoce a quien escribió esta historia · Autor Artificial
                   </span>
-                  <h3 className="font-bold text-xl text-gray-950">
-                    {writer.displayName} ({writer.archetype})
+                  <h3 className="font-bold text-xl text-gray-950 uppercase tracking-tight">
+                    {writer.displayName}
                   </h3>
-                  <p className="text-xs text-gray-500 mt-1 max-w-lg leading-relaxed">
+                  <p className="text-xs text-gray-600 mt-1 leading-relaxed max-w-lg">
                     {writer.shortBio}
+                  </p>
+                  <p className="text-xs font-serif italic text-amber-900/90 mt-1.5">
+                    «{writer.phrase}»
                   </p>
                 </div>
               </div>
 
-              <div className="flex-shrink-0 text-right font-mono text-xs text-gray-400">
-                <span>Género: {writer.genres[0]}</span>
-              </div>
+              {otherAuthorBooks.length > 0 && (
+                <div className="flex-shrink-0 w-full sm:w-auto">
+                  <button
+                    onClick={() => onSelectBook(otherAuthorBooks[0])}
+                    className="w-full sm:w-auto px-4 py-2.5 bg-white border border-gray-300 hover:border-black rounded-full text-xs font-semibold text-gray-900 transition-colors flex items-center justify-center gap-1.5"
+                  >
+                    <span>Leer otra historia de {writer.displayName.split(' ')[0]}</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              )}
+
             </div>
           </div>
         </div>
       )}
 
-      {/* 6. Related Recommended Books */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 pt-12 border-t border-gray-100">
-        <div className="flex items-center justify-between mb-8">
-          <div>
-            <span className="font-mono text-xs uppercase tracking-widest text-gray-400 font-semibold block mb-1">
-              Colección Complementaria
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-950 tracking-tight">
-              Quienes leyeron esto también exploraron
-            </h3>
-          </div>
-
-          <button
-            onClick={onBackToHome}
-            className="text-xs font-semibold text-black hover:underline font-mono"
-          >
-            Ver todos los libros →
-          </button>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-          {relatedBooks.map((relBook) => (
-            <div
-              key={relBook.id}
-              onClick={() => onSelectBook(relBook)}
-              className="group bg-white rounded-xl border border-gray-100 p-4 transition-all duration-300 hover:shadow-card-hover hover:border-gray-200 flex flex-col justify-between cursor-pointer"
-            >
-              <div className="flex items-center justify-center py-2">
-                <div className="group-hover:scale-105 transition-transform duration-300">
-                  <ReplicaBookCover
-                    id={relBook.id}
-                    title={relBook.title}
-                    author={relBook.subtitle}
-                    size="md"
-                    showShadow
-                  />
-                </div>
-              </div>
-
-              <div className="mt-3 pt-3 border-t border-gray-100 flex items-center justify-between text-xs">
-                <div className="min-w-0 pr-2">
-                  <h4 className="font-semibold text-gray-950 text-xs sm:text-sm truncate group-hover:text-emerald-700 transition-colors">
-                    {relBook.title}
-                  </h4>
-                  <p className="text-[11px] text-gray-400 truncate mt-0.5">
-                    US${relBook.price}.00
-                  </p>
-                </div>
-                <span className="text-[11px] font-semibold text-black bg-gray-100 px-2 py-0.5 rounded-full">
-                  Ver
-                </span>
-              </div>
+      {/* 5. POSTCOMPRA & RECOMENDACIÓN DIRECTA: UN SOLO LIBRO RECOMENDADO (LOOP) */}
+      {recommendedBook && (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 pt-12 border-t border-gray-100">
+          <div className="max-w-3xl mx-auto">
+            
+            <div className="text-center mb-8">
+              <span className="font-mono text-xs uppercase tracking-widest text-gray-400 font-semibold block mb-1">
+                Tu Próxima Historia
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-950 tracking-tight">
+                Si te gustó esta historia, prueba ahora
+              </h3>
             </div>
-          ))}
-        </div>
-      </div>
 
-      {/* 7. Sticky Bottom Mobile Action Bar */}
+            {/* Tarjeta única destacada de recomendación para alimentar el loop */}
+            <div className="bg-[#FAF8F5] border border-stone-200 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
+              
+              {/* Portada del libro recomendado */}
+              <div
+                onClick={() => onSelectBook(recommendedBook)}
+                className="cursor-pointer transform hover:scale-105 transition-transform duration-300 flex-shrink-0"
+              >
+                <ReplicaBookCover
+                  id={recommendedBook.id}
+                  title={recommendedBook.title}
+                  author={recommendedBook.subtitle}
+                  size="md"
+                  showShadow
+                />
+              </div>
+
+              {/* Datos y CTA de la recomendación */}
+              <div className="flex-1 text-center sm:text-left">
+                <div className="flex items-center gap-2 justify-center sm:justify-start mb-2">
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-amber-900 font-semibold">
+                    {recommendedBook.category}
+                  </span>
+                  <span className="text-gray-300">·</span>
+                  <span className="text-[11px] font-mono text-gray-500">
+                    {recommendedBook.readingTime}
+                  </span>
+                </div>
+
+                <h4
+                  onClick={() => onSelectBook(recommendedBook)}
+                  className="font-serif text-xl sm:text-2xl font-bold text-gray-950 uppercase cursor-pointer hover:text-amber-800 transition-colors"
+                >
+                  {recommendedBook.title}
+                </h4>
+
+                <p className="mt-2 text-xs sm:text-sm text-gray-600 leading-relaxed font-serif italic">
+                  «{recommendedBook.premise || recommendedBook.subtitle}»
+                </p>
+
+                <div className="mt-5 flex items-center gap-3 justify-center sm:justify-start">
+                  <button
+                    onClick={() => onOpenPreview(recommendedBook)}
+                    className="px-5 py-2.5 bg-black hover:bg-stone-800 text-white rounded-full text-xs font-semibold flex items-center gap-2 transition-all shadow-sm"
+                  >
+                    <BookOpen className="w-3.5 h-3.5 text-amber-400" />
+                    <span>Leer gratis</span>
+                  </button>
+
+                  <button
+                    onClick={() => onSelectBook(recommendedBook)}
+                    className="px-4 py-2.5 bg-white border border-gray-300 hover:border-black rounded-full text-xs font-semibold text-gray-800 transition-colors"
+                  >
+                    Ver detalles
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      )}
+
+      {/* 6. Barra fija inferior para dispositivos móviles */}
       <div className="lg:hidden fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur-md p-3.5 border-t border-gray-200 shadow-2xl flex items-center justify-between gap-3 z-40">
         <div className="min-w-0">
-          <span className="text-xs font-bold text-gray-900 truncate block">
+          <span className="text-xs font-bold text-gray-900 truncate block font-serif">
             {book.title}
           </span>
-          <span className="text-[11px] font-mono text-emerald-700 font-semibold block">
-            US${book.price}.00 · PDF + EPUB
+          <span className="text-[11px] font-mono text-gray-500 font-semibold block">
+            {formattedPrice} · {book.readingTime}
           </span>
         </div>
 
         <div className="flex items-center gap-2 flex-shrink-0">
           <button
             onClick={() => onOpenPreview(book)}
-            className="px-3.5 py-2 bg-white border border-gray-300 text-gray-800 rounded-full text-xs font-semibold"
+            className="px-4 py-2 bg-black text-white rounded-full text-xs font-semibold shadow-sm flex items-center gap-1.5"
           >
-            Muestra
+            <BookOpen className="w-3.5 h-3.5 text-amber-400" />
+            <span>Leer gratis</span>
           </button>
           <button
             onClick={() => onBuyBook(book)}
-            className="px-4 py-2 bg-black text-white rounded-full text-xs font-semibold shadow-sm"
+            className="px-3.5 py-2 bg-white border border-gray-300 text-gray-800 rounded-full text-xs font-semibold"
           >
-            Comprar · US${book.price}
+            Comprar
           </button>
         </div>
       </div>
