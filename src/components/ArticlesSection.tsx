@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { ReplicaBookCover } from './ReplicaBookCover';
 
 interface ArticleItem {
@@ -20,29 +20,29 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = ({ onReadArticle 
   const articles: ArticleItem[] = [
     {
       id: 'routine-daily-reader',
-      date: 'June 23, 2026',
-      title: 'The Routine of a Daily Reader',
-      excerpt: 'Why 20 minutes of daily intentional reading beats 100 books skimmed. How to retain one page at a time and build long-term intellectual momentum.',
+      date: '23 de Junio, 2026',
+      title: 'La Rutina del Lector Diario',
+      excerpt: 'Por qué 20 minutos de lectura intencional al día superan a 100 libros hojeados con prisa. Cómo asimilar una página a la vez y construir un hábito duradero.',
       authorName: 'Eddie Harold',
-      authorRole: 'Editorial Fellow',
+      authorRole: 'Investigador Editorial',
       bookId: 'thinking-fast-and-slow'
     },
     {
       id: 'decoding-complexity',
-      date: 'June 27, 2026',
-      title: 'Decoding Complexity in Strategy',
-      excerpt: 'Why do some ideas stick while others vanish? We explore the core principles of strategic endurance and mental models that resist information decay.',
+      date: '27 de Junio, 2026',
+      title: 'Descifrando la Complejidad en la Estrategia',
+      excerpt: '¿Por qué algunas ideas perduran mientras otras se desvanecen? Analizamos los principios de resistencia estratégica y los modelos mentales que evitan el olvido.',
       authorName: 'Marco S. Levin',
-      authorRole: 'Systems Architect',
+      authorRole: 'Arquitecto de Sistemas',
       bookId: 'start-with-why'
     },
     {
       id: 'psychology-of-wealth',
-      date: 'July 04, 2026',
-      title: 'The Habit of Financial Clarity',
-      excerpt: 'Examining the emotional blindspots that govern investment and how quiet, consistent behavioral patterns outpace aggressive market speculation.',
+      date: '4 de Julio, 2026',
+      title: 'El Hábito de la Claridad Financiera',
+      excerpt: 'Un examen de los puntos ciegos emocionales que gobiernan nuestras decisiones y cómo los patrones de conducta serenos superan a la especulación impulsiva.',
       authorName: 'Morgan Housel',
-      authorRole: 'Senior Analyst',
+      authorRole: 'Analista Senior',
       bookId: 'psychology-of-money'
     }
   ];
@@ -61,45 +61,45 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = ({ onReadArticle 
     <section id="articles" className="py-16 bg-[#FAFAFA] border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header: Title + Slider Controls */}
+        {/* Cabecera: Título + Flechas de navegación */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
             <h2 className="text-2xl sm:text-3xl font-light text-gray-900 tracking-tight">
-              <span>Maximize Your </span>
-              <strong className="font-extrabold text-black">Reading Results</strong>
+              <span>Maximiza tus </span>
+              <strong className="font-extrabold text-black">Resultados de Lectura</strong>
             </h2>
             <p className="mt-2 text-xs sm:text-sm text-gray-500 max-w-lg">
-              Curated insights from world-class authors and experts. Get book summaries and actionable frameworks.
+              Perspectivas seleccionadas de autores e intelectuales destacados. Resúmenes de libros y modelos mentales aplicables.
             </p>
           </div>
 
-          {/* Navigation Arrows */}
+          {/* Flechas de navegación */}
           <div className="flex items-center gap-2">
             <button
               onClick={prevSlide}
               className="w-8 h-8 rounded-full border border-gray-300 bg-white hover:bg-gray-100 flex items-center justify-center text-gray-700 transition-colors shadow-xs"
-              aria-label="Previous article"
+              aria-label="Artículo anterior"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
             <button
               onClick={nextSlide}
               className="w-8 h-8 rounded-full bg-black hover:bg-gray-800 flex items-center justify-center text-white transition-colors shadow-xs"
-              aria-label="Next article"
+              aria-label="Artículo siguiente"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
           </div>
         </div>
 
-        {/* Horizontal Article Cards Grid */}
+        {/* Tarjetas horizontales divididas */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {articles.slice(0, 2).map((article) => (
             <div
               key={article.id}
               className="bg-white rounded-2xl border border-gray-100 p-5 sm:p-6 shadow-sm hover:shadow-card-hover transition-all flex flex-col sm:flex-row gap-5 items-center"
             >
-              {/* Left: Book Cover Stack thumbnail */}
+              {/* Columna izquierda: Portada del libro */}
               <div className="relative flex-shrink-0 w-28 sm:w-32 flex items-center justify-center">
                 <ReplicaBookCover
                   id={article.bookId}
@@ -110,7 +110,7 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = ({ onReadArticle 
                 />
               </div>
 
-              {/* Right: Article Details */}
+              {/* Columna derecha: Detalles del artículo */}
               <div className="flex-1 min-w-0 flex flex-col justify-between h-full">
                 <div>
                   <span className="font-mono text-[10px] text-gray-400 uppercase tracking-wider block mb-1">
@@ -138,7 +138,7 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = ({ onReadArticle 
                     onClick={() => onReadArticle(article)}
                     className="border border-gray-200 hover:border-black rounded-full px-3.5 py-1 text-xs font-medium text-gray-900 transition-colors"
                   >
-                    Read Now
+                    Leer ahora
                   </button>
                 </div>
               </div>

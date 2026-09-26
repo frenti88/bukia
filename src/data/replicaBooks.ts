@@ -4,13 +4,13 @@ export const REPLICA_BOOKS: Book[] = [
   {
     id: 'psychology-of-money',
     slug: 'psychology-of-money',
-    title: 'The Psychology of Money',
-    subtitle: 'Timeless lessons on wealth, greed, and happiness.',
+    title: 'La Psicología del Dinero',
+    subtitle: 'Lecciones atemporales sobre riqueza, codicia y felicidad.',
     writerId: 'morgan-housel',
-    category: 'Finance & Mindset',
-    thesisStatement: 'Doing well with money has a little to do with how smart you are and a lot to do with how you behave.',
-    description: 'Doing well with money isn’t necessarily about what you know. It’s about how you behave. And behavior is hard to teach, even to really smart people. Morgan Housel shares 19 short stories exploring the strange ways people think about money.',
-    shortDescription: 'Timeless lessons on wealth, greed, and happiness.',
+    category: 'Finanzas & Mentalidad',
+    thesisStatement: 'Tener éxito con el dinero tiene poco que ver con cuán inteligente eres y mucho con cómo te comportas.',
+    description: 'Tener éxito financiero no se trata necesariamente de lo que sabes, sino de cómo te comportas. Y el comportamiento es difícil de enseñar, incluso a personas realmente brillantes. Morgan Housel comparte relatos reveladores que exploran las extrañas formas en que las personas piensan sobre el dinero.',
+    shortDescription: 'Lecciones atemporales sobre riqueza, codicia y felicidad.',
     coverArt: {
       bgColor: '#FFFFFF',
       textColor: '#111827',
@@ -20,27 +20,27 @@ export const REPLICA_BOOKS: Book[] = [
     editorialImages: [
       {
         url: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=1200&auto=format&fit=crop',
-        caption: 'The psychology of decision making under risk.'
+        caption: 'La psicología de la toma de decisiones bajo incertidumbre.'
       }
     ],
     previewContent: {
-      excerptHeader: 'Chapter 1 — No One’s Crazy',
+      excerptHeader: 'Capítulo 1 — Nadie está loco',
       chapters: [
         {
           chapterNumber: 1,
-          chapterTitle: 'No One’s Crazy',
+          chapterTitle: 'Nadie está loco',
           epigraph: {
-            quote: 'Your personal experiences with money make up maybe 0.00000001% of what’s happened in the world, but maybe 80% of how you think the world works.',
+            quote: 'Tus experiencias personales con el dinero representan tal vez el 0.00000001% de lo que ha sucedido en el mundo, pero representan cerca del 80% de cómo crees que funciona.',
             source: 'Morgan Housel'
           },
           paragraphs: [
-            'People from different generations, raised by different parents who earned different incomes and held different values in different parts of the world, learn vastly different lessons.',
-            'Everyone has their own unique experience with how the world works. And what you’ve experienced is more compelling than what you’ve learned second-hand. So all of us go through life with an anchor to the financial era we grew up in.',
-            'When someone makes a financial decision that seems irrational to you, it’s rarely because they are crazy. It’s because they have experienced things you haven’t, and are operating with a mental model constructed during a different time.'
+            'Personas de diferentes generaciones, criadas por padres distintos que ganaron ingresos diferentes y tuvieron valores dispares en rincones del mundo opuestos, aprenden lecciones radicalmente distintas.',
+            'Cada uno tiene su propia experiencia personal sobre cómo funciona la realidad económica. Y lo que has vivido en carne propia siempre resulta mucho más convincente que lo que aprendiste de segunda mano.',
+            'Cuando alguien toma una decisión financiera que a ti te parece irracional, rara vez es porque esté loco. Es porque ha vivido circunstancias que tú no conoces y opera con un modelo mental forjado en una época distinta.'
           ]
         }
       ],
-      sampleEndNote: 'End of sample. Get the full condensed digital edition in PDF and EPUB for US$1.'
+      sampleEndNote: 'Fin de la muestra de cortesía. Descarga la edición completa en PDF y EPUB por US$1.'
     },
     price: 1.00,
     currency: 'USD',
@@ -49,19 +49,19 @@ export const REPLICA_BOOKS: Book[] = [
     readingTime: '26 min',
     featured: true,
     releaseDate: '2026-06-12',
-    keywords: ['money', 'wealth', 'habits', 'psychology']
+    keywords: ['dinero', 'riqueza', 'hábitos', 'psicología']
   },
 
   {
     id: 'thinking-fast-and-slow',
     slug: 'thinking-fast-and-slow',
-    title: 'Thinking, Fast and Slow',
-    subtitle: 'The two systems that drive the way we think and decide.',
+    title: 'Pensar Rápido, Pensar Despacio',
+    subtitle: 'Los dos sistemas que dirigen nuestra manera de pensar y decidir.',
     writerId: 'daniel-kahneman',
-    category: 'Psychology & Decisions',
-    thesisStatement: 'We place too much confidence in what we believe we know, and our apparent inability to acknowledge our ignorance.',
-    description: 'In the international bestseller, Daniel Kahneman, the renowned psychologist and winner of the Nobel Prize in Economics, takes us on a groundbreaking tour of the mind and explains the two systems that drive the way we think: System 1 is fast, intuitive, and emotional; System 2 is slower, more deliberative, and more logical.',
-    shortDescription: 'The two systems that drive the way we think and make choices.',
+    category: 'Psicología & Decisiones',
+    thesisStatement: 'Depositamos demasiada confianza en lo que creemos saber y tenemos una incapacidad manifiesta para reconocer nuestra propia ignorancia.',
+    description: 'Daniel Kahneman, eminente psicólogo y premio Nobel de Economía, nos introduce en un fascinante recorrido por la mente y desvela los dos sistemas que modelan cómo pensamos: el Sistema 1, rápido, intuitivo y emocional; y el Sistema 2, lento, deliberativo y lógico.',
+    shortDescription: 'Los dos sistemas que dirigen nuestra manera de pensar y elegir.',
     coverArt: {
       bgColor: '#FAF7F2',
       textColor: '#1F2937',
@@ -70,23 +70,23 @@ export const REPLICA_BOOKS: Book[] = [
     },
     editorialImages: [],
     previewContent: {
-      excerptHeader: 'Chapter 1 — Two Systems',
+      excerptHeader: 'Capítulo 1 — Dos Sistemas',
       chapters: [
         {
           chapterNumber: 1,
-          chapterTitle: 'Two Systems',
+          chapterTitle: 'Dos Sistemas',
           epigraph: {
-            quote: 'A reliable way to make people believe in falsehoods is frequent repetition, because familiarity is not easily distinguished from truth.',
+            quote: 'Un modo seguro de hacer que la gente crea en falsedades es la repetición constante, porque la familiaridad no se distingue con facilidad de la verdad.',
             source: 'Daniel Kahneman'
           },
           paragraphs: [
-            'System 1 operates automatically and quickly, with little or no effort and no sense of voluntary control.',
-            'System 2 allocates attention to the effortful mental operations that demand it, including complex computations. The operations of System 2 are often associated with the subjective experience of agency, choice, and concentration.',
-            'When we think of ourselves, we identify with System 2, the conscious, reasoning self that has beliefs, makes choices, and decides what to think about and what to do.'
+            'El Sistema 1 opera de manera automática y rápida, con poco o ningún esfuerzo y sin sensación de control voluntario.',
+            'El Sistema 2 focaliza la atención en operaciones mentales trabajosas que lo demandan, incluyendo cálculos complejos. Las operaciones del Sistema 2 suelen asociarse con la experiencia subjetiva de actuar, elegir y concentrarse.',
+            'Cuando pensamos en nosotros mismos, nos identificamos con el Sistema 2: el yo consciente y racional que tiene creencias, toma decisiones y decide qué pensar y qué hacer.'
           ]
         }
       ],
-      sampleEndNote: 'End of sample. Complete reading available for US$1.'
+      sampleEndNote: 'Fin de la muestra. Obra completa disponible por US$1.'
     },
     price: 1.00,
     currency: 'USD',
@@ -95,19 +95,19 @@ export const REPLICA_BOOKS: Book[] = [
     readingTime: '28 min',
     featured: false,
     releaseDate: '2026-06-15',
-    keywords: ['heuristics', 'biases', 'rationality', 'behavior']
+    keywords: ['heurística', 'sesgos', 'racionalidad', 'conducta']
   },
 
   {
     id: 'think-again',
     slug: 'think-again',
-    title: 'Think Again',
-    subtitle: 'The power of knowing what you don’t know.',
+    title: 'Piénsalo Otra Vez',
+    subtitle: 'El poder de saber lo que no sabemos.',
     writerId: 'adam-grant',
-    category: 'Learning & Mindset',
-    thesisStatement: 'Intelligence is traditionally viewed as the ability to think and learn. In a turbulent world, there’s another set of cognitive skills that might matter more: the ability to rethink and unlearn.',
-    description: 'Organizational psychologist Adam Grant explores how we can embrace the joy of being wrong, bring nuance to charged conversations, and build schools, workplaces, and communities of lifelong learners.',
-    shortDescription: 'How embracing mental flexibility leads to excellence.',
+    category: 'Aprendizaje & Mentalidad',
+    thesisStatement: 'La inteligencia suele considerarse la capacidad de pensar y aprender. En un mundo turbulento, existe otro conjunto de habilidades cognitivas más cruciales: la capacidad de repensar y desaprender.',
+    description: 'El psicólogo organizacional Adam Grant explora cómo podemos abrazar el placer de equivocarnos, aportar matices a conversaciones polarizadas y crear comunidades y carreras basadas en el aprendizaje continuo.',
+    shortDescription: 'Cómo la flexibilidad mental conduce a la excelencia real.',
     coverArt: {
       bgColor: '#FFFFFF',
       textColor: '#0F172A',
@@ -116,23 +116,23 @@ export const REPLICA_BOOKS: Book[] = [
     },
     editorialImages: [],
     previewContent: {
-      excerptHeader: 'Chapter 1 — A Preacher, a Prosecutor, and a Politician',
+      excerptHeader: 'Capítulo 1 — Predicador, Fiscal y Político',
       chapters: [
         {
           chapterNumber: 1,
-          chapterTitle: 'A Preacher, a Prosecutor, and a Politician',
+          chapterTitle: 'Predicador, Fiscal y Político',
           epigraph: {
-            quote: 'If knowledge is power, knowing what we don’t know is wisdom.',
+            quote: 'Si el conocimiento es poder, saber lo que no sabemos es sabiduría.',
             source: 'Adam Grant'
           },
           paragraphs: [
-            'We don’t just hesitate to rethink our answers; we actively resist the very idea of rethinking. As we think and talk, we often slip into the mindsets of three different professions: preachers, prosecutors, and politicians.',
-            'In each of these modes, we take on a particular identity and use a distinct set of tools. We go into preacher mode when our sacred beliefs are in jeopardy: we deliver sermons to protect and promote our ideals.',
-            'We enter prosecutor mode when we recognize flaws in other people’s reasoning: we marshal arguments to prove them wrong and win our case. And we shift into politician mode when we’re seeking to win over an audience: we campaign and lobby for the approval of our constituents.'
+            'No solo dudamos en revisar nuestras respuestas; a menudo nos resistimos activamente a la mera idea de replantearnos lo que creemos. Al pensar y hablar, solemos adoptar tres personalidades profesionales: la del predicador, la del fiscal o la del político.',
+            'Entramos en modo predicador cuando nuestras convicciones están amenazadas: damos sermones para salvaguardar y ensalzar nuestros ideales.',
+            'Cambiamos al modo fiscal cuando descubrimos grietas en los argumentos ajenos: desplegamos pruebas para refutar al otro y ganar el litigio. Y adoptamos el modo político cuando anhelamos convencer al público: hacemos campaña para ganarnos el favor de la audiencia.'
           ]
         }
       ],
-      sampleEndNote: 'Download the full book in PDF and EPUB for US$1.'
+      sampleEndNote: 'Descarga la edición completa en PDF y EPUB por US$1.'
     },
     price: 1.00,
     currency: 'USD',
@@ -141,19 +141,19 @@ export const REPLICA_BOOKS: Book[] = [
     readingTime: '25 min',
     featured: false,
     releaseDate: '2026-06-18',
-    keywords: ['rethinking', 'flexibility', 'curiosity', 'humility']
+    keywords: ['pensamiento crítico', 'humildad', 'flexibilidad']
   },
 
   {
     id: 'talking-to-strangers',
     slug: 'talking-to-strangers',
-    title: 'Talking to Strangers',
-    subtitle: 'What we should know about the people we don’t know.',
+    title: 'Hablar con Extraños',
+    subtitle: 'Lo que deberíamos saber sobre la gente que no conocemos.',
     writerId: 'malcolm-gladwell',
-    category: 'Communication & Society',
-    thesisStatement: 'Because we do not know how to talk to strangers, we are inviting conflict and misunderstanding in ways that have a profound effect on our lives and our world.',
-    description: 'Malcolm Gladwell offers a powerful examination of our interactions with strangers and why they often go wrong. Through historical and cultural cases, Gladwell shows how the strategies we use to translate unfamiliar encounters are fundamentally flawed.',
-    shortDescription: 'Why misjudging strangers creates societal fissures.',
+    category: 'Comunicación & Sociedad',
+    thesisStatement: 'Porque no sabemos cómo hablar con extraños, provocamos conflictos y malentendidos de consecuencias profundas en nuestras vidas y sociedades.',
+    description: 'Malcolm Gladwell examina con maestría por qué nuestros encuentros con personas desconocidas suelen salir mal. A través de casos históricos, demuestra que las estrategias automáticas que empleamos para interpretar al prójimo son profundamente defectuosas.',
+    shortDescription: 'Por qué juzgar mal al desconocido fragmenta la convivencia.',
     coverArt: {
       bgColor: '#FAF8F5',
       textColor: '#111827',
@@ -162,23 +162,23 @@ export const REPLICA_BOOKS: Book[] = [
     },
     editorialImages: [],
     previewContent: {
-      excerptHeader: 'Chapter 1 — The Default to Truth',
+      excerptHeader: 'Capítulo 1 — El principio de veracidad por defecto',
       chapters: [
         {
           chapterNumber: 1,
-          chapterTitle: 'The Default to Truth',
+          chapterTitle: 'El principio de veracidad por defecto',
           epigraph: {
-            quote: 'You believe someone not because you have no doubts about them. You believe someone because you don’t have enough doubts.',
+            quote: 'Crees a alguien no porque no tengas dudas sobre él; le crees porque no tienes suficientes dudas.',
             source: 'Malcolm Gladwell'
           },
           paragraphs: [
-            'The first operating principle in talking to strangers is what psychologist Tim Levine calls the Default to Truth. Our operating assumption is that the people we are dealing with are honest.',
-            'We do not behave like scientists, slowly gathering evidence for truthfulness before reaching a conclusion. We do the opposite: we start by believing, and stop believing only when our doubts become insurmountable.',
-            'This default is not an evolutionary flaw; it is an extraordinary social advantage. Without it, organized human societies could not function.'
+            'El principio cardinal al interactuar con extraños es lo que el psicólogo Tim Levine denomina la "veracidad por defecto". Nuestra hipótesis operativa es que la gente con la que tratamos es honesta.',
+            'No nos comportamos como científicos recopilando pacientemente evidencias antes de alcanzar una conclusión. Hacemos lo opuesto: empezamos creyendo y solo dejamos de creer cuando las dudas se tornan insostenibles.',
+            'Esta disposición por defecto no es una tara evolutiva; constituye una ventaja social indispensable sin la cual ninguna sociedad compleja podría funcionar.'
           ]
         }
       ],
-      sampleEndNote: 'Complete edition available for instant reading for US$1.'
+      sampleEndNote: 'Edición completa disponible para lectura inmediata por US$1.'
     },
     price: 1.00,
     currency: 'USD',
@@ -187,19 +187,19 @@ export const REPLICA_BOOKS: Book[] = [
     readingTime: '26 min',
     featured: false,
     releaseDate: '2026-06-20',
-    keywords: ['communication', 'human nature', 'society', 'judgment']
+    keywords: ['comunicación', 'confianza', 'sociedad', 'juicio']
   },
 
   {
     id: 'mindset',
     slug: 'mindset',
-    title: 'Mindset',
-    subtitle: 'The new psychology of success.',
+    title: 'Mindset: La Actitud del Éxito',
+    subtitle: 'La nueva psicología del éxito personal y profesional.',
     writerId: 'carol-dweck',
-    category: 'Growth & Psychology',
-    thesisStatement: 'The view you adopt for yourself profoundly affects the way you lead your life.',
-    description: 'World-renowned Stanford psychologist Carol S. Dweck, in decades of research on achievement and success, discovered a truly groundbreaking idea: the power of our mindset. People with a fixed mindset are far less likely to flourish than those with a growth mindset.',
-    shortDescription: 'How the growth mindset unlocks human potential.',
+    category: 'Crecimiento & Psicología',
+    thesisStatement: 'La perspectiva que adoptas sobre ti mismo influye profundamente en la manera en que conduces tu vida.',
+    description: 'Carol S. Dweck, investigadora de Stanford, descubrió una idea revolucionaria: el poder de nuestra mentalidad. Las personas con mentalidad fija tienen muchas menos probabilidades de prosperar que aquellas que cultivan una mentalidad de crecimiento.',
+    shortDescription: 'Cómo la mentalidad de crecimiento libera el potencial humano.',
     coverArt: {
       bgColor: '#FFFFFF',
       textColor: '#1E3A8A',
@@ -208,23 +208,23 @@ export const REPLICA_BOOKS: Book[] = [
     },
     editorialImages: [],
     previewContent: {
-      excerptHeader: 'Chapter 1 — The Mindsets',
+      excerptHeader: 'Capítulo 1 — Las Mentalidades',
       chapters: [
         {
           chapterNumber: 1,
-          chapterTitle: 'The Mindsets',
+          chapterTitle: 'Las Mentalidades',
           epigraph: {
-            quote: 'Why waste time proving over and over how great you are, when you could be getting better?',
+            quote: '¿Por qué perder el tiempo demostrando una y otra vez lo bueno que eres, cuando podrías estar mejorando?',
             source: 'Carol S. Dweck'
           },
           paragraphs: [
-            'For thirty years, my research has shown that the view you adopt for yourself profoundly affects the way you lead your life. It can determine whether you become the person you want to be and whether you accomplish the things you value.',
-            'Believing that your qualities are carved in stone—the fixed mindset—creates an urgency to prove yourself over and over. If you have only a certain amount of intelligence, a certain personality, and a certain moral character—well, then you’d better prove that you have a healthy dose of them.',
-            'There’s another mindset in which these traits are not simply a hand you’re dealt and have to live with. In this mindset, the hand you’re dealt is just the starting point for development.'
+            'Durante treinta años, mi investigación ha revelado que la opinión que forjas sobre ti mismo determina si alcanzarás lo que valoras.',
+            'Creer que tus cualidades están talladas en piedra —la mentalidad fija— genera la urgencia constante de justificarte. Si solo posees cierta dosis de inteligencia o talento, te verás obligado a demostrarla a cada instante.',
+            'Existe otra mentalidad donde tus virtudes no son las cartas inalterables que te tocaron en suerte, sino el punto de partida para tu evolución.'
           ]
         }
       ],
-      sampleEndNote: 'Full digital book in PDF and EPUB for US$1.'
+      sampleEndNote: 'Lectura completa en PDF y EPUB por US$1.'
     },
     price: 1.00,
     currency: 'USD',
@@ -233,19 +233,19 @@ export const REPLICA_BOOKS: Book[] = [
     readingTime: '23 min',
     featured: false,
     releaseDate: '2026-06-22',
-    keywords: ['mindset', 'growth', 'resilience', 'learning']
+    keywords: ['mentalidad', 'aprendizaje', 'resiliencia']
   },
 
   {
     id: 'designing-your-life',
     slug: 'designing-your-life',
-    title: 'Designing Your Life',
-    subtitle: 'How to build a well-lived, joyful life.',
+    title: 'Diseña tu Vida',
+    subtitle: 'Cómo construir una vida plena, consciente y alegre.',
     writerId: 'burnett-evans',
-    category: 'Life Strategy',
-    thesisStatement: 'Designers imagine things that don’t yet exist, and then they build them, and then the world changes. You can do the same for your life.',
-    description: 'Designers create worlds and solve problems using design thinking. Look around your office or home—at the tablet or smartphone you may be holding or the chair you are sitting in. Everything in our lives was designed by someone. And every design starts with a problem that a designer or team of designers seeks to solve.',
-    shortDescription: 'Applying design thinking to your career and daily life.',
+    category: 'Estrategia de Vida',
+    thesisStatement: 'Los diseñadores imaginan cosas que aún no existen y las construyen para cambiar el entorno. Puedes hacer exactamente lo mismo con tu vida.',
+    description: 'Los diseñadores resuelven problemas aplicando el pensamiento de diseño (design thinking). Bill Burnett y Dave Evans te enseñan cómo aplicar este mismo enfoque para construir una trayectoria vocacional y una vida con propósito y balance.',
+    shortDescription: 'Aplicar el design thinking a tu vocación y vida diaria.',
     coverArt: {
       bgColor: '#FFFFFF',
       textColor: '#111827',
@@ -254,23 +254,23 @@ export const REPLICA_BOOKS: Book[] = [
     },
     editorialImages: [],
     previewContent: {
-      excerptHeader: 'Chapter 1 — Start Where You Are',
+      excerptHeader: 'Capítulo 1 — Empieza donde estás',
       chapters: [
         {
           chapterNumber: 1,
-          chapterTitle: 'Start Where You Are',
+          chapterTitle: 'Empieza donde estás',
           epigraph: {
-            quote: 'You can’t know where you’re going until you know where you are.',
+            quote: 'No puedes saber hacia dónde vas hasta que reconozcas con honestidad en dónde te encuentras.',
             source: 'Bill Burnett & Dave Evans'
           },
           paragraphs: [
-            'Design doesn’t solve problems by trying to think your way into a new life; design solves problems by building your way forward.',
-            'Before you can design your path, you have to know where you are right now. We look at four gauges: Health, Work, Play, and Love.',
-            'When you take an honest inventory of these areas without judgment, the real problem spaces reveal themselves naturally.'
+            'El diseño no resuelve problemas intentando pensar una vida nueva desde el sofá; el diseño progresa construyendo tu camino hacia adelante.',
+            'Antes de trazar una ruta, necesitas evaluar cuatro indicadores vitales: Salud, Trabajo, Juego y Amor.',
+            'Cuando realizas un balance honesto de estas áreas sin juzgarte, los verdaderos espacios de oportunidad emergen de forma natural.'
           ]
         }
       ],
-      sampleEndNote: 'Complete life design framework for US$1.'
+      sampleEndNote: 'Marco integral de diseño de vida por US$1.'
     },
     price: 1.00,
     currency: 'USD',
@@ -279,19 +279,19 @@ export const REPLICA_BOOKS: Book[] = [
     readingTime: '24 min',
     featured: false,
     releaseDate: '2026-06-24',
-    keywords: ['design thinking', 'career', 'purpose', 'habits']
+    keywords: ['diseño de vida', 'propósito', 'carrera', 'hábitos']
   },
 
   {
     id: 'company-of-one',
     slug: 'company-of-one',
-    title: 'Company of One',
-    subtitle: 'Why staying small is the next big thing for business.',
+    title: 'Empresa de Uno',
+    subtitle: 'Por qué mantenerse pequeño es la gran ventaja del futuro.',
     writerId: 'paul-jarvis',
-    category: 'Business & Autonomy',
-    thesisStatement: 'What if the real key to a richer and more fulfilling career was not to create and scale a massive company, but to stay small?',
-    description: 'Company of One is an all-new business strategy that focuses on staying small and questioning growth. By staying small, one can have more freedom, pursue meaningful projects, and build a resilient livelihood without the burden of constant scale.',
-    shortDescription: 'Questioning endless corporate scale in favor of autonomy.',
+    category: 'Negocios & Autonomía',
+    thesisStatement: '¿Y si la verdadera clave de una carrera enriquecedora no fuera escalar una corporación masiva, sino deliberadamente permanecer pequeño?',
+    description: 'Empresa de Uno propone una estrategia radical que cuestiona el crecimiento ciego. Al mantenerse pequeño, un profesional gana libertad, autonomía para elegir proyectos significativos y una resiliencia sin las cargas burocráticas del crecimiento forzado.',
+    shortDescription: 'Cuestionar la escala corporativa interminable en favor de la libertad.',
     coverArt: {
       bgColor: '#FFFFFF',
       textColor: '#111827',
@@ -300,23 +300,23 @@ export const REPLICA_BOOKS: Book[] = [
     },
     editorialImages: [],
     previewContent: {
-      excerptHeader: 'Chapter 1 — What Is a Company of One?',
+      excerptHeader: 'Capítulo 1 — ¿Qué es una Empresa de Uno?',
       chapters: [
         {
           chapterNumber: 1,
-          chapterTitle: 'What Is a Company of One?',
+          chapterTitle: '¿Qué es una Empresa de Uno?',
           epigraph: {
-            quote: 'Growth is not always the best metric of success.',
+            quote: 'Crecer no siempre es la mejor métrica del éxito.',
             source: 'Paul Jarvis'
           },
           paragraphs: [
-            'A company of one is simply a business that questions growth.',
-            'It resists mindless expansion because growth often introduces more meetings, more overhead, more complexity, and less actual enjoyment of the craft you set out to do in the first place.',
-            'Success becomes about defining "enough" rather than chasing an arbitrary number defined by others.'
+            'Una empresa de uno es simplemente un negocio que cuestiona el crecimiento por defecto.',
+            'Se resiste a la expansión automática porque crecer a menudo introduce más reuniones, más costes fijos, mayor complejidad y menos disfrute del oficio que elegiste en primer lugar.',
+            'El verdadero éxito consiste en definir qué es "suficiente" para ti, en lugar de perseguir cifras arbitrarias dictadas por otros.'
           ]
         }
       ],
-      sampleEndNote: 'Instant digital delivery in PDF and EPUB for US$1.'
+      sampleEndNote: 'Entrega digital inmediata en PDF y EPUB por US$1.'
     },
     price: 1.00,
     currency: 'USD',
@@ -325,19 +325,19 @@ export const REPLICA_BOOKS: Book[] = [
     readingTime: '22 min',
     featured: false,
     releaseDate: '2026-06-25',
-    keywords: ['entrepreneurship', 'autonomy', 'simplicity', 'business']
+    keywords: ['autonomía', 'emprendimiento', 'simplicidad', 'negocios']
   },
 
   {
     id: 'anything-you-want',
     slug: 'anything-you-want',
-    title: 'Anything You Want',
-    subtitle: '40 lessons for a new kind of entrepreneur.',
+    title: 'Todo lo que Quieras',
+    subtitle: '40 lecciones para un nuevo modelo de emprendedor.',
     writerId: 'derek-sivers',
-    category: 'Entrepreneurship',
-    thesisStatement: 'Business is not about money. It’s about making dreams come true for others and for yourself.',
-    description: 'Derek Sivers shares concise, punchy philosophies from building and selling CD Baby. A manifesto on radical simplicity, customer delight, and running a business strictly on your own terms.',
-    shortDescription: '40 unconventional lessons for creating value without stress.',
+    category: 'Emprendimiento',
+    thesisStatement: 'Los negocios no tratan sobre el dinero. Tratan sobre convertir ideas en realidad para otros y para ti mismo.',
+    description: 'Derek Sivers condensa enérgicas reflexiones de su experiencia fundando CD Baby. Un manifiesto sobre la sencillez radical, el deleite sincero del cliente y el arte de gestionar una iniciativa bajo tus propias reglas morales y personales.',
+    shortDescription: '40 lecciones heterodoxas para crear valor sin estrés.',
     coverArt: {
       bgColor: '#FFFFFF',
       textColor: '#DC2626',
@@ -346,23 +346,23 @@ export const REPLICA_BOOKS: Book[] = [
     },
     editorialImages: [],
     previewContent: {
-      excerptHeader: 'Chapter 1 — Just Make It For Yourself',
+      excerptHeader: 'Capítulo 1 — Hazlo para ti mismo',
       chapters: [
         {
           chapterNumber: 1,
-          chapterTitle: 'Just Make It For Yourself',
+          chapterTitle: 'Hazlo para ti mismo',
           epigraph: {
-            quote: 'If you’re not saying "HELL YEAH!", say no.',
+            quote: 'Si no estás diciendo "¡CLARO QUE SÍ!", di que no.',
             source: 'Derek Sivers'
           },
           paragraphs: [
-            'You don’t need a business plan, venture capital, or ten employees to start. You just need to solve a real problem you personally have.',
-            'When I started CD Baby, it was just a hobby to sell my own friends’ CDs on the web in 1997 when nobody else would do it.',
-            'Never forget why you’re really doing what you’re doing. Are you doing it to impress people, or are you doing it because it brings joy and helps someone?'
+            'No necesitas un plan de negocio de cincuenta páginas, capital de riesgo ni diez empleados para comenzar. Solo necesitas resolver un problema real que tú mismo tengas.',
+            'Cuando creé CD Baby, era solo una iniciativa pequeña para vender la música de mis amigos por internet cuando nadie más lo hacía.',
+            'Nunca olvides la razón originaria por la que haces lo que haces. ¿Lo haces para impresionar o para ser útil y disfrutar el proceso?'
           ]
         }
       ],
-      sampleEndNote: 'Read the complete work for US$1.'
+      sampleEndNote: 'Lee la obra completa por US$1.'
     },
     price: 1.00,
     currency: 'USD',
@@ -371,19 +371,19 @@ export const REPLICA_BOOKS: Book[] = [
     readingTime: '20 min',
     featured: false,
     releaseDate: '2026-06-26',
-    keywords: ['startups', 'creativity', 'minimalism', 'freedom']
+    keywords: ['creatividad', 'minimalismo', 'libertad', 'negocios']
   },
 
   {
     id: 'creative-confidence',
     slug: 'creative-confidence',
-    title: 'Creative Confidence',
-    subtitle: 'Unleashing the creative potential within us all.',
+    title: 'Confianza Creativa',
+    subtitle: 'Liberar el potencial innovador que todos llevamos dentro.',
     writerId: 'kelley-brothers',
-    category: 'Creativity & Innovation',
-    thesisStatement: 'Creativity is not the domain of only a chosen few; it is a muscle that can be cultivated and strengthened by anyone.',
-    description: 'IDEO founder David Kelley and his brother Tom Kelley draw on their work with the world’s top innovators to demonstrate how creative thinking transforms organizations and careers.',
-    shortDescription: 'Unlocking innovative problem-solving in everyday life.',
+    category: 'Creatividad & Innovación',
+    thesisStatement: 'La creatividad no es patrimonio exclusivo de unos pocos elegidos; es un músculo que cualquiera puede ejercitar.',
+    description: 'David Kelley, fundador de IDEO, y su hermano Tom Kelley demuestran cómo la confianza creativa revoluciona la capacidad de resolución de problemas en organizaciones y vidas personales.',
+    shortDescription: 'Cómo despertar la innovación en la vida cotidiana.',
     coverArt: {
       bgColor: '#FFFFFF',
       textColor: '#064E3B',
@@ -392,22 +392,22 @@ export const REPLICA_BOOKS: Book[] = [
     },
     editorialImages: [],
     previewContent: {
-      excerptHeader: 'Chapter 1 — Flip the Switch',
+      excerptHeader: 'Capítulo 1 — Cambiar el interruptor',
       chapters: [
         {
           chapterNumber: 1,
-          chapterTitle: 'Flip the Switch',
+          chapterTitle: 'Cambiar el interruptor',
           epigraph: {
-            quote: 'Belief in your creative capacity lies at the heart of innovation.',
+            quote: 'La confianza en tu capacidad creativa es el núcleo de toda innovación.',
             source: 'David & Tom Kelley'
           },
           paragraphs: [
-            'Too many people believe they were born without a "creative gene." That belief is not only wrong; it is deeply limiting.',
-            'When you overcome the fear of judgment, you start to view failures not as personal verdicts, but as essential iterations toward an extraordinary outcome.'
+            'Demasiadas personas crecen creyendo que nacieron sin un "gen creativo". Esa creencia no solo es falsa; resulta profundamente limitante.',
+            'Cuando pierdes el miedo al juicio externo, comienzas a ver los fallos no como sentencias personales, sino como iteraciones necesarias hacia una gran idea.'
           ]
         }
       ],
-      sampleEndNote: 'Pre-order now or get the sample edition for US$1.'
+      sampleEndNote: 'Reserva la edición íntegra por US$1.'
     },
     price: 1.00,
     currency: 'USD',
@@ -416,7 +416,7 @@ export const REPLICA_BOOKS: Book[] = [
     readingTime: '25 min',
     featured: false,
     releaseDate: '2026-07-01',
-    keywords: ['creativity', 'innovation', 'ideo', 'confidence']
+    keywords: ['creatividad', 'innovación', 'ideo', 'confianza']
   }
 ];
 

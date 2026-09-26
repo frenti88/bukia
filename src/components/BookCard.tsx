@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Book } from '../types';
 import { ReplicaBookCover } from './ReplicaBookCover';
-import { Bookmark, Share2, BookOpen, ShoppingBag } from 'lucide-react';
+import { Bookmark, Share2 } from 'lucide-react';
 
 interface BookCardProps {
   book: Book;
@@ -25,11 +25,11 @@ export const BookCard: React.FC<BookCardProps> = ({
       onClick={() => onSelect(book)}
       className="group bg-white rounded-xl border border-gray-100 p-4 transition-all duration-300 hover:shadow-card-hover hover:border-gray-200 flex flex-col justify-between cursor-pointer"
     >
-      {/* Top Header Row of Card: New Badge + Action Icons */}
+      {/* Fila superior: Badge Nuevo + Íconos de acción */}
       <div className="flex items-center justify-between mb-3 h-6">
         {isNew ? (
           <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-[#EBF8F2] text-[#1B7A52]">
-            New
+            Nuevo
           </span>
         ) : (
           <span />
@@ -45,7 +45,8 @@ export const BookCard: React.FC<BookCardProps> = ({
             className={`p-1 rounded hover:text-black transition-colors ${
               isBookmarked ? 'text-black fill-current' : ''
             }`}
-            aria-label="Save book"
+            aria-label="Guardar libro en favoritos"
+            title="Guardar"
           >
             <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-black' : ''}`} />
           </button>
@@ -57,15 +58,15 @@ export const BookCard: React.FC<BookCardProps> = ({
               onPreview(book);
             }}
             className="p-1 rounded hover:text-black transition-colors"
-            title="Preview reading"
-            aria-label="Preview reading"
+            title="Leer muestra de cortesía"
+            aria-label="Muestra de cortesía"
           >
             <Share2 className="w-3.5 h-3.5" />
           </button>
         </div>
       </div>
 
-      {/* Center Cover */}
+      {/* Portada central del libro */}
       <div className="flex items-center justify-center my-2 py-2">
         <div className="transition-transform duration-300 group-hover:scale-105">
           <ReplicaBookCover
@@ -78,7 +79,7 @@ export const BookCard: React.FC<BookCardProps> = ({
         </div>
       </div>
 
-      {/* Quick Action Overlay on Hover */}
+      {/* Información inferior de la tarjeta */}
       <div className="mt-3 pt-3 border-t border-gray-100 flex items-center justify-between text-xs">
         <div className="min-w-0 pr-2">
           <h4 className="font-semibold text-gray-950 text-xs sm:text-sm truncate group-hover:text-emerald-700 transition-colors">
@@ -96,7 +97,7 @@ export const BookCard: React.FC<BookCardProps> = ({
           }}
           className="flex-shrink-0 bg-black hover:bg-gray-800 text-white rounded-full px-3 py-1 text-[11px] font-medium transition-colors"
         >
-          Read
+          Leer
         </button>
       </div>
 

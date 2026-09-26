@@ -17,7 +17,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
   className = '',
   showShadow = true,
 }) => {
-  // Dimensional sizes matching 1:1.48 editorial book proportion
+  // Proporción editorial 1:1.48
   const sizeMap = {
     xs: 'w-20 h-[118px]',
     sm: 'w-28 h-[166px]',
@@ -32,35 +32,35 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
     <div
       className={`relative select-none aspect-book overflow-hidden rounded-[3px] bg-white border border-gray-200/80 transition-all duration-300 ${sizeMap[size]} ${shadowClass} ${className}`}
       role="img"
-      aria-label={`${title} by ${author}`}
+      aria-label={`${title} por ${author}`}
     >
-      {/* Subtle book spine highlight on the left */}
+      {/* Lomo y pliegue sutil en el borde izquierdo */}
       <div className="absolute left-0 top-0 bottom-0 w-3 bg-gradient-to-r from-black/15 via-white/10 to-transparent pointer-events-none z-20" />
       <div className="absolute left-[3px] top-0 bottom-0 w-[1px] bg-black/10 pointer-events-none z-20" />
 
-      {/* Book right subtle edge shadow */}
+      {/* Sombra de borde derecho */}
       <div className="absolute right-0 top-0 bottom-0 w-[1px] bg-black/5 pointer-events-none z-20" />
 
-      {/* INNER COVER DESIGNS */}
+      {/* DISEÑOS DE PORTADAS */}
       <div className="relative w-full h-full flex flex-col justify-between p-3 sm:p-4 text-center z-10 overflow-hidden font-sans">
         
-        {/* 1. THE PSYCHOLOGY OF MONEY */}
+        {/* 1. LA PSICOLOGÍA DEL DINERO */}
         {(id === 'psychology-of-money' || id === 'the-psychology-of-money') && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-white text-gray-900 py-1">
             <span className="text-[7px] sm:text-[8px] font-mono tracking-widest uppercase text-gray-400">
-              THE INTERNATIONAL BESTSELLER
+              BESTSELLER INTERNACIONAL
             </span>
             <div className="my-auto flex flex-col items-center">
-              <span className="font-serif italic text-xs sm:text-sm text-gray-600 block">The</span>
+              <span className="font-serif italic text-xs sm:text-sm text-gray-600 block">La</span>
               <h4 className="font-serif text-lg sm:text-xl font-bold leading-tight tracking-tight text-gray-950">
-                Psychology
+                Psicología
               </h4>
-              <span className="font-serif italic text-xs text-gray-600 block my-0.5">of</span>
+              <span className="font-serif italic text-xs text-gray-600 block my-0.5">del</span>
               <h4 className="font-serif text-lg sm:text-xl font-bold leading-tight tracking-tight text-emerald-800">
-                Money
+                Dinero
               </h4>
 
-              {/* Hand-drawn circular tree / brain motif */}
+              {/* Dibujo de árbol/cerebro */}
               <div className="my-2 w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-gray-300 flex items-center justify-center p-1 bg-stone-50">
                 <svg viewBox="0 0 100 100" className="w-full h-full text-gray-800 stroke-current fill-none">
                   <circle cx="50" cy="50" r="42" strokeWidth="1" strokeDasharray="3 2" />
@@ -73,8 +73,8 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
                 </svg>
               </div>
 
-              <span className="text-[7px] text-gray-400 font-sans uppercase tracking-wider block">
-                TIMELESS LESSONS ON WEALTH, GREED, AND HAPPINESS
+              <span className="text-[6.5px] text-gray-400 font-sans uppercase tracking-wider block">
+                LECCIONES ATEMPORALES SOBRE RIQUEZA Y FELICIDAD
               </span>
             </div>
             <span className="font-sans font-bold text-[9px] sm:text-[10px] tracking-widest uppercase text-gray-900 border-t border-gray-200 pt-1 w-full">
@@ -83,21 +83,21 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
           </div>
         )}
 
-        {/* 2. THINKING, FAST AND SLOW */}
+        {/* 2. PENSAR RÁPIDO, PENSAR DESPACIO */}
         {id === 'thinking-fast-and-slow' && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-[#FAF7F2] text-gray-900 py-1">
             <span className="text-[7px] sm:text-[8px] font-mono tracking-wider uppercase text-gray-400">
-              NEW YORK TIMES BESTSELLER
+              BESTSELLER INTERNACIONAL
             </span>
             <div className="my-auto flex flex-col items-center w-full px-1">
               <h4 className="font-serif text-sm sm:text-base font-bold tracking-widest text-gray-900 leading-tight">
-                THINKING,
+                PENSAR RÁPIDO,
               </h4>
               <span className="font-mono text-[9px] text-gray-500 tracking-widest block my-0.5">
-                FAST AND SLOW
+                PENSAR DESPACIO
               </span>
 
-              {/* Horizontal Pencil Graphic */}
+              {/* Lápiz central */}
               <div className="my-4 w-28 sm:w-32 flex items-center justify-center">
                 <div className="flex items-center w-full">
                   <div className="w-2 h-2 bg-pink-300 rounded-l-[1px]" />
@@ -113,26 +113,26 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
               </h5>
             </div>
             <span className="text-[6px] sm:text-[7px] font-mono text-gray-500 uppercase tracking-widest border-t border-gray-200/80 pt-1 w-full">
-              WINNER OF THE NOBEL PRIZE
+              PREMIO NOBEL DE ECONOMÍA
             </span>
           </div>
         )}
 
-        {/* 3. THINK AGAIN */}
+        {/* 3. PIÉNSALO OTRA VEZ */}
         {id === 'think-again' && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-white text-gray-950 py-1">
             <span className="text-[7px] sm:text-[8px] font-mono tracking-wider uppercase text-blue-600 font-medium">
-              #1 NEW YORK TIMES BESTSELLER
+              #1 BESTSELLER INTERNACIONAL
             </span>
             <div className="my-auto flex flex-col items-center">
-              <h4 className="font-sans font-black text-xl sm:text-2xl tracking-tighter leading-none text-gray-950">
-                THINK
+              <h4 className="font-sans font-black text-lg sm:text-xl tracking-tighter leading-none text-gray-950">
+                PIÉNSALO
               </h4>
-              <h4 className="font-sans font-black text-xl sm:text-2xl tracking-tighter leading-none text-gray-950">
-                AGAIN
+              <h4 className="font-sans font-black text-lg sm:text-xl tracking-tighter leading-none text-gray-950 mt-0.5">
+                OTRA VEZ
               </h4>
 
-              {/* Blue flame / texture */}
+              {/* Llama azul */}
               <div className="my-2.5 w-14 h-16 flex items-center justify-center">
                 <div className="w-10 h-14 bg-gradient-to-t from-blue-600 via-sky-400 to-transparent rounded-full blur-[1px] opacity-80 relative flex items-center justify-center">
                   <div className="w-4 h-8 bg-white rounded-full opacity-60" />
@@ -144,23 +144,23 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
               </h5>
             </div>
             <span className="text-[7px] text-gray-400 font-sans uppercase tracking-wider border-t border-gray-200 pt-1 w-full">
-              The Power of Knowing What You Don't Know
+              El Poder de Saber lo que No Sabemos
             </span>
           </div>
         )}
 
-        {/* 4. TALKING TO STRANGERS */}
+        {/* 4. HABLAR CON EXTRAÑOS */}
         {id === 'talking-to-strangers' && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-[#FAF8F5] text-gray-900 py-1">
             <span className="text-[7px] sm:text-[8px] font-mono tracking-wider uppercase text-gray-400">
-              #1 INTERNATIONAL BESTSELLER
+              #1 BESTSELLER GLOBAL
             </span>
             <div className="my-auto flex flex-col items-center">
               <h4 className="font-serif text-sm sm:text-base font-bold text-gray-900 leading-snug">
-                Talking to <br /> Strangers
+                Hablar con <br /> Extraños
               </h4>
 
-              {/* Concentric colored circular radar ring */}
+              {/* Anillos concéntricos de colores */}
               <div className="my-3 w-16 h-16 rounded-full border-4 border-emerald-500 flex items-center justify-center relative bg-white">
                 <div className="w-10 h-10 rounded-full border-4 border-sky-500 flex items-center justify-center">
                   <div className="w-4 h-4 rounded-full bg-amber-400" />
@@ -172,7 +172,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
               </h5>
             </div>
             <span className="text-[6.5px] font-mono text-gray-500 uppercase tracking-widest border-t border-gray-200 pt-1 w-full">
-              HOST OF REVISIONIST HISTORY
+              AUTOR DE INTELIGENCIA INTUITIVA
             </span>
           </div>
         )}
@@ -181,14 +181,14 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
         {id === 'mindset' && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-white text-gray-900 py-1">
             <span className="text-[7px] sm:text-[8px] font-mono text-blue-600 uppercase tracking-wider">
-              OVER 2 MILLION COPIES SOLD
+              MÁS DE 2 MILLONES DE EJEMPLARES
             </span>
             <div className="my-auto flex flex-col items-center">
               <h4 className="font-sans font-bold text-xl sm:text-2xl lowercase tracking-tight text-blue-900">
                 mindset
               </h4>
 
-              {/* Bidirectional arrows */}
+              {/* Flechas bidireccionales */}
               <div className="my-3 flex items-center gap-2">
                 <div className="w-8 h-1 bg-blue-600 rounded-full" />
                 <div className="w-2 h-2 rounded-full bg-amber-400" />
@@ -196,7 +196,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
               </div>
 
               <span className="text-[7px] font-sans text-gray-500 uppercase tracking-wider block">
-                THE NEW PSYCHOLOGY OF SUCCESS
+                LA NUEVA PSICOLOGÍA DEL ÉXITO
               </span>
             </div>
             <span className="font-sans font-bold text-[9px] text-gray-800 uppercase tracking-wider border-t border-gray-200 pt-1 w-full">
@@ -205,18 +205,18 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
           </div>
         )}
 
-        {/* 6. DESIGNING YOUR LIFE */}
+        {/* 6. DISEÑA TU VIDA */}
         {id === 'designing-your-life' && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-white text-gray-900 py-1">
             <span className="text-[7px] sm:text-[8px] font-mono text-gray-400 uppercase tracking-wider">
-              #1 NEW YORK TIMES BESTSELLER
+              BESTSELLER DEL NEW YORK TIMES
             </span>
             <div className="my-auto flex flex-col items-center">
               <h4 className="font-sans font-black text-sm sm:text-base leading-tight text-gray-950">
-                Designing <br /> Your Life
+                Diseña <br /> Tu Vida
               </h4>
 
-              {/* Colorful Bauhaus building blocks */}
+              {/* Bloques de diseño */}
               <div className="my-3 grid grid-cols-2 gap-1 w-12 h-12">
                 <div className="bg-sky-400 rounded-sm" />
                 <div className="bg-pink-500 rounded-sm" />
@@ -225,7 +225,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
               </div>
 
               <span className="text-[7px] font-sans text-gray-500 uppercase tracking-wider block">
-                How to Build a Well-Lived, Joyful Life
+                Cómo Construir una Vida Plena y Alegre
               </span>
             </div>
             <span className="font-sans font-bold text-[8.5px] text-gray-800 uppercase tracking-wider border-t border-gray-200 pt-1 w-full">
@@ -234,18 +234,18 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
           </div>
         )}
 
-        {/* 7. COMPANY OF ONE */}
+        {/* 7. EMPRESA DE UNO */}
         {id === 'company-of-one' && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-white text-gray-900 py-1">
             <span className="text-[7px] sm:text-[8px] font-mono text-gray-400 uppercase tracking-wider">
-              A REVOLUTIONARY APPROACH
+              UN ENFOQUE REVOLUCIONARIO
             </span>
             <div className="my-auto flex flex-col items-center">
               <h4 className="font-serif font-bold text-base sm:text-lg text-gray-950 leading-tight">
-                Company <br /> of One
+                Empresa <br /> de Uno
               </h4>
 
-              {/* Minimalist bird among dots */}
+              {/* Pájaro minimalista */}
               <div className="my-3 w-16 h-12 flex items-center justify-center relative">
                 <div className="w-4 h-4 rounded-full bg-black flex items-center justify-center text-white text-[8px]">
                   ●
@@ -255,7 +255,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
               </div>
 
               <span className="text-[7px] font-sans text-gray-500 uppercase tracking-wider block">
-                Why Staying Small Is the Next Big Thing
+                Por Qué Mantenerse Pequeño es el Futuro
               </span>
             </div>
             <span className="font-sans font-bold text-[9px] text-gray-900 uppercase tracking-wider border-t border-gray-200 pt-1 w-full">
@@ -264,18 +264,18 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
           </div>
         )}
 
-        {/* 8. ANYTHING YOU WANT */}
+        {/* 8. TODO LO QUE QUIERAS */}
         {id === 'anything-you-want' && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-white text-gray-900 py-1">
             <span className="text-[7px] sm:text-[8px] font-mono text-gray-400 uppercase tracking-wider">
-              40 LESSONS FOR ENTREPRENEURS
+              40 LECCIONES PARA EMPRENDEDORES
             </span>
             <div className="my-auto flex flex-col items-center">
               <div className="space-y-0.5 leading-none">
-                <span className="font-sans font-black text-lg sm:text-xl text-rose-600 block">ANY</span>
-                <span className="font-sans font-black text-lg sm:text-xl text-amber-500 block">THING</span>
-                <span className="font-sans font-black text-lg sm:text-xl text-sky-600 block">YOU</span>
-                <span className="font-sans font-black text-lg sm:text-xl text-emerald-600 block">WANT</span>
+                <span className="font-sans font-black text-lg sm:text-xl text-rose-600 block">TODO</span>
+                <span className="font-sans font-black text-lg sm:text-xl text-amber-500 block">LO QUE</span>
+                <span className="font-sans font-black text-lg sm:text-xl text-sky-600 block">TÚ</span>
+                <span className="font-sans font-black text-lg sm:text-xl text-emerald-600 block">QUIERAS</span>
               </div>
             </div>
             <span className="font-sans font-extrabold text-[9px] text-gray-900 uppercase tracking-wider border-t border-gray-200 pt-1 w-full">
@@ -284,14 +284,14 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
           </div>
         )}
 
-        {/* 9. CREATIVE CONFIDENCE */}
+        {/* 9. CONFIANZA CREATIVA */}
         {id === 'creative-confidence' && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-white text-gray-900 py-2">
             <span className="text-[7px] sm:text-[8px] font-mono text-emerald-700 uppercase tracking-widest font-semibold">
-              NEW RELEASE
+              NUEVO LANZAMIENTO
             </span>
             <div className="my-auto flex flex-col items-center w-full px-2">
-              {/* Turquoise watercolor splash */}
+              {/* Acuarela turquesa */}
               <div className="w-full h-20 sm:h-24 my-2 relative flex items-center justify-center">
                 <svg viewBox="0 0 200 120" className="w-full h-full text-emerald-400 fill-current opacity-85">
                   <path d="M20,60 Q50,10 100,50 T180,40 Q190,80 140,90 T40,80 Z" />
@@ -299,12 +299,12 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
                 </svg>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <h4 className="font-serif italic font-bold text-sm sm:text-base text-gray-950 tracking-tight drop-shadow-sm">
-                    Creative Confidence
+                    Confianza Creativa
                   </h4>
                 </div>
               </div>
               <span className="text-[7px] font-sans text-gray-500 uppercase tracking-wider block">
-                Unleashing the Creative Potential Within Us All
+                Liberar el Potencial que Llevamos Dentro
               </span>
             </div>
             <span className="font-sans font-bold text-[9px] text-gray-900 uppercase tracking-wider border-t border-gray-200 pt-1 w-full">
@@ -313,18 +313,18 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
           </div>
         )}
 
-        {/* 10. ATOMIC HABITS */}
+        {/* 10. HÁBITOS ATÓMICOS */}
         {id === 'atomic-habits' && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-white text-gray-900 py-1">
             <span className="text-[7px] sm:text-[8px] font-mono text-gray-400 uppercase tracking-wider">
-              AN EASY & PROVEN WAY
+              UN MÉTODO SENCILLO Y COMPROBADO
             </span>
             <div className="my-auto flex flex-col items-center">
               <h4 className="font-sans font-black text-xl sm:text-2xl text-gray-950 tracking-tight leading-none">
-                atomic
+                hábitos
               </h4>
               <h4 className="font-sans font-black text-xl sm:text-2xl text-gray-950 tracking-tight leading-none mt-1">
-                habits
+                atómicos
               </h4>
               <div className="my-3 flex items-center gap-1">
                 {Array.from({ length: 9 }).map((_, i) => (
@@ -338,18 +338,18 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
           </div>
         )}
 
-        {/* 11. START WITH WHY */}
+        {/* 11. EMPIEZA CON EL PORQUÉ */}
         {id === 'start-with-why' && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-white text-gray-900 py-1">
             <span className="text-[7px] sm:text-[8px] font-mono text-gray-400 uppercase tracking-wider">
-              MILLION-COPY BESTSELLER
+              MILLONES DE LECTORES
             </span>
             <div className="my-auto flex flex-col items-center">
               <div className="bg-rose-600 text-white font-black text-sm sm:text-base px-2 py-1 leading-none tracking-tight">
-                START WITH
+                EMPIEZA CON
               </div>
               <div className="text-rose-600 font-black text-2xl sm:text-3xl leading-none tracking-tighter mt-1">
-                WHY
+                EL PORQUÉ
               </div>
             </div>
             <span className="font-sans font-bold text-[9px] text-gray-900 uppercase tracking-wider border-t border-gray-200 pt-1 w-full">
@@ -362,16 +362,16 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
         {id === 'blink' && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-white text-gray-900 py-1">
             <span className="text-[7px] sm:text-[8px] font-mono text-gray-400 uppercase tracking-wider">
-              INTERNATIONAL BESTSELLER
+              BESTSELLER INTERNACIONAL
             </span>
             <div className="my-auto flex flex-col items-center">
               <h5 className="font-serif text-xs text-gray-700">Malcolm Gladwell</h5>
-              <h4 className="font-sans font-black text-2xl sm:text-3xl text-sky-500 tracking-tight mt-1 flex items-center gap-0.5">
-                Blink <span className="text-sky-400 text-lg">*</span>
+              <h4 className="font-sans font-black text-xl sm:text-2xl text-sky-500 tracking-tight mt-1 flex items-center gap-0.5">
+                Inteligencia Intuitiva <span className="text-sky-400 text-lg">*</span>
               </h4>
             </div>
             <span className="font-sans text-[7px] text-gray-400 uppercase tracking-wider border-t border-gray-200 pt-1 w-full">
-              The Power of Thinking Without Thinking
+              El Poder de Pensar sin Pensar
             </span>
           </div>
         )}
@@ -380,14 +380,14 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
         {id === 'grit' && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-white text-gray-900 py-1">
             <span className="text-[7px] sm:text-[8px] font-mono text-gray-400 uppercase tracking-wider">
-              NEW YORK TIMES BESTSELLER
+              BESTSELLER GLOBAL
             </span>
             <div className="my-auto flex flex-col items-center">
               <h4 className="font-sans font-black text-2xl sm:text-3xl text-rose-700 tracking-widest">
                 GRIT
               </h4>
               <span className="text-[7px] font-sans text-gray-500 uppercase tracking-wider mt-1">
-                The Power of Passion and Perseverance
+                El Poder de la Pasión y la Perseverancia
               </span>
             </div>
             <span className="font-sans font-bold text-[9px] text-gray-900 uppercase tracking-wider border-t border-gray-200 pt-1 w-full">
@@ -396,7 +396,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
           </div>
         )}
 
-        {/* 14. DEFAULT / BOOKIA ORIGINALS FALLBACK */}
+        {/* 14. EDICIONES ORIGINALES BOOKIA */}
         {![
           'psychology-of-money', 'the-psychology-of-money', 'thinking-fast-and-slow',
           'think-again', 'talking-to-strangers', 'mindset', 'designing-your-life',

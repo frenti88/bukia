@@ -10,52 +10,52 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateToSection }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           
-          {/* Left: Copyright */}
+          {/* Izquierda: Copyright */}
           <div>
-            <p>© 2026 BOOKIA Inc. All rights reserved.</p>
+            <p>© 2026 BOOKIA Inc. Plataforma de Lectura Intencional. Todos los derechos reservados.</p>
           </div>
 
-          {/* Center: Legal Links */}
+          {/* Centro: Enlaces legales */}
           <div className="flex items-center gap-6">
             <button
               onClick={() => onNavigateToSection('hero')}
               className="hover:text-black transition-colors"
             >
-              Privacy Policy
+              Política de Privacidad
             </button>
             <button
               onClick={() => onNavigateToSection('hero')}
               className="hover:text-black transition-colors"
             >
-              Terms of Service
+              Términos de Servicio
             </button>
           </div>
 
-          {/* Right: Navigation Links */}
+          {/* Derecha: Enlaces de navegación */}
           <div className="flex items-center gap-6 font-medium text-gray-700">
             <button
               onClick={() => onNavigateToSection('hero')}
               className="hover:text-black transition-colors"
             >
-              About
+              Acerca de
             </button>
             <button
               onClick={() => onNavigateToSection('catalog')}
               className="hover:text-black transition-colors"
             >
-              Library
+              Biblioteca
             </button>
             <button
               onClick={() => onNavigateToSection('countdown')}
               className="hover:text-black transition-colors"
             >
-              Community
+              Comunidad
             </button>
             <button
               onClick={() => onNavigateToSection('articles')}
               className="hover:text-black transition-colors"
             >
-              Support
+              Soporte
             </button>
           </div>
 
