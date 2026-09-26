@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #FAF8F5;
+    color: #171615;
+    overflow-x: hidden;
+  }
+
+  /* Custom subtle editorial scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #FAF8F5;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #D8D3C8;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9E9A92;
+  }
+}
+
+@layer utilities {
+  .book-3d-wrap {
+    perspective: 1200px;
+  }
+
+  .book-3d-card {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-style: preserve-3d;
+  }
+
+  .book-3d-card:hover {
+    transform: translateY(-8px) rotateY(-4deg) rotateX(2deg);
+  }
+
+  /* Drop cap for editorial openings */
+  .drop-cap::first-letter {
+    font-family: 'Newsreader', Georgia, serif;
+    float: left;
+    font-size: 3.5rem;
+    line-height: 0.82;
+    padding-top: 4px;
+    padding-right: 10px;
+    padding-bottom: 2px;
+    color: #171615;
+    font-weight: 500;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .book-3d-card:hover {
+    transform: none !important;
+  }
+}
