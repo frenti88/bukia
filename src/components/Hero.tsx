@@ -1,167 +1,148 @@
-import React from 'react';
-import { Book, Writer } from '../types';
-import { BookCoverArt } from './BookCoverArt';
-import { ArrowRight, BookOpen, Clock, Sparkles } from 'lucide-react';
+import React, { useState } from 'react';
+import { Book } from '../types';
+import { ReplicaBookCover } from './ReplicaBookCover';
+import { TopographicWave } from './TopographicWave';
+import { RulerScrubber } from './RulerScrubber';
 
 interface HeroProps {
-  featuredBook: Book;
-  writer: Writer;
   onSelectBook: (book: Book) => void;
   onOpenPreview: (book: Book) => void;
   onExploreCatalog: () => void;
+  allBooks: Book[];
 }
 
 export const Hero: React.FC<HeroProps> = ({
-  featuredBook,
-  writer,
   onSelectBook,
   onOpenPreview,
   onExploreCatalog,
+  allBooks,
 }) => {
+  // Display sequence of books for the hero fan-out carousel
+  const heroBooks = [
+    { id: 'start-with-why', title: 'Start With Why', author: 'Simon Sinek' },
+    { id: 'blink', title: 'Blink', author: 'Malcolm Gladwell' },
+    { id: 'psychology-of-money', title: 'The Psychology of Money', author: 'Morgan Housel' },
+    { id: 'atomic-habits', title: 'Atomic Habits', author: 'James Clear' },
+    { id: 'grit', title: 'Grit', author: 'Angela Duckworth' },
+  ];
+
+  const [activeIndex, setActiveIndex] = useState(2); // Center book (Psychology of Money)
+
+  const handleBookClick = (bookData: { id: string; title: string; author: string }) => {
+    const found = allBooks.find((b) => b.id === bookData.id || b.slug === bookData.id);
+    if (found) {
+      onSelectBook(found);
+    } else {
+      onExploreCatalog();
+    }
+  };
+
   return (
-    <section id="hero" className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden border-b border-ink/10">
+    <section id="hero" className="relative pt-12 sm:pt-16 pb-12 overflow-hidden bg-white text-center">
       
-      {/* Background ambient editorial grid */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        style={{
-          backgroundImage: `linear-gradient(to right, #171615 1px, transparent 1px), linear-gradient(to bottom, #171615 1px, transparent 1px)`,
-          backgroundSize: '4rem 4rem'
-        }}
-      />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* Container for Headline & Subtitle */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
         
-        {/* Top Editorial Kicker */}
-        <div className="flex items-center gap-3 mb-6">
-          <span className="inline-block w-8 h-[1px] bg-editorial-terracotta" />
-          <span className="font-mono text-xs uppercase tracking-widest-editorial text-ink-muted">
-            Editorial Digital de Lectura Concentrada
+        {/* Main Headline */}
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-light text-gray-900 tracking-tight leading-[1.15] sm:leading-[1.12]">
+          <span>Dive into </span>
+          <span className="inline-flex items-center align-middle mx-1 px-1.5 py-0.5 bg-amber-100/80 border border-amber-300 rounded text-amber-900 text-xs sm:text-sm font-mono transform -rotate-3 shadow-xs">
+            📖 FILOSOFI TERAS
           </span>
-        </div>
+          <span> the world</span> <br />
+          <span>of </span>
+          <strong className="font-extrabold text-black">intentional reading!</strong>
+        </h1>
 
-        {/* Main Grid: Split composition (Typography + Featured Book Showcase) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          
-          {/* Left Column: Brand Thesis & Headline (7 cols) */}
-          <div className="lg:col-span-7 flex flex-col justify-center">
-            
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-ink leading-[1.08] tracking-tight">
-              Libros breves. <br />
-              <span className="italic font-normal text-editorial-terracotta">
-                Pensamiento
-              </span> sin relleno.
-            </h1>
+        {/* Subtitle */}
+        <p className="mt-4 text-xs sm:text-sm md:text-base text-gray-500 max-w-xl mx-auto leading-relaxed">
+          Curated digital editions designed to be absorbed in under 30 minutes. Deep ideas, sharp insights, and maximum value for your time.
+        </p>
 
-            <p className="mt-6 text-lg sm:text-xl text-ink-muted font-sans font-light leading-relaxed max-w-2xl">
-              Publicamos obras originales concebidas desde la primera línea para ser leídas en menos de media hora (~50 páginas). Ideas concentradas, edición rigurosa y dirección artística de coleccionista.
-            </p>
-
-            {/* Editorial Features Strip */}
-            <div className="mt-8 grid grid-cols-3 gap-4 border-y border-ink/10 py-5 max-w-xl">
-              <div>
-                <span className="block font-mono text-xs text-ink-muted uppercase tracking-wider">Extensión</span>
-                <span className="font-serif text-lg font-medium text-ink mt-0.5 block">Máx. 50 págs</span>
-              </div>
-              <div className="border-l border-ink/10 pl-4">
-                <span className="block font-mono text-xs text-ink-muted uppercase tracking-wider">Formatos</span>
-                <span className="font-serif text-lg font-medium text-ink mt-0.5 block">PDF + EPUB</span>
-              </div>
-              <div className="border-l border-ink/10 pl-4">
-                <span className="block font-mono text-xs text-ink-muted uppercase tracking-wider">Adquisición</span>
-                <span className="font-serif text-lg font-medium text-ink mt-0.5 block">US$1 / obra</span>
-              </div>
-            </div>
-
-            {/* CTA Group */}
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <button
-                onClick={onExploreCatalog}
-                className="px-6 py-3.5 bg-ink text-paper rounded-[2px] font-sans font-medium text-sm tracking-wide flex items-center gap-3 hover:bg-ink-light transition-all shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink"
-              >
-                <span>Explorar Colección Inicial</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-
-              <button
-                onClick={() => onOpenPreview(featuredBook)}
-                className="px-6 py-3.5 bg-paper-pure border border-ink/20 text-ink rounded-[2px] font-sans font-medium text-sm tracking-wide flex items-center gap-2 hover:bg-paper-warm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink"
-              >
-                <BookOpen className="w-4 h-4 text-editorial-terracotta" />
-                <span>Leer extracto libre</span>
-              </button>
-            </div>
-
-            <p className="mt-4 text-xs font-mono text-ink-faint">
-              Sin registros previos. Acceso instantáneo en cualquier dispositivo.
-            </p>
-
-          </div>
-
-          {/* Right Column: Hero Featured Book Composition (5 cols) */}
-          <div className="lg:col-span-5 flex flex-col items-center lg:items-end justify-center">
-            
-            <div className="relative group">
-              
-              {/* Highlight badge floating subtly */}
-              <div className="absolute -top-4 -left-4 z-30 bg-paper-pure px-3 py-1 border border-ink/15 shadow-sm rounded-full flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-editorial-terracotta animate-pulse" />
-                <span className="font-mono text-[10px] uppercase tracking-wider text-ink font-medium">
-                  Obra Destacada
-                </span>
-              </div>
-
-              {/* Book 3D Container */}
-              <div 
-                onClick={() => onSelectBook(featuredBook)}
-                className="cursor-pointer book-3d-wrap transition-transform duration-500 hover:scale-[1.02]"
-              >
-                <BookCoverArt
-                  book={featuredBook}
-                  size="hero"
-                  className="book-3d-card"
-                  isInteractive
-                />
-              </div>
-
-              {/* Quick Info underneath */}
-              <div className="mt-5 text-center lg:text-left bg-paper-pure p-4 rounded border border-ink/10 shadow-sm max-w-sm">
-                <div className="flex items-center justify-between font-mono text-xs text-ink-muted">
-                  <span className="uppercase tracking-wider">{featuredBook.category}</span>
-                  <span className="font-semibold text-ink">US${featuredBook.price}</span>
-                </div>
-                <h2 className="font-serif text-lg font-medium text-ink mt-1">
-                  {featuredBook.title}
-                </h2>
-                <p className="text-xs text-ink-muted font-sans mt-1 line-clamp-2">
-                  "{featuredBook.thesisStatement}"
-                </p>
-                <div className="mt-3 pt-2 border-t border-ink/10 flex items-center justify-between text-xs font-mono">
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onOpenPreview(featuredBook);
-                    }}
-                    className="text-editorial-terracotta hover:underline font-medium flex items-center gap-1"
-                  >
-                    <BookOpen className="w-3.5 h-3.5" />
-                    Abrir muestra
-                  </button>
-                  <button
-                    onClick={() => onSelectBook(featuredBook)}
-                    className="text-ink hover:text-editorial-terracotta flex items-center gap-1"
-                  >
-                    Ver detalles →
-                  </button>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
+        {/* Action Buttons */}
+        <div className="mt-6 flex items-center justify-center gap-3">
+          <button
+            onClick={onExploreCatalog}
+            className="bg-black hover:bg-gray-800 text-white text-xs sm:text-sm font-medium px-6 py-2.5 rounded-full transition-all shadow-sm"
+          >
+            Join Now
+          </button>
+          <button
+            onClick={onExploreCatalog}
+            className="bg-white hover:bg-gray-50 text-black border border-gray-300 text-xs sm:text-sm font-medium px-6 py-2.5 rounded-full transition-all"
+          >
+            Sign Up
+          </button>
         </div>
 
       </div>
+
+      {/* Topographic Wave Behind Books */}
+      <div className="relative mt-8 sm:mt-12 w-full max-w-6xl mx-auto">
+        
+        {/* Halftone Topographic Wave Landscape */}
+        <div className="absolute inset-x-0 -top-16 sm:-top-20 z-0">
+          <TopographicWave height={260} opacity={0.75} />
+        </div>
+
+        {/* Books Carousel / Row */}
+        <div className="relative z-10 flex items-end justify-center gap-2 sm:gap-4 md:gap-6 px-4 pt-6 pb-2 overflow-x-auto no-scrollbar">
+          {heroBooks.map((item, idx) => {
+            const isCenter = idx === activeIndex;
+            const distance = Math.abs(idx - activeIndex);
+
+            // Scale & elevate center book
+            let scaleClass = 'scale-90 opacity-75';
+            let zIndexClass = 'z-10';
+            if (distance === 0) {
+              scaleClass = 'scale-105 sm:scale-110 opacity-100';
+              zIndexClass = 'z-30';
+            } else if (distance === 1) {
+              scaleClass = 'scale-95 sm:scale-100 opacity-90';
+              zIndexClass = 'z-20';
+            }
+
+            return (
+              <div
+                key={item.id}
+                onClick={() => {
+                  setActiveIndex(idx);
+                  handleBookClick(item);
+                }}
+                className={`transition-all duration-300 transform cursor-pointer flex-shrink-0 ${scaleClass} ${zIndexClass}`}
+              >
+                <div className="relative group">
+                  <ReplicaBookCover
+                    id={item.id}
+                    title={item.title}
+                    author={item.author}
+                    size={isCenter ? 'hero' : 'md'}
+                    showShadow
+                    className="group-hover:-translate-y-2 transition-transform duration-300"
+                  />
+                  {/* Subtle bottom fade mask */}
+                  <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Ruler Tick Scrubber underneath */}
+        <div className="mt-4 flex justify-center">
+          <RulerScrubber
+            variant="arrow"
+            tickCount={45}
+            onSelectIndex={(tickIdx) => {
+              // Map 45 ticks to 5 books
+              const mapped = Math.min(4, Math.floor((tickIdx / 45) * 5));
+              setActiveIndex(mapped);
+            }}
+          />
+        </div>
+
+      </div>
+
     </section>
   );
 };
