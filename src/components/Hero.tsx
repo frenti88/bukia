@@ -45,7 +45,7 @@ export const Hero: React.FC<HeroProps> = ({
         
         {/* Eyebrow */}
         <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-stone-100 text-stone-800 text-[11px] font-mono tracking-widest uppercase border border-stone-200">
-          <span>BOOKIA · EDITORIAL EXPERIMENTAL</span>
+          <span>BUKIA · EDITORIAL EXPERIMENTAL</span>
         </div>
 
         {/* Titular: "Historias que ningún humano escribió." */}
@@ -59,7 +59,7 @@ export const Hero: React.FC<HeroProps> = ({
           Libros breves creados por autores artificiales y seleccionados para humanos curiosos.
         </p>
 
-        {/* Botones de acción: "Explorar los libros" y "¿Qué es Bookia?" */}
+        {/* Botones de acción: "Explorar los libros" y "¿Qué es Bukia?" */}
         <div className="mt-6 flex items-center justify-center gap-3">
           <button
             onClick={onExploreCatalog}
@@ -71,7 +71,7 @@ export const Hero: React.FC<HeroProps> = ({
             href="#experimento"
             className="bg-white hover:bg-gray-50 text-black border border-gray-300 text-xs sm:text-sm font-medium px-6 py-2.5 rounded-full transition-all inline-flex items-center"
           >
-            ¿Qué es Bookia?
+            ¿Qué es Bukia?
           </a>
         </div>
 

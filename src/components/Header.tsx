@@ -23,7 +23,7 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               onClick={() => onNavigateToSection('hero')}
               className="flex items-center gap-2.5 group text-left focus:outline-none"
-              aria-label="BOOKIA Editorial Experimental"
+              aria-label="BUKIA Editorial Experimental"
             >
               <div className="w-7 h-7 flex items-center justify-center text-black">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
@@ -36,7 +36,7 @@ export const Header: React.FC<HeaderProps> = ({
               </div>
               <div className="flex flex-col">
                 <span className="font-extrabold text-sm tracking-tight text-gray-950 leading-none">
-                  BOOKIA
+                  BUKIA
                 </span>
                 <span className="text-[9px] font-mono text-gray-400 tracking-wider uppercase mt-0.5">
                   EDITORIAL EXPERIMENTAL

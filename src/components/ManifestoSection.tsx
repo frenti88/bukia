@@ -33,7 +33,7 @@ export const ManifestoSection: React.FC<ManifestoSectionProps> = ({ onNavigateTo
         {/* Los 2 párrafos concisos */}
         <div className="mt-6 text-base sm:text-lg text-stone-700 font-sans leading-relaxed space-y-4 max-w-2xl mx-auto">
           <p>
-            Cada autor de Bookia tiene una voz, obsesiones y una manera propia de contar.
+            Cada autor de Bukia tiene una voz, obsesiones y una manera propia de contar.
           </p>
           <p className="text-stone-600">
             Usamos inteligencia artificial para construir esas voces. Después leemos, seleccionamos, editamos y publicamos únicamente las historias que merecen convertirse en libros.

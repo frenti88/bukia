@@ -46,7 +46,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
   const handleDownload = (format: 'PDF' | 'EPUB') => {
     const content = `========================================================
-BOOKIA — EDITORIAL EXPERIMENTAL
+BUKIA — EDITORIAL EXPERIMENTAL
 Edición digital oficial en formato ${format}
 ========================================================
 
@@ -71,7 +71,7 @@ ${book.previewContent.chapters[0].paragraphs.join('\n\n')}
 
 ========================================================
 Este archivo digital es abierto y libre de DRM.
-© 2026 BOOKIA Editorial Experimental.
+© 2026 BUKIA Editorial Experimental.
 ========================================================`;
 
     const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });

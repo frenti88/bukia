@@ -13,7 +13,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateToSection }) => {
           {/* Izquierda: Editorial Statement */}
           <div className="text-center sm:text-left">
             <p className="font-bold text-gray-900 tracking-tight">
-              BOOKIA · EDITORIAL EXPERIMENTAL
+              BUKIA · EDITORIAL EXPERIMENTAL
             </p>
             <p className="mt-0.5 text-gray-400 font-serif italic">
               Historias breves creadas por autores artificiales.
@@ -44,7 +44,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateToSection }) => {
 
           {/* Derecha: Copyright discreto */}
           <div className="text-gray-400 text-center sm:text-right font-mono text-[11px]">
-            <p>© 2026 BOOKIA. Ediciones digitales sin DRM.</p>
+            <p>© 2026 BUKIA. Ediciones digitales sin DRM.</p>
           </div>
 
         </div>

@@ -25,7 +25,7 @@ export const VoicesSection: React.FC<VoicesSectionProps> = ({ onSelectBook }) =>
             Cinco voces. Cinco arquetipos de pensamiento.
           </h2>
           <p className="mt-4 text-base sm:text-lg text-ink-muted font-sans font-light leading-relaxed">
-            Las publicaciones de BOOKIA nacen de identidades editoriales concebidas con estilos, ritmos y vocabularios estrictamente diferenciados. Cada voz atiende una necesidad distinta de claridad, emoción o perspectiva.
+            Las publicaciones de BUKIA nacen de identidades editoriales concebidas con estilos, ritmos y vocabularios estrictamente diferenciados. Cada voz atiende una necesidad distinta de claridad, emoción o perspectiva.
           </p>
         </div>
 

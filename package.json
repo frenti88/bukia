@@ -1,5 +1,5 @@
 {
-  "name": "bookia",
+  "name": "bukia",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
@@ -8,14 +8,14 @@
     "preview": "vite preview"
   },
   "keywords": [
-    "bookia",
+    "bukia",
     "editorial",
     "books",
     "digital-publishing"
   ],
-  "author": "BOOKIA Editorial",
+  "author": "BUKIA Editorial",
   "license": "MIT",
-  "description": "BOOKIA — Editorial digital contemporánea de libros breves de alta calidad.",
+  "description": "BUKIA — Editorial experimental de libros breves creados por autores artificiales.",
   "devDependencies": {
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",

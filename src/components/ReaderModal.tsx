@@ -270,7 +270,7 @@ export const ReaderModal: React.FC<ReaderModalProps> = ({
 
         {/* Folio inferior del lector */}
         <footer className={`px-6 py-2.5 border-t border-current/10 flex items-center justify-between text-[11px] font-mono opacity-60 select-none ${themeClasses[theme]}`}>
-          <span>BOOKIA · {book.title}</span>
+          <span>BUKIA · {book.title}</span>
           <span>Muestra: {readingProgress}% leído</span>
         </footer>
 

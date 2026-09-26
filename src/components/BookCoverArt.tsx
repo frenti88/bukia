@@ -41,7 +41,7 @@ export const BookCoverArt: React.FC<BookCoverArtProps> = ({
         color: book.coverArt.textColor,
       }}
       role="img"
-      aria-label={`Portada del libro: ${book.title} por ${writer?.displayName || 'Bookia'}`}
+      aria-label={`Portada del libro: ${book.title} por ${writer?.displayName || 'Bukia'}`}
     >
       {/* Paper texture overlay */}
       <div 
@@ -64,7 +64,7 @@ export const BookCoverArt: React.FC<BookCoverArtProps> = ({
         
         {/* Top Header: Imprint & Folio */}
         <div className="flex items-center justify-between text-[9px] sm:text-[10px] tracking-widest-editorial uppercase opacity-85 font-mono">
-          <span className="font-semibold tracking-widest">BOOKIA</span>
+          <span className="font-semibold tracking-widest">BUKIA</span>
           <span className="opacity-75">{book.pageCount}P · US$1</span>
         </div>
 

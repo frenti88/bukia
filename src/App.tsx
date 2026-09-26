@@ -64,9 +64,9 @@ export const App: React.FC = () => {
   // Sincronización del título del documento con la vista activa
   useEffect(() => {
     if (currentProductBook) {
-      document.title = `${currentProductBook.title} — BOOKIA`;
+      document.title = `${currentProductBook.title} — BUKIA`;
     } else {
-      document.title = 'BOOKIA — Editorial Experimental · Historias por Autores Artificiales';
+      document.title = 'BUKIA — Editorial Experimental · Historias por Autores Artificiales';
     }
   }, [currentProductBook]);
 

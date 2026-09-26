@@ -44,13 +44,13 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
       {/* DISEÑOS DE PORTADAS */}
       <div className="relative w-full h-full flex flex-col justify-between p-3 sm:p-4 text-center z-10 overflow-hidden font-sans">
         
-        {/* === COLECCIÓN 10 LIBROS BOOKIA (AUTORES ARTIFICIALES) === */}
+        {/* === COLECCIÓN 10 LIBROS BUKIA (AUTORES ARTIFICIALES) === */}
 
         {/* 01. LA ÚLTIMA PERSONA DESPIERTA */}
         {id === 'la-ultima-persona-despierta' && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-[#0B1329] text-white py-1">
             <div className="flex items-center justify-between w-full text-[7px] sm:text-[8px] font-mono tracking-widest uppercase text-amber-300/80 px-1 border-b border-white/10 pb-1">
-              <span>BOOKIA · N.º 01</span>
+              <span>BUKIA · N.º 01</span>
               <span>47 MIN</span>
             </div>
             <div className="my-auto flex flex-col items-center w-full px-2">
@@ -94,7 +94,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
         {id === 'todo-lo-que-nunca-ocurrio' && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-[#FAF6ED] text-stone-900 py-1">
             <div className="flex items-center justify-between w-full text-[7px] sm:text-[8px] font-mono tracking-widest uppercase text-amber-800/80 px-1 border-b border-stone-200 pb-1">
-              <span>BOOKIA · N.º 02</span>
+              <span>BUKIA · N.º 02</span>
               <span>42 MIN</span>
             </div>
             <div className="my-auto flex flex-col items-center w-full px-1">
@@ -134,7 +134,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
         {id === 'las-personas-que-dejamos-atras' && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-[#F1F5F9] text-slate-900 py-1">
             <div className="flex items-center justify-between w-full text-[7px] sm:text-[8px] font-mono tracking-widest uppercase text-slate-500 px-1 border-b border-slate-200 pb-1">
-              <span>BOOKIA · N.º 03</span>
+              <span>BUKIA · N.º 03</span>
               <span>38 MIN</span>
             </div>
             <div className="my-auto flex flex-col items-center w-full px-2">
@@ -180,7 +180,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
         {id === 'si-manana-no-existiera' && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-[#0B0F19] text-white py-1">
             <div className="flex items-center justify-between w-full text-[7px] sm:text-[8px] font-mono tracking-widest uppercase text-blue-400/80 px-1 border-b border-white/10 pb-1">
-              <span>BOOKIA · N.º 04</span>
+              <span>BUKIA · N.º 04</span>
               <span>52 MIN</span>
             </div>
             <div className="my-auto flex flex-col items-center w-full px-2">
@@ -218,7 +218,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
         {id === 'la-casa-que-nos-recuerda' && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-[#112318] text-white py-1">
             <div className="flex items-center justify-between w-full text-[7px] sm:text-[8px] font-mono tracking-widest uppercase text-emerald-400/80 px-1 border-b border-white/10 pb-1">
-              <span>BOOKIA · N.º 05</span>
+              <span>BUKIA · N.º 05</span>
               <span>45 MIN</span>
             </div>
             <div className="my-auto flex flex-col items-center w-full px-2">
@@ -258,7 +258,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
         {id === 'siete-minutos-sin-mentir' && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-white text-zinc-950 py-1">
             <div className="flex items-center justify-between w-full text-[7px] sm:text-[8px] font-mono tracking-widest uppercase text-red-600 px-1 border-b border-zinc-200 pb-1">
-              <span>BOOKIA · N.º 06</span>
+              <span>BUKIA · N.º 06</span>
               <span>35 MIN</span>
             </div>
             <div className="my-auto flex flex-col items-center w-full px-2">
@@ -298,7 +298,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
         {id === 'el-hombre-que-recordaba-el-futuro' && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-[#1A163B] text-white py-1">
             <div className="flex items-center justify-between w-full text-[7px] sm:text-[8px] font-mono tracking-widest uppercase text-indigo-300 px-1 border-b border-white/10 pb-1">
-              <span>BOOKIA · N.º 07</span>
+              <span>BUKIA · N.º 07</span>
               <span>49 MIN</span>
             </div>
             <div className="my-auto flex flex-col items-center w-full px-2">
@@ -336,7 +336,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
         {id === 'despues-de-nosotros' && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-[#1C1917] text-stone-100 py-1">
             <div className="flex items-center justify-between w-full text-[7px] sm:text-[8px] font-mono tracking-widest uppercase text-amber-500 px-1 border-b border-stone-800 pb-1">
-              <span>BOOKIA · N.º 08</span>
+              <span>BUKIA · N.º 08</span>
               <span>44 MIN</span>
             </div>
             <div className="my-auto flex flex-col items-center w-full px-2">
@@ -374,7 +374,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
         {id === 'la-vida-de-otra-persona' && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-[#18181B] text-zinc-100 py-1">
             <div className="flex items-center justify-between w-full text-[7px] sm:text-[8px] font-mono tracking-widest uppercase text-zinc-400 px-1 border-b border-zinc-800 pb-1">
-              <span>BOOKIA · N.º 09</span>
+              <span>BUKIA · N.º 09</span>
               <span>40 MIN</span>
             </div>
             <div className="my-auto flex flex-col items-center w-full px-2">
@@ -413,7 +413,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
         {id === 'antes-de-que-olvides-mi-nombre' && (
           <div className="h-full flex flex-col justify-between items-center text-center bg-[#FAF0F4] text-rose-950 py-1">
             <div className="flex items-center justify-between w-full text-[7px] sm:text-[8px] font-mono tracking-widest uppercase text-rose-800 px-1 border-b border-rose-200 pb-1">
-              <span>BOOKIA · N.º 10</span>
+              <span>BUKIA · N.º 10</span>
               <span>46 MIN</span>
             </div>
             <div className="my-auto flex flex-col items-center w-full px-2">
@@ -801,7 +801,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
           </div>
         )}
 
-        {/* 14. EDICIONES ORIGINALES BOOKIA */}
+        {/* 14. EDICIONES ORIGINALES BUKIA */}
         {![
           'psychology-of-money', 'the-psychology-of-money', 'thinking-fast-and-slow',
           'think-again', 'talking-to-strangers', 'mindset', 'designing-your-life',
@@ -810,7 +810,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
         ].includes(id) && (
           <div className="h-full flex flex-col justify-between items-center text-center py-2 bg-[#FAF8F5]">
             <span className="text-[7px] font-mono tracking-widest uppercase text-gray-400">
-              BOOKIA ORIGINAL · US$1
+              BUKIA ORIGINAL · US$1
             </span>
             <div className="my-auto flex flex-col items-center px-2">
               <div className="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center mb-2 bg-white">
