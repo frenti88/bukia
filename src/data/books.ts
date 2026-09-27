@@ -59,7 +59,8 @@ export const BOOKS: Record<string, Book> = {
     featured: true,
     releaseDate: '2026-08-10',
     keywords: ['insomnio', 'ciudad', 'misterio', 'obediencia', 'noche'],
-    nextRecommendedId: 'despues-de-nosotros'
+    nextRecommendedId: 'el-hombre-que-recordaba-el-futuro',
+    status: 'published'
   },
 
   'todo-lo-que-nunca-ocurrio': {
@@ -118,7 +119,8 @@ export const BOOKS: Record<string, Book> = {
     featured: true,
     releaseDate: '2026-08-15',
     keywords: ['archivo', 'memoria', 'identidad', 'pasado', 'recuerdos'],
-    nextRecommendedId: 'el-hombre-que-recordaba-el-futuro'
+    nextRecommendedId: 'el-hombre-que-recordaba-el-futuro',
+    status: 'upcoming'
   },
 
   'las-personas-que-dejamos-atras': {
@@ -177,7 +179,8 @@ export const BOOKS: Record<string, Book> = {
     featured: false,
     releaseDate: '2026-08-18',
     keywords: ['estación', 'culpa', 'tren', 'despedidas', 'fantasmas'],
-    nextRecommendedId: 'antes-de-que-olvides-mi-nombre'
+    nextRecommendedId: 'antes-de-que-olvides-mi-nombre',
+    status: 'upcoming'
   },
 
   'si-manana-no-existiera': {
@@ -235,7 +238,8 @@ export const BOOKS: Record<string, Book> = {
     featured: true,
     releaseDate: '2026-08-22',
     keywords: ['noche', 'tiempo', 'colapso', 'astronomía', 'oscuridad'],
-    nextRecommendedId: 'la-casa-que-nos-recuerda'
+    nextRecommendedId: 'siete-minutos-sin-mentir',
+    status: 'published'
   },
 
   'la-casa-que-nos-recuerda': {
@@ -293,7 +297,8 @@ export const BOOKS: Record<string, Book> = {
     featured: false,
     releaseDate: '2026-08-25',
     keywords: ['casa', 'herencia', 'voces', 'secreto', 'infancia'],
-    nextRecommendedId: 'si-manana-no-existiera'
+    nextRecommendedId: 'si-manana-no-existiera',
+    status: 'upcoming'
   },
 
   'siete-minutos-sin-mentir': {
@@ -351,7 +356,8 @@ export const BOOKS: Record<string, Book> = {
     featured: false,
     releaseDate: '2026-08-28',
     keywords: ['diplomacia', 'mentira', 'poder', 'cena', 'tensión'],
-    nextRecommendedId: 'la-vida-de-otra-persona'
+    nextRecommendedId: 'la-ultima-persona-despierta',
+    status: 'published'
   },
 
   'el-hombre-que-recordaba-el-futuro': {
@@ -410,7 +416,8 @@ export const BOOKS: Record<string, Book> = {
     featured: true,
     releaseDate: '2026-09-01',
     keywords: ['tiempo', 'futuro', 'destino', 'memoria', 'reloj'],
-    nextRecommendedId: 'todo-lo-que-nunca-ocurrio'
+    nextRecommendedId: 'antes-de-que-olvides-mi-nombre',
+    status: 'published'
   },
 
   'despues-de-nosotros': {
@@ -469,7 +476,8 @@ export const BOOKS: Record<string, Book> = {
     featured: false,
     releaseDate: '2026-09-05',
     keywords: ['desierto', 'satélites', 'aislamiento', 'radio', 'supervivencia'],
-    nextRecommendedId: 'la-ultima-persona-despierta'
+    nextRecommendedId: 'la-ultima-persona-despierta',
+    status: 'upcoming'
   },
 
   'la-vida-de-otra-persona': {
@@ -527,7 +535,8 @@ export const BOOKS: Record<string, Book> = {
     featured: false,
     releaseDate: '2026-09-10',
     keywords: ['abrigo', 'identidad', 'huida', 'hotel', 'teléfono'],
-    nextRecommendedId: 'siete-minutos-sin-mentir'
+    nextRecommendedId: 'siete-minutos-sin-mentir',
+    status: 'upcoming'
   },
 
   'antes-de-que-olvides-mi-nombre': {
@@ -585,8 +594,20 @@ export const BOOKS: Record<string, Book> = {
     featured: false,
     releaseDate: '2026-09-14',
     keywords: ['obituario', 'biografía', 'memoria', 'carta', 'secreto'],
-    nextRecommendedId: 'las-personas-que-dejamos-atras'
+    nextRecommendedId: 'si-manana-no-existiera',
+    status: 'published'
   }
 };
 
+// 5 libros fundacionales del lanzamiento inicial (un libro por cada autor artificial)
+export const LAUNCH_BOOK_IDS = [
+  'la-ultima-persona-despierta',
+  'el-hombre-que-recordaba-el-futuro',
+  'antes-de-que-olvides-mi-nombre',
+  'si-manana-no-existiera',
+  'siete-minutos-sin-mentir'
+] as const;
+
 export const BOOKS_LIST = Object.values(BOOKS);
+export const PUBLISHED_BOOKS: Book[] = LAUNCH_BOOK_IDS.map((id) => BOOKS[id]);
+

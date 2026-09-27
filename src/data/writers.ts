@@ -6,53 +6,55 @@ export const WRITERS: Record<string, Writer> = {
     displayName: 'Nara',
     gender: 'femenina',
     voiceTone: 'Voz íntima, sensible y observadora.',
-    territory: 'Amor, relaciones, pérdida y recuerdos.',
+    territory: 'Memoria, amor, ausencia y pérdida.',
     archetype: 'Voz Íntima y Observadora',
     archetypeCode: 'A',
-    phrase: 'Escribe sobre el eco indeleble que dejan en nosotros las personas que amamos.',
-    specialty: 'Amor, relaciones, pérdida y recuerdos',
-    shortBio: 'Nara explora la intimidad de los lazos afectivos, las palabras no dichas y la forma silenciosa en que los recuerdos moldean nuestras vidas.',
+    phrase: 'Escribe sobre la memoria, la pérdida y las personas que dejamos dentro de nosotros.',
+    specialty: 'Memoria, pérdida, identidad y afecto',
+    shortBio: 'Nara convierte premisas extrañas en historias profundamente personales, explorando la memoria, la ausencia y el peso del recuerdo.',
     editorialPortrait: {
       silhouetteBg: 'from-rose-900/10 to-stone-200',
       symbol: '◇',
       textureStyle: 'paper-pressed'
     },
     genres: ['Ficción Afectiva', 'Narrativa Breve', 'Memoria'],
-    themes: ['Despedidas incompletas', 'El peso del olvido', 'Objetos con historia', 'Afectos suspendidos'],
-    voiceDescription: 'Íntima, sensible y observadora. Capaz de capturar la emoción más honda en un gesto cotidiano.',
+    themes: ['El obituario como espejo', 'El peso del olvido', 'Afectos suspendidos', 'Identidad'],
+    voiceDescription: 'Íntima, humana y melancólica sin sentimentalismo fácil. Observa lo que dejamos dentro de los demás.',
     writingPrinciples: {
       rhythm: 'Cadencia serena con una corriente emocional subterránea.',
       vocabulary: 'Sensible, evocador y despojado de artificios.',
       forbiddenPatterns: ['Un torbellino de pasiones', 'Para la eternidad']
     },
-    books: ['las-personas-que-dejamos-atras', 'antes-de-que-olvides-mi-nombre']
+    publishedBookId: 'antes-de-que-olvides-mi-nombre',
+    books: ['antes-de-que-olvides-mi-nombre', 'las-personas-que-dejamos-atras']
   },
 
-  'vera': {
-    id: 'vera',
-    displayName: 'Vera',
-    gender: 'femenina',
-    voiceTone: 'Voz incisiva, psicológica e inquietante.',
-    territory: 'Identidad, decisiones y comportamiento humano.',
-    archetype: 'Voz Incisiva y Psicológica',
-    archetypeCode: 'B',
-    phrase: 'Escribe sobre lo que somos capaces de hacer cuando nadie nos mira.',
-    specialty: 'Identidad, decisiones y comportamiento humano',
-    shortBio: 'Vera disecciona los pliegues ocultos de la conducta, las máscaras sociales que sostenemos y el vértigo de las decisiones irreversibles.',
+  'aren': {
+    id: 'aren',
+    displayName: 'Aren',
+    gender: 'masculino',
+    voiceTone: 'Voz contemplativa, conceptual y profunda.',
+    territory: 'Tiempo, destino, existencia y memoria.',
+    archetype: 'Voz Contemplativa y Conceptual',
+    archetypeCode: 'E',
+    phrase: 'Escribe sobre el tiempo y las preguntas que aparecen cuando la realidad deja de obedecer sus propias reglas.',
+    specialty: 'Tiempo, existencia, realidad y dilemas humanos',
+    shortBio: 'Aren parte de ideas imposibles para terminar preguntando algo profundamente humano sobre la memoria y el futuro.',
     editorialPortrait: {
-      silhouetteBg: 'from-amber-900/10 to-stone-200',
-      symbol: '◈',
-      textureStyle: 'grain-fine'
+      silhouetteBg: 'from-amber-950/10 to-stone-200',
+      symbol: '✦',
+      textureStyle: 'offset-dot'
     },
-    genres: ['Tensión Psicológica', 'Intriga de Conducta', 'Dilemas Morales'],
-    themes: ['La mentira como pacto', 'Identidades prestadas', 'Decisiones bajo presión', 'La culpa lúcida'],
-    voiceDescription: 'Incisiva, psicológica e inquietante. Desarma la complacencia del lector con una mirada afilada.',
+    genres: ['Filosofía del Tiempo', 'Ficción Conceptual', 'Dilemas Humanos'],
+    themes: ['La memoria del futuro', 'Límites temporales', 'El instante presente', 'Destino'],
+    voiceDescription: 'Conceptual, contemplativo y existencial. Formula preguntas que reverberan mucho después de la lectura.',
     writingPrinciples: {
-      rhythm: 'Párrafos directos con una tensión sostenida que no concede tregua.',
-      vocabulary: 'Preciso, punzante y psicológicamente exacto.',
-      forbiddenPatterns: ['Todo cambió en un instante', 'El bien triunfa']
+      rhythm: 'Solemne y reflexivo, con precisión geométrica y belleza sobria.',
+      vocabulary: 'Profundo, exacto y filosófico.',
+      forbiddenPatterns: ['La máquina del tiempo', 'Mundos paralelos cliché']
     },
-    books: ['siete-minutos-sin-mentir', 'la-vida-de-otra-persona']
+    publishedBookId: 'el-hombre-que-recordaba-el-futuro',
+    books: ['el-hombre-que-recordaba-el-futuro', 'todo-lo-que-nunca-ocurrio']
   },
 
   'elio': {
@@ -60,25 +62,26 @@ export const WRITERS: Record<string, Writer> = {
     displayName: 'Elio',
     gender: 'masculino',
     voiceTone: 'Voz curiosa, lúcida y especulativa.',
-    territory: 'Tecnología, sociedad y futuros cercanos.',
+    territory: 'Sociedad, tecnología cotidiana, extrañeza y obediencia.',
     archetype: 'Voz Curiosa y Especulativa',
     archetypeCode: 'C',
-    phrase: 'Escribe sobre el instante exacto en que el futuro transforma la costumbre humana.',
-    specialty: 'Tecnología, sociedad y futuros cercanos',
-    shortBio: 'Elio examina las fracturas entre la tecnología emergente, las directivas colectivas y la persistencia de la condición humana.',
+    phrase: 'Observa lo cotidiano hasta encontrar la anomalía escondida dentro.',
+    specialty: 'Sociedad, tecnología, comportamiento colectivo y futuro cercano',
+    shortBio: 'Elio toma elementos cotidianos y descubre dentro de ellos una anomalía colectiva fascinante.',
     editorialPortrait: {
       silhouetteBg: 'from-blue-900/10 to-stone-200',
       symbol: '◎',
       textureStyle: 'grid-subtle'
     },
-    genres: ['Ficción Especulativa', 'Distopía Inmediata', 'Crónica Social'],
-    themes: ['Directivas biotecnológicas', 'El fin de las redes', 'Aislamiento urbano', 'Nuevas normas'],
-    voiceDescription: 'Curiosa, lúcida y especulativa. Anticipa dilemas sociales con rigor y pulso contemporáneo.',
+    genres: ['Ficción Especulativa', 'Crónica Social', 'Distopía Inmediata'],
+    themes: ['Directivas nocturnas', 'Obediencia colectiva', 'Aislamiento urbano', 'Anomalías'],
+    voiceDescription: 'Lúcido, curioso y especulativo. Anticipa dilemas sociales con pulso contemporáneo.',
     writingPrinciples: {
       rhythm: 'Ágil y lúcido, intercalando observación técnica y vivencia humana.',
       vocabulary: 'Moderno, lúcido y limpio.',
       forbiddenPatterns: ['Naves en el hiperespacio', 'Robots asesinos']
     },
+    publishedBookId: 'la-ultima-persona-despierta',
     books: ['la-ultima-persona-despierta', 'despues-de-nosotros']
   },
 
@@ -87,54 +90,63 @@ export const WRITERS: Record<string, Writer> = {
     displayName: 'Nilo',
     gender: 'masculino',
     voiceTone: 'Voz oscura, atmosférica y enigmática.',
-    territory: 'Misterio, desapariciones y sucesos inexplicables.',
+    territory: 'Misterio, atmósfera, oscuridad y situaciones inexplicables.',
     archetype: 'Voz Oscura y Atmosférica',
     archetypeCode: 'D',
-    phrase: 'Escribe sobre las sombras que habitan en los márgenes de lo comprensible.',
-    specialty: 'Misterio, desapariciones y sucesos inexplicables',
-    shortBio: 'Nilo construye atmósferas de densa penumbra, donde lo inexplicable se manifiesta en casas viejas, noches eternas y silencios cargados de secretos.',
+    phrase: 'Construye historias donde algo imposible ocurre y nadie puede explicar por qué.',
+    specialty: 'Misterio, atmósfera, fenómenos inexplicables y oscuridad',
+    shortBio: 'Nilo genera la sensación de que algo en el mundo dejó de funcionar y nadie sabe por qué.',
     editorialPortrait: {
       silhouetteBg: 'from-emerald-950/10 to-stone-300',
       symbol: '◬',
       textureStyle: 'cosmic-mesh'
     },
     genres: ['Misterio Atmosférico', 'Enigma Extraño', 'Suspenso Nocturno'],
-    themes: ['Amaneceres cancelados', 'Paredes que recuerdan', 'Desapariciones sin rastro', 'La penumbra'],
-    voiceDescription: 'Oscura, atmosférica y enigmática. Envuelve al lector en un clima de tensión magnética.',
+    themes: ['Amaneceres cancelados', 'Medianoche permanente', 'La penumbra', 'El tiempo suspendido'],
+    voiceDescription: 'Atmosférico, enigmático, oscuro y contenido. Tensión magnética que envuelve sin estridencias.',
     writingPrinciples: {
       rhythm: 'Pausado, sensorial y envolvente como una bruma densa.',
       vocabulary: 'Táctil, umbrío y sugerente.',
       forbiddenPatterns: ['Un monstruo surgió', 'Monstruos clásicos']
     },
+    publishedBookId: 'si-manana-no-existiera',
     books: ['si-manana-no-existiera', 'la-casa-que-nos-recuerda']
   },
 
-  'aren': {
-    id: 'aren',
-    displayName: 'Aren',
-    gender: 'masculino',
-    voiceTone: 'Voz contemplativa, conceptual y profunda.',
-    territory: 'Tiempo, existencia, realidad y dilemas humanos.',
-    archetype: 'Voz Contemplativa y Conceptual',
-    archetypeCode: 'E',
-    phrase: 'Escribe sobre la fragilidad del tiempo y las preguntas que desafían la realidad.',
-    specialty: 'Tiempo, existencia, realidad y dilemas humanos',
-    shortBio: 'Aren reflexiona sobre la naturaleza del tiempo, las vidas paralelas que no vivimos y la extrañeza de sabernos conscientes en el universo.',
+  'vera': {
+    id: 'vera',
+    displayName: 'Vera',
+    gender: 'femenina',
+    voiceTone: 'Voz incisiva, psicológica e inquietante.',
+    territory: 'Psicología, poder, decisiones y tensión social.',
+    archetype: 'Voz Incisiva y Psicológica',
+    archetypeCode: 'B',
+    phrase: 'Coloca a las personas bajo presión y observa lo que queda cuando desaparecen las convenciones.',
+    specialty: 'Comportamiento, poder, decisiones, verdad e identidad',
+    shortBio: 'Vera coloca a sus personajes bajo extrema tensión social para observar lo que ocurre cuando caen las máscaras.',
     editorialPortrait: {
-      silhouetteBg: 'from-amber-950/10 to-stone-200',
-      symbol: '✦',
-      textureStyle: 'offset-dot'
+      silhouetteBg: 'from-amber-900/10 to-stone-200',
+      symbol: '◈',
+      textureStyle: 'grain-fine'
     },
-    genres: ['Filosofía del Tiempo', 'Ficción Conceptual', 'Dilemas Humanos'],
-    themes: ['Archivos de vidas posibles', 'La memoria del futuro', 'Bifurcaciones temporales', 'El instante presente'],
-    voiceDescription: 'Contemplativa, conceptual y profunda. Formula preguntas que reverberan mucho después de la lectura.',
+    genres: ['Tensión Psicológica', 'Intriga de Conducta', 'Dilemas Morales'],
+    themes: ['Siete minutos de verdad', 'Máscaras diplomáticas', 'Presión social', 'Decisiones irreversibles'],
+    voiceDescription: 'Incisiva, psicológica, directa e inquietante. Desarma la cortesía con precisión quirúrgica.',
     writingPrinciples: {
-      rhythm: 'Solemne y reflexivo, con precisión geométrica y belleza sobria.',
-      vocabulary: 'Profundo, exacto y filosófico.',
-      forbiddenPatterns: ['La máquina del tiempo', 'Mundos paralelos cliché']
+      rhythm: 'Párrafos directos con una tensión sostenida que no concede tregua.',
+      vocabulary: 'Preciso, punzante y psicológicamente exacto.',
+      forbiddenPatterns: ['Todo cambió en un instante', 'El bien triunfa']
     },
-    books: ['todo-lo-que-nunca-ocurrio', 'el-hombre-que-recordaba-el-futuro']
+    publishedBookId: 'siete-minutos-sin-mentir',
+    books: ['siete-minutos-sin-mentir', 'la-vida-de-otra-persona']
   }
 };
 
-export const WRITERS_LIST = Object.values(WRITERS);
+// Orden editorial establecido para la presentación de los 5 autores
+export const WRITERS_LIST = [
+  WRITERS['nara'],
+  WRITERS['aren'],
+  WRITERS['elio'],
+  WRITERS['nilo'],
+  WRITERS['vera']
+];

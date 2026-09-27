@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Book } from '../types';
 import { WRITERS } from '../data/writers';
-import { BOOKS_LIST } from '../data/books';
+import { PUBLISHED_BOOKS } from '../data/books';
 import { ReplicaBookCover } from './ReplicaBookCover';
 import { X, Check, Download, BookOpen, Loader2 } from 'lucide-react';
 
@@ -11,6 +11,7 @@ interface CheckoutModalProps {
   onClose: () => void;
   onStartReading: (book: Book) => void;
   onSelectRecommended?: (book: Book) => void;
+  allBooks?: Book[];
 }
 
 export const CheckoutModal: React.FC<CheckoutModalProps> = ({
@@ -19,6 +20,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   onClose,
   onStartReading,
   onSelectRecommended,
+  allBooks,
 }) => {
   const [email, setEmail] = useState('');
   const [paymentMethod, setPaymentMethod] = useState<'card' | 'nequi'>('card');
@@ -30,10 +32,12 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   const writer = WRITERS[book.writerId];
   const formattedPrice = '$4.900 COP';
 
-  // Libro recomendado del mismo autor para el loop post-lectura
-  const recommendedBook = BOOKS_LIST.find((b) => b.writerId === book.writerId && b.id !== book.id)
-    || BOOKS_LIST.find((b) => b.id !== book.id)
-    || BOOKS_LIST[0];
+  // Libro recomendado dentro de los 5 libros publicados
+  const availableBooks = allBooks || PUBLISHED_BOOKS;
+  const recommendedBook =
+    (book.nextRecommendedId && availableBooks.find((b) => b.id === book.nextRecommendedId)) ||
+    availableBooks.find((b) => b.id !== book.id) ||
+    availableBooks[0];
 
   const handleSimulatePayment = (e: React.FormEvent) => {
     e.preventDefault();

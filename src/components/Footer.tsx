@@ -28,10 +28,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateToSection }) => {
               Historias
             </button>
             <button
-              onClick={() => onNavigateToSection('voces')}
+              onClick={() => onNavigateToSection('autores')}
               className="hover:text-black transition-colors"
             >
-              Voces
+              Autores
             </button>
             <button
               onClick={() => onNavigateToSection('experimento')}

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Book } from './types';
-import { BOOKS_LIST } from './data/books';
+import { PUBLISHED_BOOKS } from './data/books';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { CatalogSection } from './components/CatalogSection';
 import { RevealSection } from './components/RevealSection';
 import { AuthorsSection } from './components/AuthorsSection';
+import { FeelingsSection } from './components/FeelingsSection';
 import { ManifestoSection } from './components/ManifestoSection';
 import { CtaBanner } from './components/CtaBanner';
 import { Footer } from './components/Footer';
@@ -15,10 +16,8 @@ import { CheckoutModal } from './components/CheckoutModal';
 import { SearchModal } from './components/SearchModal';
 
 export const App: React.FC = () => {
-  // Catálogo deliberadamente curado: exactamente 10 historias
-  const allAvailableBooks: Book[] = BOOKS_LIST;
-  const firstBatchBooks = allAvailableBooks.slice(0, 5);
-  const secondBatchBooks = allAvailableBooks.slice(5, 10);
+  // Colección fundacional de lanzamiento: exactamente 5 libros (uno por cada autor)
+  const publishedBooks: Book[] = PUBLISHED_BOOKS;
 
   // Helper para resolver el libro desde la URL pathname (/libro/:slug) o hash (#/libro/:slug)
   const parseBookFromLocation = (): Book | null => {
@@ -38,7 +37,8 @@ export const App: React.FC = () => {
       }
 
       if (!identifier) return null;
-      return allAvailableBooks.find((b) => b.slug === identifier || b.id === identifier) || null;
+      // Solo permitir resolver libros publicados en el lanzamiento
+      return publishedBooks.find((b) => b.slug === identifier || b.id === identifier) || null;
     } catch {
       return null;
     }
@@ -98,11 +98,13 @@ export const App: React.FC = () => {
 
   // Navegar suavemente a secciones específicas
   const handleNavigateToSection = (sectionId: string) => {
+    const targetId = sectionId === 'voces' ? 'autores' : sectionId;
+
     if (currentProductBook) {
       setCurrentProductBook(null);
       window.history.pushState({}, '', '/');
       setTimeout(() => {
-        const el = document.getElementById(sectionId);
+        const el = document.getElementById(targetId);
         if (el) {
           el.scrollIntoView({ behavior: 'smooth' });
         } else {
@@ -110,7 +112,7 @@ export const App: React.FC = () => {
         }
       }, 100);
     } else {
-      const el = document.getElementById(sectionId);
+      const el = document.getElementById(targetId);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth' });
       }
@@ -140,7 +142,7 @@ export const App: React.FC = () => {
         {currentProductBook ? (
           <ProductPage
             book={currentProductBook}
-            allBooks={allAvailableBooks}
+            allBooks={publishedBooks}
             onBackToHome={handleBackToHome}
             onOpenPreview={handleOpenPreview}
             onBuyBook={handleDirectBuy}
@@ -148,42 +150,42 @@ export const App: React.FC = () => {
           />
         ) : (
           <>
-            {/* HERO: "Historias que ningún humano escribió." */}
+            {/* HERO: "Historias que ningún humano escribió." / Abanico 5 portadas */}
             <Hero
               onSelectBook={handleSelectBook}
               onOpenPreview={handleOpenPreview}
               onExploreCatalog={() => handleNavigateToSection('catalog')}
-              allBooks={allAvailableBooks}
+              allBooks={publishedBooks}
             />
 
-            {/* CATÁLOGO (Parte 1): Primeros 5 libros */}
+            {/* CATÁLOGO: PRIMERA COLECCIÓN (Cinco historias. Elige una.) */}
             <CatalogSection
               id="catalog"
-              books={firstBatchBooks}
-              title="Diez historias. Elige una."
+              books={publishedBooks}
+              eyebrow="PRIMERA COLECCIÓN"
+              title="Cinco historias. Elige una."
               subtitle="Empieza cualquiera gratis."
               onSelectBook={handleSelectBook}
             />
 
-            {/* REVELACIÓN: Pausa editorial antes de presentar a los autores */}
+            {/* REVELACIÓN: "Hay algo que todavía no te contamos. Ninguno de estos autores existe." */}
             <RevealSection
-              onNavigateToVoices={() => handleNavigateToSection('voces')}
+              onNavigateToAuthors={() => handleNavigateToSection('autores')}
             />
 
-            {/* VOCES DE BUKIA: Nara, Vera, Elio, Nilo, Aren */}
+            {/* LOS AUTORES DE BUKIA: Nara, Aren, Elio, Nilo, Vera (uno por libro) */}
             <AuthorsSection
-              allBooks={allAvailableBooks}
+              allBooks={publishedBooks}
               onSelectBook={handleSelectBook}
             />
 
-            {/* CATÁLOGO (Parte 2): Resto de libros (6 a 10) */}
-            <CatalogSection
-              id="catalog-segunda-parte"
-              books={secondBatchBooks}
+            {/* ¿QUÉ QUIERES SENTIR?: Segunda ruta de descubrimiento por intención emocional */}
+            <FeelingsSection
+              allBooks={publishedBooks}
               onSelectBook={handleSelectBook}
             />
 
-            {/* EXPERIMENTO: "Construimos las voces. Ellas escriben..." */}
+            {/* EXPERIMENTO: "Creamos a los autores. Ellos escriben..." */}
             <ManifestoSection
               onNavigateToCatalog={() => handleNavigateToSection('catalog')}
             />
@@ -219,6 +221,7 @@ export const App: React.FC = () => {
           setCheckoutBook(null);
           handleSelectBook(recBook);
         }}
+        allBooks={publishedBooks}
       />
 
       <SearchModal
@@ -228,7 +231,7 @@ export const App: React.FC = () => {
           setIsSearchOpen(false);
           handleSelectBook(book);
         }}
-        books={allAvailableBooks}
+        books={publishedBooks}
       />
 
     </div>

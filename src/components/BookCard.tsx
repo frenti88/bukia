@@ -1,5 +1,6 @@
 import React from 'react';
 import { Book } from '../types';
+import { WRITERS } from '../data/writers';
 import { ReplicaBookCover } from './ReplicaBookCover';
 import { ArrowRight } from 'lucide-react';
 
@@ -13,6 +14,8 @@ export const BookCard: React.FC<BookCardProps> = ({
   book,
   onSelect,
 }) => {
+  const authorName = WRITERS[book.writerId]?.displayName || book.subtitle;
+
   return (
     <article
       onClick={() => onSelect(book)}
@@ -24,7 +27,7 @@ export const BookCard: React.FC<BookCardProps> = ({
           <ReplicaBookCover
             id={book.id}
             title={book.title}
-            author={book.subtitle}
+            author={authorName}
             size="md"
             showShadow
           />

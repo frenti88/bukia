@@ -31,8 +31,8 @@ export const Hero: React.FC<HeroProps> = ({
   // Configuración editorial precisa para el Abanico Editorial de 5 libros
   const heroBooks: HeroBookConfig[] = [
     {
-      id: 'las-personas-que-dejamos-atras',
-      title: 'Las Personas que Dejamos Atrás',
+      id: 'antes-de-que-olvides-mi-nombre',
+      title: 'Antes de que Olvides mi Nombre',
       author: 'Nara',
       zIndex: 10,
       rotationClass: '-rotate-6 sm:-rotate-7',
@@ -42,8 +42,8 @@ export const Hero: React.FC<HeroProps> = ({
       shadowClass: 'shadow-[0_10px_20px_-5px_rgba(0,0,0,0.18),0_4px_8px_-2px_rgba(0,0,0,0.08)]',
     },
     {
-      id: 'todo-lo-que-nunca-ocurrio',
-      title: 'Todo lo que Nunca Ocurrió',
+      id: 'el-hombre-que-recordaba-el-futuro',
+      title: 'El Hombre que Recordaba el Futuro',
       author: 'Aren',
       zIndex: 20,
       rotationClass: '-rotate-3 sm:-rotate-[3.5deg]',

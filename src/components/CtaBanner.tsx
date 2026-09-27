@@ -25,7 +25,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ onExploreCatalog }) => {
         </h2>
 
         <p className="mt-4 text-base sm:text-lg text-stone-600 font-serif italic">
-          Empieza a leer en menos de diez segundos. Muestra gratis en tu navegador.
+          Empieza gratis en tu navegador. Muestra sin registro previo.
         </p>
 
         {/* CTA Directo */}

@@ -12,33 +12,41 @@ export const AuthorsSection: React.FC<AuthorsSectionProps> = ({
   allBooks,
   onSelectBook,
 }) => {
-  // Frases y sensibilidades literarias directas sin tecnicismos
+  // Frases y personalidades literarias exactas según la dirección editorial
   const authorEditorialCopies: Record<string, string> = {
-    nara: 'Escribe sobre las personas que seguimos queriendo cuando ya no están.',
-    vera: 'Escribe sobre lo que somos capaces de hacer cuando nadie nos mira.',
-    elio: 'Observa lo cotidiano hasta encontrar algo extraño escondido dentro.',
-    nilo: 'Escribe sobre las sombras que habitan en los márgenes de lo comprensible.',
-    aren: 'Escribe sobre la fragilidad del tiempo y las preguntas que desafían la realidad.',
+    nara: 'Escribe sobre la memoria, la pérdida y las personas que dejamos dentro de nosotros.',
+    aren: 'Escribe sobre el tiempo y las preguntas que aparecen cuando la realidad deja de obedecer sus propias reglas.',
+    elio: 'Observa lo cotidiano hasta encontrar la anomalía escondida dentro.',
+    nilo: 'Construye historias donde algo imposible ocurre y nadie puede explicar por qué.',
+    vera: 'Coloca a las personas bajo presión y observa lo que queda cuando desaparecen las convenciones.',
   };
 
   return (
-    <section id="voces" className="py-20 sm:py-28 bg-white border-t border-stone-200/80">
+    <section id="autores" className="py-20 sm:py-28 bg-white border-t border-stone-200/80 scroll-mt-16">
+      {/* Ancla de compatibilidad para enlaces anteriores que usaban #voces */}
+      <span id="voces" className="sr-only" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Cabecera Editorial */}
         <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-20">
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-stone-950 tracking-tight leading-tight">
-            Las voces de BUKIA
+            Los autores de BUKIA
           </h2>
           <p className="mt-4 text-base sm:text-lg text-stone-600 font-sans leading-relaxed">
-            Cinco sensibilidades literarias distintas. Cada una explora un territorio humano particular.
+            Cinco autores que nunca existieron.<br className="hidden sm:inline" />
+            Cada uno escribe de una manera diferente.
           </p>
         </div>
 
-        {/* Cuadrícula de 5 voces */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 sm:gap-10">
+        {/* Cuadrícula de 5 autores: uno por cada libro fundacional */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-7 sm:gap-8">
           {WRITERS_LIST.map((writer) => {
-            const writerBooks = allBooks.filter((b) => b.writerId === writer.id);
+            const writerBook =
+              allBooks.find(
+                (b) => b.writerId === writer.id && (b.id === writer.publishedBookId || b.status === 'published')
+              ) || allBooks.find((b) => b.writerId === writer.id);
+
             const copy = authorEditorialCopies[writer.id] || writer.phrase;
 
             return (
@@ -58,15 +66,22 @@ export const AuthorsSection: React.FC<AuthorsSectionProps> = ({
                   </p>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-stone-200/60">
-                  <span className="font-mono text-xs text-stone-500 block mb-3">
-                    {writerBooks.length} historias
-                  </span>
+                <div className="mt-8 pt-4 border-t border-stone-200/80">
+                  {/* Título de la obra fundacional asociada */}
+                  {writerBook && (
+                    <span
+                      onClick={() => onSelectBook(writerBook)}
+                      className="font-heading font-bold text-xs uppercase tracking-tight text-stone-900 block mb-3 line-clamp-1 cursor-pointer hover:text-amber-900 transition-colors"
+                      title={writerBook.title}
+                    >
+                      {writerBook.title}
+                    </span>
+                  )}
 
-                  {/* Botón de lectura */}
+                  {/* Botón de lectura directa */}
                   <button
                     onClick={() => {
-                      if (writerBooks[0]) onSelectBook(writerBooks[0]);
+                      if (writerBook) onSelectBook(writerBook);
                     }}
                     className="inline-flex items-center gap-1.5 font-sans text-xs font-semibold text-stone-950 hover:text-amber-900 group transition-colors"
                   >

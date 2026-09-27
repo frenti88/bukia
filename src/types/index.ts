@@ -49,6 +49,7 @@ export interface Book {
   keywords: string[];
   thesisStatement: string;
   nextRecommendedId?: string;
+  status?: 'published' | 'upcoming';
 }
 
 export interface Writer {
@@ -76,6 +77,7 @@ export interface Writer {
     forbiddenPatterns: string[];
   };
   books: string[]; // Book IDs
+  publishedBookId?: string;
 }
 
 export type ReaderTheme = 'paper' | 'sepia' | 'dark';

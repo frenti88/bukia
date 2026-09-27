@@ -7,6 +7,7 @@ interface CatalogSectionProps {
   onSelectBook: (book: Book) => void;
   title?: string;
   subtitle?: string;
+  eyebrow?: string;
   id?: string;
 }
 
@@ -15,6 +16,7 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
   onSelectBook,
   title,
   subtitle,
+  eyebrow,
   id = 'catalog',
 }) => {
   return (
@@ -24,6 +26,11 @@ export const CatalogSection: React.FC<CatalogSectionProps> = ({
         {/* Cabecera Editorial (cuando se especifica título) */}
         {title && (
           <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+            {eyebrow && (
+              <span className="font-mono text-xs uppercase tracking-widest text-amber-900 font-semibold block mb-3">
+                {eyebrow}
+              </span>
+            )}
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-stone-950 tracking-tight leading-tight">
               {title}
             </h2>

@@ -21,62 +21,7 @@ interface CoverConfig {
 }
 
 const HERO_COVERS_CONFIG: Record<string, CoverConfig> = {
-  'las-personas-que-dejamos-atras': {
-    number: '03',
-    time: '38 MIN',
-    authorName: 'NARA',
-    authorRole: 'AUTORA ARTIFICIAL',
-    bgColor: '#E6E1D8',
-    textColor: '#1E1B18',
-    accentColor: '#7A7064',
-    borderColor: 'rgba(0, 0, 0, 0.08)',
-    renderTitle: () => (
-      <div className="flex flex-col items-center text-center">
-        <span className="font-serif text-[10px] sm:text-xs md:text-sm tracking-wider text-[#7A7064] uppercase mb-0.5 sm:mb-1">
-          Las Personas
-        </span>
-        <span className="font-serif italic text-base sm:text-lg md:text-xl text-[#1E1B18] font-normal leading-tight">
-          que dejamos
-        </span>
-        <span className="font-serif text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-[#1E1B18] uppercase mt-0.5">
-          Atrás
-        </span>
-        <div className="w-8 sm:w-10 h-[1px] bg-[#7A7064]/35 my-2 sm:my-2.5" />
-        <span className="font-mono text-[6px] sm:text-[7px] md:text-[7.5px] tracking-[0.2em] text-[#7A7064] uppercase">
-          ESTACIÓN CENTRAL · 1988
-        </span>
-      </div>
-    ),
-  },
-
-  'todo-lo-que-nunca-ocurrio': {
-    number: '02',
-    time: '42 MIN',
-    authorName: 'AREN',
-    authorRole: 'AUTOR ARTIFICIAL',
-    bgColor: '#FAF6ED',
-    textColor: '#1A1816',
-    accentColor: '#9C4123',
-    borderColor: 'rgba(0, 0, 0, 0.08)',
-    renderTitle: () => (
-      <div className="flex flex-col items-center text-center">
-        <span className="font-serif text-[10px] sm:text-xs md:text-sm tracking-wider text-[#7A7064] uppercase mb-0.5 sm:mb-1">
-          Todo lo que
-        </span>
-        <span className="font-serif italic text-xl sm:text-2xl md:text-3xl text-[#9C4123] font-normal leading-none my-0.5 sm:my-1">
-          Nunca
-        </span>
-        <span className="font-serif text-base sm:text-lg md:text-xl font-bold tracking-tight text-[#1A1816] uppercase">
-          Ocurrió
-        </span>
-        <div className="w-8 sm:w-10 h-[1px] bg-[#9C4123]/35 my-2 sm:my-2.5" />
-        <span className="font-mono text-[6px] sm:text-[7px] md:text-[7.5px] tracking-[0.2em] text-[#7A7064] uppercase">
-          EXPEDIENTE 414 · MEMORIA
-        </span>
-      </div>
-    ),
-  },
-
+  // 01 · ELIO — LA ÚLTIMA PERSONA DESPIERTA (PROTAGONISTA CENTRAL)
   'la-ultima-persona-despierta': {
     number: '01',
     time: '47 MIN',
@@ -109,6 +54,65 @@ const HERO_COVERS_CONFIG: Record<string, CoverConfig> = {
     ),
   },
 
+  // 02 · AREN — EL HOMBRE QUE RECORDABA EL FUTURO
+  'el-hombre-que-recordaba-el-futuro': {
+    number: '02',
+    time: '49 MIN',
+    authorName: 'AREN',
+    authorRole: 'AUTOR ARTIFICIAL',
+    bgColor: '#FAF6ED',
+    textColor: '#1A1816',
+    accentColor: '#9C4123',
+    borderColor: 'rgba(0, 0, 0, 0.08)',
+    renderTitle: () => (
+      <div className="flex flex-col items-center text-center">
+        <span className="font-serif text-[10px] sm:text-xs md:text-sm tracking-wider text-[#9C4123] uppercase mb-0.5 sm:mb-1">
+          El Hombre que
+        </span>
+        <span className="font-serif italic text-base sm:text-lg md:text-xl text-[#1A1816] font-normal leading-tight">
+          recordaba el
+        </span>
+        <span className="font-serif text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-[#1A1816] uppercase mt-0.5">
+          Futuro
+        </span>
+        <div className="w-8 sm:w-10 h-[1px] bg-[#9C4123]/35 my-2 sm:my-2.5" />
+        <span className="font-mono text-[6px] sm:text-[7px] md:text-[7.5px] tracking-[0.2em] text-[#9C4123] uppercase">
+          HORIZONTE · 72 HORAS
+        </span>
+      </div>
+    ),
+  },
+
+  // 03 · NARA — ANTES DE QUE OLVIDES MI NOMBRE
+  'antes-de-que-olvides-mi-nombre': {
+    number: '03',
+    time: '46 MIN',
+    authorName: 'NARA',
+    authorRole: 'AUTORA ARTIFICIAL',
+    bgColor: '#E6E1D8',
+    textColor: '#1E1B18',
+    accentColor: '#7A7064',
+    borderColor: 'rgba(0, 0, 0, 0.08)',
+    renderTitle: () => (
+      <div className="flex flex-col items-center text-center">
+        <span className="font-serif text-[10px] sm:text-xs md:text-sm tracking-wider text-[#7A7064] uppercase mb-0.5 sm:mb-1">
+          Antes de que
+        </span>
+        <span className="font-serif italic text-base sm:text-lg md:text-xl text-[#1E1B18] font-normal leading-tight">
+          olvides mi
+        </span>
+        <span className="font-serif text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-[#1E1B18] uppercase mt-0.5">
+          Nombre
+        </span>
+        <div className="w-8 sm:w-10 h-[1px] bg-[#7A7064]/35 my-2 sm:my-2.5" />
+        <span className="font-mono text-[6px] sm:text-[7px] md:text-[7.5px] tracking-[0.2em] text-[#7A7064] uppercase">
+          OBITUARIO · 28 DÍAS
+        </span>
+      </div>
+    ),
+  },
+
+  // 04 · NILO — SI MAÑANA NO EXISTIERA
   'si-manana-no-existiera': {
     number: '04',
     time: '52 MIN',
@@ -137,9 +141,10 @@ const HERO_COVERS_CONFIG: Record<string, CoverConfig> = {
     ),
   },
 
+  // 05 · VERA — SIETE MINUTOS SIN MENTIR
   'siete-minutos-sin-mentir': {
     number: '05',
-    time: '27 MIN',
+    time: '35 MIN',
     authorName: 'VERA',
     authorRole: 'AUTORA ARTIFICIAL',
     bgColor: '#FAF6EE',
@@ -160,6 +165,54 @@ const HERO_COVERS_CONFIG: Record<string, CoverConfig> = {
         <div className="w-8 sm:w-10 h-[1px] bg-[#881337]/30 my-2 sm:my-2.5" />
         <span className="font-mono text-[6px] sm:text-[7px] md:text-[7.5px] tracking-[0.2em] text-[#78716C] uppercase">
           420 SEGUNDOS DE VERDAD
+        </span>
+      </div>
+    ),
+  },
+
+  // Fallbacks para otros libros de la base de datos
+  'las-personas-que-dejamos-atras': {
+    number: '00',
+    time: '38 MIN',
+    authorName: 'NARA',
+    authorRole: 'AUTORA ARTIFICIAL',
+    bgColor: '#E6E1D8',
+    textColor: '#1E1B18',
+    accentColor: '#7A7064',
+    borderColor: 'rgba(0, 0, 0, 0.08)',
+    renderTitle: () => (
+      <div className="flex flex-col items-center text-center">
+        <span className="font-serif text-[10px] sm:text-xs md:text-sm tracking-wider text-[#7A7064] uppercase mb-0.5 sm:mb-1">
+          Las Personas
+        </span>
+        <span className="font-serif italic text-base sm:text-lg md:text-xl text-[#1E1B18] font-normal leading-tight">
+          que dejamos
+        </span>
+        <span className="font-serif text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-[#1E1B18] uppercase mt-0.5">
+          Atrás
+        </span>
+      </div>
+    ),
+  },
+  'todo-lo-que-nunca-ocurrio': {
+    number: '00',
+    time: '42 MIN',
+    authorName: 'AREN',
+    authorRole: 'AUTOR ARTIFICIAL',
+    bgColor: '#FAF6ED',
+    textColor: '#1A1816',
+    accentColor: '#9C4123',
+    borderColor: 'rgba(0, 0, 0, 0.08)',
+    renderTitle: () => (
+      <div className="flex flex-col items-center text-center">
+        <span className="font-serif text-[10px] sm:text-xs md:text-sm tracking-wider text-[#7A7064] uppercase mb-0.5 sm:mb-1">
+          Todo lo que
+        </span>
+        <span className="font-serif italic text-xl sm:text-2xl md:text-3xl text-[#9C4123] font-normal leading-none my-0.5 sm:my-1">
+          Nunca
+        </span>
+        <span className="font-serif text-base sm:text-lg md:text-xl font-bold tracking-tight text-[#1A1816] uppercase">
+          Ocurrió
         </span>
       </div>
     ),
@@ -239,7 +292,7 @@ export const HeroBookCover: React.FC<HeroBookCoverProps> = ({
       </div>
 
       {/* 5. Pie editorial inferior: Autor y micro-etiqueta */}
-      <div className="relative z-10 pb-3.5 sm:pb-4 md:pb-5 px-3.5 sm:px-4 md:px-5">
+      <div className="relative z-10 pb-3.5 sm:pt-4 md:pb-5 px-3.5 sm:px-4 md:px-5">
         <div
           className="flex flex-col items-center pt-2 border-t text-center"
           style={{ borderColor: isDark ? 'rgba(255, 255, 255, 0.12)' : 'rgba(0, 0, 0, 0.08)' }}

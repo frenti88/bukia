@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Book } from '../types';
-import { BOOKS_LIST } from '../data/books';
+import { PUBLISHED_BOOKS } from '../data/books';
 import { WRITERS } from '../data/writers';
 import { ReplicaBookCover } from './ReplicaBookCover';
 import { Search, X, ArrowRight } from 'lucide-react';
@@ -21,9 +21,9 @@ export const SearchModal: React.FC<SearchModalProps> = ({
   const [query, setQuery] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const allSearchableBooks: Book[] = books || BOOKS_LIST;
+  const allSearchableBooks: Book[] = books || PUBLISHED_BOOKS;
 
-  const quickThemes = ['algo inquietante', 'amor', 'futuro', 'memoria', 'menos de 40 min'];
+  const quickThemes = ['inquietud', 'futuro', 'memoria', 'misterio', 'tensión'];
 
   useEffect(() => {
     if (isOpen) {
