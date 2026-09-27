@@ -100,20 +100,20 @@ Este archivo digital es abierto y libre de DRM.
       aria-modal="true"
       aria-labelledby="checkout-modal-title"
     >
-      <div className="relative bg-white dark:bg-[#151619] w-full max-w-lg rounded-2xl shadow-2xl border border-gray-100 dark:border-white/10 overflow-hidden">
+      <div className="relative bg-white w-full max-w-lg rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
         
         {/* Cabecera superior */}
-        <div className="px-6 py-4 border-b border-gray-100 dark:border-white/10 flex items-center justify-between bg-stone-50/70 dark:bg-[#111215]">
+        <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-stone-50/70">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-600" />
-            <span className="font-mono text-xs uppercase tracking-wider text-gray-900 dark:text-white font-semibold">
+            <span className="font-mono text-xs uppercase tracking-wider text-gray-900 font-semibold">
               {step === 'success' ? 'Tu libro está listo' : `Checkout · ${formattedPrice}`}
             </span>
           </div>
 
           <button
             onClick={resetAndClose}
-            className="text-gray-400 hover:text-black dark:text-zinc-500 dark:hover:text-white p-1 rounded-full transition-colors"
+            className="text-gray-400 hover:text-black p-1 rounded-full transition-colors"
             aria-label="Cerrar ventana de pago"
           >
             <X className="w-5 h-5" />
@@ -127,7 +127,7 @@ Este archivo digital es abierto y libre de DRM.
           <div className="p-6">
             
             {/* Detalle del libro seleccionado */}
-            <div className="flex items-center gap-4 p-4 rounded-xl bg-[#FAFAFA] dark:bg-[#1C1E22] border border-gray-200/80 dark:border-white/10 mb-6">
+            <div className="flex items-center gap-4 p-4 rounded-xl bg-[#FAFAFA] border border-gray-200/80 mb-6">
               <div className="flex-shrink-0">
                 <ReplicaBookCover
                   id={book.id}
@@ -139,18 +139,18 @@ Este archivo digital es abierto y libre de DRM.
               </div>
 
               <div className="flex-1 min-w-0">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-amber-900 dark:text-amber-400 font-semibold block">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-amber-900 font-semibold block">
                   Una historia de {writer?.displayName || 'BUKIA'} · {book.readingTime}
                 </span>
-                <h4 className="font-heading font-bold text-base text-gray-950 dark:text-white truncate uppercase tracking-tight">
+                <h4 className="font-heading font-bold text-base text-gray-950 truncate uppercase tracking-tight">
                   {book.title}
                 </h4>
-                <p className="text-xs text-gray-500 dark:text-zinc-400 font-serif italic line-clamp-1 mt-0.5">
+                <p className="text-xs text-gray-500 font-serif italic line-clamp-1 mt-0.5">
                   «{book.premise || book.subtitle}»
                 </p>
                 <div className="mt-2 flex items-center justify-between text-xs font-mono">
-                  <span className="text-gray-500 dark:text-zinc-400">Total a pagar:</span>
-                  <span className="font-bold text-gray-950 dark:text-white text-sm">{formattedPrice}</span>
+                  <span className="text-gray-500">Total a pagar:</span>
+                  <span className="font-bold text-gray-950 text-sm">{formattedPrice}</span>
                 </div>
               </div>
             </div>
@@ -160,7 +160,7 @@ Este archivo digital es abierto y libre de DRM.
               
               {/* Selector de método de pago */}
               <div>
-                <label className="block text-xs font-mono uppercase tracking-wider text-gray-500 dark:text-zinc-400 mb-2">
+                <label className="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">
                   Método de Pago
                 </label>
                 <div className="grid grid-cols-3 gap-2">
@@ -169,8 +169,8 @@ Este archivo digital es abierto y libre de DRM.
                     onClick={() => setPaymentMethod('card')}
                     className={`py-2.5 px-3 rounded-xl border text-xs font-medium flex items-center justify-center gap-1.5 transition-all ${
                       paymentMethod === 'card'
-                        ? 'border-black dark:border-white bg-stone-50 dark:bg-[#202227] text-black dark:text-white font-semibold ring-1 ring-black dark:ring-white'
-                        : 'border-gray-200 dark:border-white/10 text-gray-600 dark:text-zinc-400 hover:border-gray-300 dark:hover:border-white/30 bg-transparent'
+                        ? 'border-black bg-stone-50 text-black font-semibold ring-1 ring-black'
+                        : 'border-gray-200 text-gray-600 hover:border-gray-300 bg-transparent'
                     }`}
                   >
                     <CreditCard className="w-3.5 h-3.5" />
@@ -182,8 +182,8 @@ Este archivo digital es abierto y libre de DRM.
                     onClick={() => setPaymentMethod('nequi')}
                     className={`py-2.5 px-3 rounded-xl border text-xs font-medium flex items-center justify-center gap-1.5 transition-all ${
                       paymentMethod === 'nequi'
-                        ? 'border-black dark:border-white bg-stone-50 dark:bg-[#202227] text-black dark:text-white font-semibold ring-1 ring-black dark:ring-white'
-                        : 'border-gray-200 dark:border-white/10 text-gray-600 dark:text-zinc-400 hover:border-gray-300 dark:hover:border-white/30 bg-transparent'
+                        ? 'border-black bg-stone-50 text-black font-semibold ring-1 ring-black'
+                        : 'border-gray-200 text-gray-600 hover:border-gray-300 bg-transparent'
                     }`}
                   >
                     <span className="w-2 h-2 rounded-full bg-fuchsia-600" />
@@ -195,8 +195,8 @@ Este archivo digital es abierto y libre de DRM.
                     onClick={() => setPaymentMethod('apple-pay')}
                     className={`py-2.5 px-3 rounded-xl border text-xs font-medium flex items-center justify-center gap-1.5 transition-all ${
                       paymentMethod === 'apple-pay'
-                        ? 'border-black dark:border-white bg-stone-50 dark:bg-[#202227] text-black dark:text-white font-semibold ring-1 ring-black dark:ring-white'
-                        : 'border-gray-200 dark:border-white/10 text-gray-600 dark:text-zinc-400 hover:border-gray-300 dark:hover:border-white/30 bg-transparent'
+                        ? 'border-black bg-stone-50 text-black font-semibold ring-1 ring-black'
+                        : 'border-gray-200 text-gray-600 hover:border-gray-300 bg-transparent'
                     }`}
                   >
                     <Apple className="w-3.5 h-3.5" />
@@ -207,7 +207,7 @@ Este archivo digital es abierto y libre de DRM.
 
               {/* Correo para recibir los archivos */}
               <div>
-                <label className="block text-xs font-mono uppercase tracking-wider text-gray-500 dark:text-zinc-400 mb-1">
+                <label className="block text-xs font-mono uppercase tracking-wider text-gray-500 mb-1">
                   Tu correo electrónico (para envío de archivos)
                 </label>
                 <input
@@ -216,21 +216,21 @@ Este archivo digital es abierto y libre de DRM.
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="ejemplo@correo.com"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-transparent dark:bg-[#1C1E22] text-xs text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-zinc-500 focus:outline-none focus:border-black dark:focus:border-white font-mono"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 bg-transparent text-xs text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-black font-mono"
                 />
               </div>
 
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full py-3.5 bg-black hover:bg-stone-800 dark:bg-white dark:hover:bg-zinc-200 text-white dark:text-black rounded-full font-medium text-sm flex items-center justify-center gap-2 transition-all shadow-sm"
+                  className="w-full py-3.5 bg-black hover:bg-stone-800 text-white rounded-full font-medium text-sm flex items-center justify-center gap-2 transition-all shadow-sm"
                 >
                   <span>Pagar {formattedPrice} y continuar</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
 
-              <p className="text-[11px] font-mono text-gray-400 dark:text-zinc-500 text-center">
+              <p className="text-[11px] font-mono text-gray-400 text-center">
                 Pago de demostración sin cargo real · Acceso instantáneo a la historia
               </p>
 
@@ -244,11 +244,11 @@ Este archivo digital es abierto y libre de DRM.
         {/* ======================================================== */}
         {step === 'processing' && (
           <div className="p-12 text-center flex flex-col items-center justify-center">
-            <Loader2 className="w-8 h-8 text-black dark:text-white animate-spin mb-4" />
-            <h4 className="font-heading text-lg font-bold text-gray-900 dark:text-white uppercase">
+            <Loader2 className="w-8 h-8 text-black animate-spin mb-4" />
+            <h4 className="font-heading text-lg font-bold text-gray-900 uppercase">
               Preparando tu edición digital...
             </h4>
-            <p className="text-xs text-gray-500 dark:text-zinc-400 font-mono mt-1">
+            <p className="text-xs text-gray-500 font-mono mt-1">
               Desbloqueando acceso para {email || 'tu lector'}
             </p>
           </div>
@@ -262,13 +262,13 @@ Este archivo digital es abierto y libre de DRM.
             
             {/* Mensaje de éxito */}
             <div className="text-center">
-              <div className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-400 flex items-center justify-center mx-auto mb-3">
+              <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center mx-auto mb-3">
                 <Check className="w-6 h-6" />
               </div>
-              <h3 className="font-heading text-2xl font-extrabold text-gray-950 dark:text-white uppercase tracking-tight">
+              <h3 className="font-heading text-2xl font-extrabold text-gray-950 uppercase tracking-tight">
                 Tu libro está listo.
               </h3>
-              <p className="mt-1 text-xs text-gray-600 dark:text-zinc-300 font-serif italic">
+              <p className="mt-1 text-xs text-gray-600 font-serif italic">
                 «{book.title}» ya está disponible para continuar la lectura o descargar en tus dispositivos.
               </p>
             </div>
@@ -280,29 +280,29 @@ Este archivo digital es abierto y libre de DRM.
                   onClose();
                   onStartReading(book);
                 }}
-                className="w-full py-3.5 bg-black hover:bg-stone-800 dark:bg-white dark:hover:bg-zinc-200 text-white dark:text-black rounded-full font-medium text-sm flex items-center justify-center gap-2 transition-all shadow-md"
+                className="w-full py-3.5 bg-black hover:bg-stone-800 text-white rounded-full font-medium text-sm flex items-center justify-center gap-2 transition-all shadow-md"
               >
-                <BookOpen className="w-4 h-4 text-amber-400 dark:text-amber-600" />
+                <BookOpen className="w-4 h-4 text-amber-400" />
                 <span>Continuar leyendo la historia</span>
               </button>
             </div>
 
             {/* Descargas opcionales */}
-            <div className="pt-2 border-t border-gray-100 dark:border-white/10">
-              <span className="text-[10px] font-mono text-gray-400 dark:text-zinc-500 uppercase tracking-wider block mb-2 text-center">
+            <div className="pt-2 border-t border-gray-100">
+              <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wider block mb-2 text-center">
                 Descargar copia sin DRM
               </span>
               <div className="flex gap-2 justify-center">
                 <button
                   onClick={() => handleDownload('PDF')}
-                  className="px-4 py-1.5 bg-stone-100 hover:bg-stone-200 dark:bg-[#202227] dark:hover:bg-[#2A2D34] text-gray-800 dark:text-zinc-200 rounded-lg text-xs font-mono flex items-center gap-1.5 transition-colors"
+                  className="px-4 py-1.5 bg-stone-100 hover:bg-stone-200 text-gray-800 rounded-lg text-xs font-mono flex items-center gap-1.5 transition-colors"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>Descargar PDF</span>
                 </button>
                 <button
                   onClick={() => handleDownload('EPUB')}
-                  className="px-4 py-1.5 bg-stone-100 hover:bg-stone-200 dark:bg-[#202227] dark:hover:bg-[#2A2D34] text-gray-800 dark:text-zinc-200 rounded-lg text-xs font-mono flex items-center gap-1.5 transition-colors"
+                  className="px-4 py-1.5 bg-stone-100 hover:bg-stone-200 text-gray-800 rounded-lg text-xs font-mono flex items-center gap-1.5 transition-colors"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>Descargar EPUB</span>
@@ -310,7 +310,7 @@ Este archivo digital es abierto y libre de DRM.
               </div>
 
               {downloadSuccess && (
-                <p className="text-[11px] font-mono text-emerald-700 dark:text-emerald-400 text-center mt-2">
+                <p className="text-[11px] font-mono text-emerald-700 text-center mt-2">
                   {downloadSuccess}
                 </p>
               )}
@@ -320,17 +320,17 @@ Este archivo digital es abierto y libre de DRM.
             {/* POSTCOMPRA: LOOP CON UNA SOLA RECOMENDACIÓN DIRECTA     */}
             {/* ======================================================== */}
             {recommendedBook && (
-              <div className="pt-4 border-t border-stone-200 dark:border-white/10 bg-stone-50 dark:bg-[#111215] -mx-6 -mb-6 p-6 rounded-b-2xl">
+              <div className="pt-4 border-t border-stone-200 bg-stone-50 -mx-6 -mb-6 p-6 rounded-b-2xl">
                 <div className="text-center mb-3">
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-amber-900 dark:text-amber-400 font-semibold block">
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-amber-900 font-semibold block">
                     ¿TE GUSTÓ ESTA HISTORIA?
                   </span>
-                  <h4 className="text-sm font-bold text-gray-950 dark:text-white font-heading">
+                  <h4 className="text-sm font-bold text-gray-950 font-heading">
                     Entonces probablemente quieras leer esta:
                   </h4>
                 </div>
 
-                <div className="flex items-center gap-3 bg-white dark:bg-[#1C1E22] p-3 rounded-xl border border-stone-200 dark:border-white/10">
+                <div className="flex items-center gap-3 bg-white p-3 rounded-xl border border-stone-200">
                   <div className="flex-shrink-0">
                     <ReplicaBookCover
                       id={recommendedBook.id}
@@ -342,17 +342,17 @@ Este archivo digital es abierto y libre de DRM.
                   </div>
 
                   <div className="flex-1 min-w-0">
-                    <span className="text-[9px] font-mono text-amber-900 dark:text-amber-400 uppercase tracking-wider block">
+                    <span className="text-[9px] font-mono text-amber-900 uppercase tracking-wider block">
                       Una historia de {WRITERS[recommendedBook.writerId]?.displayName || 'BUKIA'}
                     </span>
-                    <h5 className="font-heading font-bold text-xs sm:text-sm text-gray-950 dark:text-white uppercase truncate">
+                    <h5 className="font-heading font-bold text-xs sm:text-sm text-gray-950 uppercase truncate">
                       {recommendedBook.title}
                     </h5>
-                    <p className="text-[11px] text-gray-500 dark:text-zinc-400 font-serif italic line-clamp-2 mt-0.5">
+                    <p className="text-[11px] text-gray-500 font-serif italic line-clamp-2 mt-0.5">
                       «{recommendedBook.premise || recommendedBook.subtitle}»
                     </p>
                     <div className="mt-2 flex items-center justify-between">
-                      <span className="text-[10px] font-mono text-gray-400 dark:text-zinc-500">
+                      <span className="text-[10px] font-mono text-gray-400">
                         {recommendedBook.readingTime}
                       </span>
                       <button
@@ -364,9 +364,9 @@ Este archivo digital es abierto y libre de DRM.
                             onStartReading(recommendedBook);
                           }
                         }}
-                        className="px-3 py-1 bg-black hover:bg-stone-800 dark:bg-white dark:hover:bg-zinc-200 text-white dark:text-black rounded-full text-[11px] font-semibold flex items-center gap-1 shadow-xs"
+                        className="px-3 py-1 bg-black hover:bg-stone-800 text-white rounded-full text-[11px] font-semibold flex items-center gap-1 shadow-xs"
                       >
-                        <BookOpen className="w-3 h-3 text-amber-400 dark:text-amber-600" />
+                        <BookOpen className="w-3 h-3 text-amber-400" />
                         <span>Leer gratis</span>
                       </button>
                     </div>

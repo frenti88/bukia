@@ -108,24 +108,24 @@ export const ReaderModal: React.FC<ReaderModalProps> = ({
           <div className="flex items-center gap-2">
             
             {/* Selector de tamaño de letra */}
-            <div className="flex items-center gap-0.5 bg-black/5 dark:bg-white/5 rounded-full p-0.5">
+            <div className="flex items-center gap-0.5 bg-black/5 rounded-full p-0.5">
               <button
                 onClick={() => setFontSize('sm')}
-                className={`w-6 h-6 rounded-full text-xs font-serif ${fontSize === 'sm' ? 'bg-black text-white dark:bg-white dark:text-black font-bold' : 'opacity-60'}`}
+                className={`w-6 h-6 rounded-full text-xs font-serif ${fontSize === 'sm' ? 'bg-black text-white font-bold' : 'opacity-60'}`}
                 title="Texto pequeño"
               >
                 A-
               </button>
               <button
                 onClick={() => setFontSize('base')}
-                className={`w-6 h-6 rounded-full text-xs font-serif ${fontSize === 'base' ? 'bg-black text-white dark:bg-white dark:text-black font-bold' : 'opacity-60'}`}
+                className={`w-6 h-6 rounded-full text-xs font-serif ${fontSize === 'base' ? 'bg-black text-white font-bold' : 'opacity-60'}`}
                 title="Texto mediano"
               >
                 A
               </button>
               <button
                 onClick={() => setFontSize('lg')}
-                className={`w-6 h-6 rounded-full text-xs font-serif ${fontSize === 'lg' ? 'bg-black text-white dark:bg-white dark:text-black font-bold' : 'opacity-60'}`}
+                className={`w-6 h-6 rounded-full text-xs font-serif ${fontSize === 'lg' ? 'bg-black text-white font-bold' : 'opacity-60'}`}
                 title="Texto grande"
               >
                 A+
@@ -157,7 +157,7 @@ export const ReaderModal: React.FC<ReaderModalProps> = ({
             {/* Botón cerrar */}
             <button
               onClick={onClose}
-              className="p-1.5 rounded-full hover:bg-black/5 dark:hover:bg-white/5 opacity-70 hover:opacity-100 transition-opacity ml-1"
+              className="p-1.5 rounded-full hover:bg-black/5 opacity-70 hover:opacity-100 transition-opacity ml-1"
               aria-label="Cerrar lector"
             >
               <X className="w-5 h-5" />
@@ -217,7 +217,7 @@ export const ReaderModal: React.FC<ReaderModalProps> = ({
             {/* ======================================================== */}
             <div className="mt-16 pt-12 border-t-2 border-current/20 text-center">
               
-              <span className="font-mono text-xs uppercase tracking-widest text-amber-800 dark:text-amber-400 font-semibold block mb-2">
+              <span className="font-mono text-xs uppercase tracking-widest text-amber-800 font-semibold block mb-2">
                 PUNTO DE CORTE EDITORIAL
               </span>
 
@@ -243,7 +243,7 @@ export const ReaderModal: React.FC<ReaderModalProps> = ({
                     onClose();
                     onBuy(book);
                   }}
-                  className="w-full sm:w-auto px-8 py-3.5 bg-black text-white dark:bg-white dark:text-black font-sans text-sm font-semibold rounded-full inline-flex items-center justify-center gap-2 hover:opacity-90 transition-all shadow-md"
+                  className="w-full sm:w-auto px-8 py-3.5 bg-black text-white font-sans text-sm font-semibold rounded-full inline-flex items-center justify-center gap-2 hover:opacity-90 transition-all shadow-md"
                 >
                   <span>Continuar leyendo · {formattedPrice}</span>
                   <ArrowRight className="w-4 h-4" />

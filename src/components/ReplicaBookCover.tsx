@@ -30,7 +30,7 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
 
   return (
     <div
-      className={`relative select-none aspect-book overflow-hidden rounded-[3px] bg-white dark:bg-[#151619] border border-gray-200/80 dark:border-white/15 transition-all duration-300 ${sizeMap[size]} ${shadowClass} ${className}`}
+      className={`relative select-none aspect-book overflow-hidden rounded-[3px] bg-white border border-gray-200/80 transition-all duration-300 ${sizeMap[size]} ${shadowClass} ${className}`}
       role="img"
       aria-label={`${title} por ${author}`}
     >

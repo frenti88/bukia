@@ -16,11 +16,11 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ onExploreCatalog }) => {
   };
 
   return (
-    <section className="py-14 sm:py-20 bg-white dark:bg-[#0C0D0E] transition-colors duration-200">
+    <section className="py-14 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Tarjeta oscura con curvas topográficas existentes */}
-        <div className="relative bg-[#111317] text-white rounded-3xl p-8 sm:p-12 md:p-14 overflow-hidden shadow-xl border border-transparent dark:border-white/10 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="relative bg-[#111317] text-white rounded-3xl p-8 sm:p-12 md:p-14 overflow-hidden shadow-xl border border-transparent flex flex-col md:flex-row items-center justify-between gap-8">
           
           {/* Curvas topográficas de fondo */}
           <div className="absolute inset-0 pointer-events-none opacity-20">
