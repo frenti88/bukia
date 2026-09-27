@@ -5,7 +5,6 @@ import { BukiaLogo } from './BukiaLogo';
 interface HeaderProps {
   onOpenSearch: () => void;
   onNavigateToSection: (sectionId: string) => void;
-  onJoinClick?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -13,82 +12,54 @@ export const Header: React.FC<HeaderProps> = ({
   onNavigateToSection,
 }) => {
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 py-3">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-4">
-          
-          {/* Logo + Enlaces de navegación */}
-          <div className="flex items-center gap-8">
-            {/* Logotipo BUKIA + Subtítulo editorial */}
-            <button
-              onClick={() => onNavigateToSection('hero')}
-              className="flex items-center gap-2.5 group text-left focus:outline-none"
-              aria-label="BUKIA Editorial Experimental"
-            >
-              <BukiaLogo className="h-[18px] sm:h-[21px] w-auto transition-transform group-hover:scale-[1.02] text-[#282828]" />
-              <div className="hidden sm:flex flex-col border-l border-stone-300 pl-2">
-                <span className="text-[8px] font-mono text-[#282828] font-medium tracking-wider uppercase leading-none">
-                  EDITORIAL
-                </span>
-                <span className="text-[7px] font-mono text-[#282828] font-medium tracking-wider uppercase mt-0.5 leading-none">
-                  EXPERIMENTAL
-                </span>
-              </div>
-            </button>
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200/80 transition-colors">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-4">
+        
+        {/* Identidad de Marca: BUKIA */}
+        <div className="flex items-center gap-8 sm:gap-10">
+          <button
+            onClick={() => onNavigateToSection('hero')}
+            className="flex items-center text-left focus:outline-none group"
+            aria-label="BUKIA — Inicio"
+          >
+            <BukiaLogo className="h-5 sm:h-6 w-auto text-ink transition-transform group-hover:scale-[1.01]" />
+          </button>
 
-            {/* Enlaces de navegación alineados al journey */}
-            <nav className="hidden md:flex items-center gap-6 text-xs sm:text-sm font-semibold text-[#282828]">
-              <button
-                onClick={() => onNavigateToSection('catalog')}
-                className="hover:text-black transition-colors"
-              >
-                Diez Historias
-              </button>
-              <button
-                onClick={() => onNavigateToSection('experimento')}
-                className="hover:text-black transition-colors"
-              >
-                El Experimento
-              </button>
-              <button
-                onClick={() => onNavigateToSection('autores')}
-                className="hover:text-black transition-colors"
-              >
-                Las Voces
-              </button>
-            </nav>
-          </div>
-
-          {/* Barra de búsqueda central en forma de píldora */}
-          <div className="flex-1 max-w-xs hidden sm:block">
-            <button
-              onClick={onOpenSearch}
-              className="w-full bg-[#F3F4F6] hover:bg-[#EAEAEA] text-[#282828] rounded-full py-1.5 px-4 flex items-center gap-2 text-xs font-medium transition-colors text-left"
-            >
-              <Search className="w-3.5 h-3.5 text-[#282828]" />
-              <span className="text-[#282828]">Buscar por historia o autor...</span>
-            </button>
-          </div>
-
-          {/* Acciones derecha */}
-          <div className="flex items-center gap-2.5 sm:gap-3">
-            <button
-              onClick={onOpenSearch}
-              className="sm:hidden p-2 text-[#282828] hover:text-black"
-              aria-label="Buscar"
-            >
-              <Search className="w-4 h-4" />
-            </button>
-
+          {/* Navegación Editorial Primaria */}
+          <nav className="hidden md:flex items-center gap-8 text-sm font-sans font-medium text-stone-700">
             <button
               onClick={() => onNavigateToSection('catalog')}
-              className="bg-black hover:bg-gray-800 text-white text-xs sm:text-sm font-medium px-4 sm:px-5 py-2 rounded-full transition-all shadow-sm"
+              className="hover:text-black transition-colors"
             >
-              Explorar los libros
+              Historias
             </button>
-          </div>
-
+            <button
+              onClick={() => onNavigateToSection('voces')}
+              className="hover:text-black transition-colors"
+            >
+              Voces
+            </button>
+            <button
+              onClick={() => onNavigateToSection('experimento')}
+              className="hover:text-black transition-colors"
+            >
+              El experimento
+            </button>
+          </nav>
         </div>
+
+        {/* Búsqueda Discreta (Sin CTA comercial ruidoso) */}
+        <div className="flex items-center gap-3">
+          <button
+            onClick={onOpenSearch}
+            className="flex items-center gap-2 py-1.5 px-3 rounded-full text-xs font-sans text-stone-500 hover:text-black hover:bg-stone-100 transition-colors"
+            aria-label="Buscar historias o autores"
+          >
+            <Search className="w-4 h-4" />
+            <span className="hidden sm:inline">Buscar</span>
+          </button>
+        </div>
+
       </div>
     </header>
   );

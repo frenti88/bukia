@@ -1,58 +1,34 @@
 import React from 'react';
-import { ArrowDown } from 'lucide-react';
-import { TopographicWave } from './TopographicWave';
 
 interface ManifestoSectionProps {
-  onNavigateToAuthors: () => void;
+  onNavigateToCatalog?: () => void;
 }
 
-export const ManifestoSection: React.FC<ManifestoSectionProps> = ({ onNavigateToAuthors }) => {
+export const ManifestoSection: React.FC<ManifestoSectionProps> = () => {
   return (
-    <section id="experimento" className="relative py-20 sm:py-28 bg-[#FAF8F5] border-t border-stone-200/80 overflow-hidden text-center">
-      
-      {/* Onda topográfica discreta de fondo */}
-      <div className="absolute inset-x-0 bottom-0 opacity-40 pointer-events-none">
-        <TopographicWave height={180} opacity={0.4} />
-      </div>
-
+    <section id="experimento" className="py-24 sm:py-36 bg-[#FAF8F5] border-t border-stone-200/80 text-center relative overflow-hidden">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
         
-        {/* Eyebrow */}
-        <span className="font-mono text-xs uppercase tracking-widest text-amber-900 font-bold block mb-3">
-          EL EXPERIMENTO
+        {/* Identificador editorial sobrio */}
+        <span className="font-mono text-xs uppercase tracking-widest text-amber-900 font-semibold block mb-4">
+          El experimento
         </span>
 
-        {/* Título */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-stone-950 tracking-tight leading-tight">
-          Autores que nunca nacieron. <br className="hidden sm:inline" />
+        {/* Declaración central */}
+        <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-stone-950 tracking-tight leading-[1.2]">
+          Construimos las voces.<br />
+          Ellas escriben.<br />
           <span className="font-serif italic font-normal text-stone-700">
-            Historias que sí puedes leer.
+            Nosotros leemos, descartamos y editamos.
           </span>
         </h2>
 
-        {/* Los 2 párrafos concisos */}
-        <div className="mt-6 text-base sm:text-lg text-stone-700 font-sans leading-relaxed space-y-4 max-w-2xl mx-auto">
-          <p>
-            Cada voz de BUKIA tiene una identidad, obsesiones y una manera propia de contar.
-          </p>
-          <p className="text-stone-600">
-            Usamos inteligencia artificial para construir esas voces. Después leemos, seleccionamos, editamos y publicamos únicamente las historias que merecen convertirse en libros.
-          </p>
-        </div>
-
-        {/* CTA */}
-        <div className="mt-8">
-          <button
-            onClick={onNavigateToAuthors}
-            className="inline-flex items-center gap-2 px-7 py-3 bg-black hover:bg-stone-800 text-white rounded-full text-xs sm:text-sm font-semibold transition-all shadow-sm"
-          >
-            <span>Conocer las voces</span>
-            <ArrowDown className="w-4 h-4" />
-          </button>
-        </div>
+        {/* Principio editorial */}
+        <p className="mt-8 text-base sm:text-xl text-stone-600 font-sans leading-relaxed max-w-xl mx-auto">
+          Solo publicamos lo que merece convertirse en libro.
+        </p>
 
       </div>
-
     </section>
   );
 };

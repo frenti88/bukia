@@ -23,6 +23,8 @@ export const SearchModal: React.FC<SearchModalProps> = ({
 
   const allSearchableBooks: Book[] = books || BOOKS_LIST;
 
+  const quickThemes = ['algo inquietante', 'amor', 'futuro', 'memoria', 'menos de 40 min'];
+
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => {
@@ -58,11 +60,9 @@ export const SearchModal: React.FC<SearchModalProps> = ({
         return (
           book.title.toLowerCase().includes(normalizedQuery) ||
           book.subtitle.toLowerCase().includes(normalizedQuery) ||
-          book.category.toLowerCase().includes(normalizedQuery) ||
-          book.thesisStatement.toLowerCase().includes(normalizedQuery) ||
+          (book.premise ? book.premise.toLowerCase().includes(normalizedQuery) : false) ||
           (writer?.displayName && writer.displayName.toLowerCase().includes(normalizedQuery)) ||
           (writer?.territory && writer.territory.toLowerCase().includes(normalizedQuery)) ||
-          (writer?.voiceTone && writer.voiceTone.toLowerCase().includes(normalizedQuery)) ||
           book.keywords.some((k) => k.toLowerCase().includes(normalizedQuery))
         );
       });
@@ -76,42 +76,51 @@ export const SearchModal: React.FC<SearchModalProps> = ({
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="bg-white w-full max-w-2xl rounded-2xl shadow-2xl border border-gray-100 overflow-hidden flex flex-col max-h-[80vh]">
+      <div className="bg-white w-full max-w-2xl rounded-2xl shadow-2xl border border-stone-200 overflow-hidden flex flex-col max-h-[80vh]">
         
         {/* Barra de entrada de búsqueda */}
-        <div className="p-4 border-b border-gray-100 flex items-center gap-3 bg-white">
-          <Search className="w-5 h-5 text-gray-400" />
+        <div className="p-4 border-b border-stone-100 flex items-center gap-3 bg-white">
+          <Search className="w-5 h-5 text-stone-400" />
           <input
             ref={inputRef}
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Buscar por título, autor o territorio (ej. 'Nara', 'Vera', 'misterio', 'tiempo')..."
-            className="flex-1 bg-transparent font-sans text-sm sm:text-base text-gray-900 placeholder:text-gray-400 focus:outline-none"
+            placeholder="¿Qué quieres leer hoy?"
+            className="flex-1 bg-transparent font-sans text-sm sm:text-base text-stone-900 placeholder:text-stone-400 focus:outline-none"
           />
           {query && (
             <button
               onClick={() => setQuery('')}
-              className="p-1 text-gray-400 hover:text-black"
-              aria-label="Borrar búsqueda"
+              className="p-1 text-stone-400 hover:text-black"
+              aria-label="Borrar"
             >
               <X className="w-4 h-4" />
             </button>
           )}
-          <kbd className="hidden sm:inline-block px-2 py-0.5 text-[10px] font-mono bg-gray-100 rounded border border-gray-200 text-gray-500">
-            ESC para salir
+          <kbd className="hidden sm:inline-block px-2 py-0.5 text-xs font-mono bg-stone-100 rounded text-stone-500">
+            ESC
           </kbd>
         </div>
 
+        {/* Sugerencias conceptuales */}
+        {normalizedQuery === '' && (
+          <div className="px-5 py-3 bg-[#FAF8F5] border-b border-stone-100 flex items-center gap-2 overflow-x-auto no-scrollbar">
+            <span className="text-xs font-mono text-stone-400 whitespace-nowrap">Explorar:</span>
+            {quickThemes.map((theme) => (
+              <button
+                key={theme}
+                onClick={() => setQuery(theme)}
+                className="px-2.5 py-1 rounded-full bg-white border border-stone-200 hover:border-stone-400 text-xs font-sans text-stone-700 whitespace-nowrap transition-colors"
+              >
+                {theme}
+              </button>
+            ))}
+          </div>
+        )}
+
         {/* Lista de resultados */}
         <div className="overflow-y-auto p-4 space-y-2 flex-1">
-          <div className="flex items-center justify-between px-2 pb-2 text-[11px] font-mono text-gray-400 uppercase">
-            <span>
-              {normalizedQuery ? `Resultados (${results.length})` : 'Publicaciones de BUKIA'}
-            </span>
-            <span>Historias breves</span>
-          </div>
-
           {results.length > 0 ? (
             results.map((book) => {
               const writer = WRITERS[book.writerId];
@@ -122,55 +131,41 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                     onClose();
                     onSelectBook(book);
                   }}
-                  className="p-3 rounded-xl hover:bg-gray-50 cursor-pointer transition-colors flex items-center gap-4 group border border-transparent hover:border-gray-200"
+                  className="p-3 rounded-xl hover:bg-stone-50 cursor-pointer transition-colors flex items-center gap-4 group border border-transparent hover:border-stone-200"
                 >
-                  <ReplicaBookCover id={book.id} title={book.title} author={writer?.displayName || book.subtitle} size="xs" showShadow={false} />
+                  <div className="w-10 flex-shrink-0">
+                    <ReplicaBookCover id={book.id} title={book.title} author={writer?.displayName || book.subtitle} size="xs" showShadow={false} />
+                  </div>
                   
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2">
-                      <span className="font-mono text-[10px] text-amber-800 uppercase font-semibold">
-                        {book.category}
-                      </span>
-                      <span className="text-[#282828] text-xs">·</span>
-                      <span className="font-mono text-[10px] text-gray-500">
-                        Una historia de {writer?.displayName || 'BUKIA'}
-                      </span>
-                    </div>
-
-                    <h4 className="font-semibold text-sm sm:text-base text-gray-900 group-hover:text-amber-800 transition-colors truncate">
+                    <h4 className="font-heading font-bold text-sm text-stone-950 uppercase group-hover:text-amber-900 transition-colors truncate">
                       {book.title}
                     </h4>
 
-                    <p className="font-sans text-xs text-gray-400 line-clamp-1 mt-0.5">
-                      {book.subtitle}
+                    <p className="font-serif italic text-xs text-stone-600 line-clamp-1 mt-0.5">
+                      «{book.premise || book.subtitle}»
                     </p>
                   </div>
 
-                  <div className="text-right font-mono flex items-center gap-3">
-                    <span className="text-xs font-semibold text-black">
-                      US${book.price}
+                  <div className="text-right font-mono flex items-center gap-3 flex-shrink-0">
+                    <span className="text-xs font-semibold text-stone-900">
+                      $4.900
                     </span>
-                    <ArrowRight className="w-4 h-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ArrowRight className="w-4 h-4 text-stone-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
                 </div>
               );
             })
           ) : (
             <div className="text-center py-12">
-              <p className="font-serif text-lg text-gray-900">
-                No encontramos publicaciones para «{query}»
+              <p className="font-serif italic text-base text-stone-800">
+                No encontramos historias para «{query}»
               </p>
-              <p className="text-xs font-mono text-gray-400 mt-1">
-                Intente buscar por categoría ("Finanzas", "Psicología") o autor.
+              <p className="text-xs font-mono text-stone-500 mt-1">
+                Prueba buscando por autor: Nara, Vera, Elio, Nilo o Aren.
               </p>
             </div>
           )}
-        </div>
-
-        {/* Pie de búsqueda */}
-        <div className="p-3 border-t border-gray-100 bg-gray-50/70 flex items-center justify-between text-[11px] font-mono text-gray-500">
-          <span>Catálogo de lectura intencional indexado en tiempo real</span>
-          <span>{allSearchableBooks.length} obras disponibles</span>
         </div>
 
       </div>

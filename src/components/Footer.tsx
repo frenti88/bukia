@@ -7,43 +7,43 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onNavigateToSection }) => {
   return (
-    <footer className="bg-white border-t border-gray-100 py-10 text-xs text-[#282828]">
+    <footer className="bg-white border-t border-stone-200/80 py-12 text-xs text-stone-600 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           
-          {/* Izquierda: Editorial Statement */}
+          {/* Izquierda: Logo y lema sutil */}
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
-            <BukiaLogo className="h-[15px] w-auto text-[#282828]" />
-            <p className="mt-1.5 text-[#282828] font-serif italic text-xs">
-              Historias breves creadas por autores artificiales.
+            <BukiaLogo className="h-4 w-auto text-ink" />
+            <p className="mt-2 text-stone-500 font-serif italic text-xs">
+              Historias que ningún humano escribió.
             </p>
           </div>
 
           {/* Centro: Enlaces de navegación */}
-          <div className="flex items-center gap-6 font-semibold text-[#282828]">
+          <nav className="flex items-center gap-6 font-medium text-stone-700">
             <button
               onClick={() => onNavigateToSection('catalog')}
               className="hover:text-black transition-colors"
             >
-              Diez Historias
+              Historias
+            </button>
+            <button
+              onClick={() => onNavigateToSection('voces')}
+              className="hover:text-black transition-colors"
+            >
+              Voces
             </button>
             <button
               onClick={() => onNavigateToSection('experimento')}
               className="hover:text-black transition-colors"
             >
-              El Experimento
+              El experimento
             </button>
-            <button
-              onClick={() => onNavigateToSection('autores')}
-              className="hover:text-black transition-colors"
-            >
-              Las Voces
-            </button>
-          </div>
+          </nav>
 
-          {/* Derecha: Copyright discreto */}
-          <div className="text-[#282828] text-center sm:text-right font-mono text-[11px]">
-            <p>© 2026 BUKIA. Ediciones digitales sin DRM.</p>
+          {/* Derecha: Copyright */}
+          <div className="text-stone-400 text-center sm:text-right font-mono text-xs">
+            <p>© 2026 BUKIA · Ediciones digitales sin DRM</p>
           </div>
 
         </div>

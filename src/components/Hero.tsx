@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Book } from '../types';
 import { ReplicaBookCover } from './ReplicaBookCover';
 import { TopographicWave } from './TopographicWave';
-import { RulerScrubber } from './RulerScrubber';
 
 interface HeroProps {
   onSelectBook: (book: Book) => void;
@@ -13,11 +12,10 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({
   onSelectBook,
-  onOpenPreview,
   onExploreCatalog,
   allBooks,
 }) => {
-  // Lista de 5 libros de la colección para el carrusel de exhibición (uno por cada voz oficial)
+  // 5 libros representativos de la colección de 10
   const heroBooks = [
     { id: 'las-personas-que-dejamos-atras', title: 'Las Personas que Dejamos Atrás', author: 'Nara' },
     { id: 'todo-lo-que-nunca-ocurrio', title: 'Todo lo que Nunca Ocurrió', author: 'Aren' },
@@ -26,9 +24,10 @@ export const Hero: React.FC<HeroProps> = ({
     { id: 'siete-minutos-sin-mentir', title: 'Siete Minutos Sin Mentir', author: 'Vera' },
   ];
 
-  const [activeIndex, setActiveIndex] = useState(2); // Libro central (La Última Persona Despierta)
+  const [activeIndex, setActiveIndex] = useState(2); // Central: La Última Persona Despierta
 
-  const handleBookClick = (bookData: { id: string; title: string; author: string }) => {
+  const handleBookClick = (bookData: { id: string; title: string; author: string }, idx: number) => {
+    setActiveIndex(idx);
     const found = allBooks.find((b) => b.id === bookData.id || b.slug === bookData.id);
     if (found) {
       onSelectBook(found);
@@ -38,60 +37,55 @@ export const Hero: React.FC<HeroProps> = ({
   };
 
   return (
-    <section id="hero" className="relative pt-12 sm:pt-16 pb-12 overflow-hidden bg-white text-center">
+    <section id="hero" className="relative pt-16 sm:pt-24 pb-16 overflow-hidden bg-white text-center">
       
       {/* Contenedor del titular principal */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
         
-        {/* Eyebrow */}
-        <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-stone-100 text-stone-800 text-[11px] font-mono tracking-widest uppercase border border-stone-200">
-          <span>BUKIA · EDITORIAL EXPERIMENTAL</span>
-        </div>
-
-        {/* Titular: "Historias que ningún humano escribió." */}
-        <h1 className="text-3xl sm:text-5xl md:text-6xl font-light text-gray-900 tracking-tight leading-[1.15] sm:leading-[1.12]">
-          <span>Historias que </span>
-          <strong className="font-extrabold text-black">ningún humano escribió.</strong>
+        {/* Titular exacto e inmutable */}
+        <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-extrabold text-stone-950 tracking-tight leading-[1.12]">
+          Historias que ningún humano escribió.
         </h1>
 
-        {/* Supporting copy */}
-        <p className="mt-4 text-sm sm:text-base md:text-lg text-gray-600 max-w-xl mx-auto leading-relaxed">
-          Libros breves creados por autores artificiales y seleccionados para humanos curiosos.
+        {/* Supporting copy exacto */}
+        <p className="mt-5 text-base sm:text-lg md:text-xl text-stone-600 max-w-xl mx-auto font-sans leading-relaxed">
+          Historias breves para terminar hoy.<br className="hidden sm:inline" />
+          Empieza cualquiera gratis.
         </p>
 
-        {/* Botones de acción: "Explorar los libros" y "¿Qué es Bukia?" */}
-        <div className="mt-6 flex items-center justify-center gap-3">
+        {/* Acciones principales con jerarquía editorial clara */}
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
           <button
             onClick={onExploreCatalog}
-            className="bg-black hover:bg-gray-800 text-white text-xs sm:text-sm font-medium px-6 py-2.5 rounded-full transition-all shadow-sm"
+            className="w-full sm:w-auto bg-black hover:bg-stone-800 text-white font-sans text-sm font-semibold px-8 py-3.5 rounded-full transition-all shadow-sm hover:shadow-md"
           >
-            Explorar los libros
+            Elegir una historia
           </button>
+          
           <a
             href="#experimento"
-            className="bg-white hover:bg-gray-50 text-black border border-gray-300 text-xs sm:text-sm font-medium px-6 py-2.5 rounded-full transition-all inline-flex items-center"
+            className="text-stone-500 hover:text-stone-900 text-xs sm:text-sm font-sans font-medium transition-colors py-2 px-3"
           >
-            ¿Qué es Bukia?
+            ¿Qué es BUKIA?
           </a>
         </div>
-
       </div>
 
-      {/* Onda topográfica detrás de los libros */}
-      <div className="relative mt-8 sm:mt-12 w-full max-w-6xl mx-auto">
+      {/* Exhibición editorial de portadas en abanico con pedestal sutil */}
+      <div className="relative mt-12 sm:mt-16 w-full max-w-6xl mx-auto">
         
-        {/* Paisaje de onda topográfica de semitonos */}
-        <div className="absolute inset-x-0 -top-16 sm:-top-20 z-0">
-          <TopographicWave height={260} opacity={0.75} />
+        {/* Onda topográfica discreta de fondo */}
+        <div className="absolute inset-x-0 -top-12 sm:-top-16 z-0 pointer-events-none opacity-60">
+          <TopographicWave height={240} opacity={0.6} />
         </div>
 
-        {/* Carrusel de libros en abanico */}
-        <div className="relative z-10 flex items-end justify-center gap-2 sm:gap-4 md:gap-6 px-4 pt-6 pb-2 overflow-x-auto no-scrollbar">
+        {/* Galería de libros centrada */}
+        <div className="relative z-10 flex items-end justify-center gap-3 sm:gap-6 md:gap-7 px-4 pt-6 pb-6 overflow-x-auto no-scrollbar">
           {heroBooks.map((item, idx) => {
             const isCenter = idx === activeIndex;
             const distance = Math.abs(idx - activeIndex);
 
-            let scaleClass = 'scale-90 opacity-75';
+            let scaleClass = 'scale-90 opacity-80';
             let zIndexClass = 'z-10';
             if (distance === 0) {
               scaleClass = 'scale-105 sm:scale-110 opacity-100';
@@ -104,13 +98,10 @@ export const Hero: React.FC<HeroProps> = ({
             return (
               <div
                 key={item.id}
-                onClick={() => {
-                  setActiveIndex(idx);
-                  handleBookClick(item);
-                }}
+                onClick={() => handleBookClick(item, idx)}
                 className={`transition-all duration-300 transform cursor-pointer flex-shrink-0 ${scaleClass} ${zIndexClass}`}
               >
-                <div className="relative group">
+                <div className="relative group flex flex-col items-center">
                   <ReplicaBookCover
                     id={item.id}
                     title={item.title}
@@ -119,24 +110,14 @@ export const Hero: React.FC<HeroProps> = ({
                     showShadow
                     className="group-hover:-translate-y-2 transition-transform duration-300"
                   />
-                  {/* Máscara de desvanecimiento inferior */}
-                  <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-white via-white/40 to-transparent pointer-events-none" />
+                  {/* Máscara de desvanecimiento inferior suave */}
+                  <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-white via-white/20 to-transparent pointer-events-none opacity-50" />
+                  {/* Sombra de apoyo en pedestal */}
+                  <div className="w-4/5 h-2 bg-black/10 blur-sm rounded-full mt-2 transition-opacity duration-300" />
                 </div>
               </div>
             );
           })}
-        </div>
-
-        {/* Dial de regla inferior con puntero */}
-        <div className="mt-4 flex justify-center">
-          <RulerScrubber
-            variant="arrow"
-            tickCount={45}
-            onSelectIndex={(tickIdx) => {
-              const mapped = Math.min(4, Math.floor((tickIdx / 45) * 5));
-              setActiveIndex(mapped);
-            }}
-          />
         </div>
 
       </div>

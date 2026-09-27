@@ -23,3 +23,11 @@ dist-ssr
 *.sln
 *.sw?
 .vercel
+
+# Agent harnesses & local skill caches
+.agents
+.claude
+.cursor
+.gemini
+.impeccable
+.kiro

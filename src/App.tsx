@@ -4,8 +4,9 @@ import { BOOKS_LIST } from './data/books';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { CatalogSection } from './components/CatalogSection';
-import { ManifestoSection } from './components/ManifestoSection';
+import { RevealSection } from './components/RevealSection';
 import { AuthorsSection } from './components/AuthorsSection';
+import { ManifestoSection } from './components/ManifestoSection';
 import { CtaBanner } from './components/CtaBanner';
 import { Footer } from './components/Footer';
 import { ProductPage } from './pages/ProductPage';
@@ -14,8 +15,10 @@ import { CheckoutModal } from './components/CheckoutModal';
 import { SearchModal } from './components/SearchModal';
 
 export const App: React.FC = () => {
-  // Colección deliberada y curada: exactamente 10 historias de autores artificiales
+  // Catálogo deliberadamente curado: exactamente 10 historias
   const allAvailableBooks: Book[] = BOOKS_LIST;
+  const firstBatchBooks = allAvailableBooks.slice(0, 5);
+  const secondBatchBooks = allAvailableBooks.slice(5, 10);
 
   // Helper para resolver el libro desde la URL pathname (/libro/:slug) o hash (#/libro/:slug)
   const parseBookFromLocation = (): Book | null => {
@@ -44,7 +47,7 @@ export const App: React.FC = () => {
   // Estado de la Página de Producto dedicada
   const [currentProductBook, setCurrentProductBook] = useState<Book | null>(() => parseBookFromLocation());
 
-  // Limpiar cualquier estado residual de dark mode en navegador
+  // Limpiar cualquier estado residual de dark mode en navegador (Light Mode permanente en producción)
   useEffect(() => {
     document.documentElement.classList.remove('dark');
     try {
@@ -74,7 +77,7 @@ export const App: React.FC = () => {
     if (currentProductBook) {
       document.title = `${currentProductBook.title} — BUKIA`;
     } else {
-      document.title = 'BUKIA — Editorial Experimental · Historias por Autores Artificiales';
+      document.title = 'BUKIA — Historias que ningún humano escribió';
     }
   }, [currentProductBook]);
 
@@ -124,7 +127,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 font-sans flex flex-col antialiased selection:bg-black selection:text-white">
+    <div className="min-h-screen bg-white text-ink font-sans flex flex-col antialiased selection:bg-black selection:text-white">
       
       {/* 1. Header Global Editorial */}
       <Header
@@ -132,7 +135,7 @@ export const App: React.FC = () => {
         onNavigateToSection={handleNavigateToSection}
       />
 
-      {/* 2. Cuerpo Principal: Página de Producto Dedicada O Experiencia de Descubrimiento Home */}
+      {/* 2. Cuerpo Principal: Página de Producto Dedicada O Narrativa Definitiva de Home */}
       <main className="flex-1">
         {currentProductBook ? (
           <ProductPage
@@ -153,27 +156,39 @@ export const App: React.FC = () => {
               allBooks={allAvailableBooks}
             />
 
-            {/* CATÁLOGO: "Diez historias. Elige una." con Microinterrupción Editorial */}
+            {/* CATÁLOGO (Parte 1): Primeros 5 libros */}
             <CatalogSection
-              books={allAvailableBooks}
+              id="catalog"
+              books={firstBatchBooks}
+              title="Diez historias. Elige una."
+              subtitle="Empieza cualquiera gratis."
               onSelectBook={handleSelectBook}
-              onPreviewBook={handleOpenPreview}
-              onNavigateToSection={handleNavigateToSection}
             />
 
-            {/* MANIFIESTO BREVE: "Autores que nunca nacieron. Historias que sí puedes leer." */}
-            <ManifestoSection
-              onNavigateToAuthors={() => handleNavigateToSection('autores')}
+            {/* REVELACIÓN: Pausa editorial antes de presentar a los autores */}
+            <RevealSection
+              onNavigateToVoices={() => handleNavigateToSection('voces')}
             />
 
-            {/* AUTORES ARTIFICIALES: Afinidad con cada voz autoral */}
+            {/* VOCES DE BUKIA: Nara, Vera, Elio, Nilo, Aren */}
             <AuthorsSection
               allBooks={allAvailableBooks}
               onSelectBook={handleSelectBook}
-              onExploreCatalog={() => handleNavigateToSection('catalog')}
             />
 
-            {/* CTA BANNER: "Tu próxima historia te espera." */}
+            {/* CATÁLOGO (Parte 2): Resto de libros (6 a 10) */}
+            <CatalogSection
+              id="catalog-segunda-parte"
+              books={secondBatchBooks}
+              onSelectBook={handleSelectBook}
+            />
+
+            {/* EXPERIMENTO: "Construimos las voces. Ellas escriben..." */}
+            <ManifestoSection
+              onNavigateToCatalog={() => handleNavigateToSection('catalog')}
+            />
+
+            {/* CIERRE: "¿Cuál será la primera?" */}
             <CtaBanner
               onExploreCatalog={() => handleNavigateToSection('catalog')}
             />
@@ -184,7 +199,7 @@ export const App: React.FC = () => {
       {/* 3. Footer Minimalista */}
       <Footer onNavigateToSection={handleNavigateToSection} />
 
-      {/* 4. Modales Globales (Funcionan desde Home y desde la Página de Producto) */}
+      {/* 4. Modales Globales */}
       <ReaderModal
         book={previewBook}
         isOpen={Boolean(previewBook)}
