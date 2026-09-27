@@ -801,8 +801,12 @@ export const ReplicaBookCover: React.FC<ReplicaCoverProps> = ({
           </div>
         )}
 
-        {/* 14. EDICIONES ORIGINALES BUKIA */}
+        {/* 14. EDICIONES ORIGINALES BUKIA (Solo fallback si no coincide con ningún libro oficial) */}
         {![
+          'la-ultima-persona-despierta', 'todo-lo-que-nunca-ocurrio', 'las-personas-que-dejamos-atras',
+          'si-manana-no-existiera', 'la-casa-que-nos-recuerda', 'siete-minutos-sin-mentir',
+          'el-hombre-que-recordaba-el-futuro', 'despues-de-nosotros', 'la-vida-de-otra-persona',
+          'antes-de-que-olvides-mi-nombre',
           'psychology-of-money', 'the-psychology-of-money', 'thinking-fast-and-slow',
           'think-again', 'talking-to-strangers', 'mindset', 'designing-your-life',
           'company-of-one', 'anything-you-want', 'creative-confidence', 'atomic-habits',

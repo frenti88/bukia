@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Book } from '../types';
-import { ReplicaBookCover } from './ReplicaBookCover';
+import { HeroBookCover } from './HeroBookCover';
 import { TopographicWave } from './TopographicWave';
 
 interface HeroProps {
@@ -10,24 +10,87 @@ interface HeroProps {
   allBooks: Book[];
 }
 
+interface HeroBookConfig {
+  id: string;
+  title: string;
+  author: string;
+  zIndex: number;
+  rotationClass: string;
+  translateYClass: string;
+  widthClass: string;
+  overlapClass: string;
+  shadowClass: string;
+  isCenter?: boolean;
+}
+
 export const Hero: React.FC<HeroProps> = ({
   onSelectBook,
   onExploreCatalog,
   allBooks,
 }) => {
-  // 5 libros representativos de la colección de 10
-  const heroBooks = [
-    { id: 'las-personas-que-dejamos-atras', title: 'Las Personas que Dejamos Atrás', author: 'Nara' },
-    { id: 'todo-lo-que-nunca-ocurrio', title: 'Todo lo que Nunca Ocurrió', author: 'Aren' },
-    { id: 'la-ultima-persona-despierta', title: 'La Última Persona Despierta', author: 'Elio' },
-    { id: 'si-manana-no-existiera', title: 'Si Mañana No Existiera', author: 'Nilo' },
-    { id: 'siete-minutos-sin-mentir', title: 'Siete Minutos Sin Mentir', author: 'Vera' },
+  // Configuración editorial precisa para el Abanico Editorial de 5 libros
+  const heroBooks: HeroBookConfig[] = [
+    {
+      id: 'las-personas-que-dejamos-atras',
+      title: 'Las Personas que Dejamos Atrás',
+      author: 'Nara',
+      zIndex: 10,
+      rotationClass: '-rotate-6 sm:-rotate-7',
+      translateYClass: 'translate-y-6 sm:translate-y-8 md:translate-y-10 lg:translate-y-12',
+      widthClass: 'w-[92px] sm:w-[122px] md:w-[152px] lg:w-[182px]',
+      overlapClass: '-mr-5 sm:-mr-7 md:-mr-9 lg:-mr-11',
+      shadowClass: 'shadow-[0_10px_20px_-5px_rgba(0,0,0,0.18),0_4px_8px_-2px_rgba(0,0,0,0.08)]',
+    },
+    {
+      id: 'todo-lo-que-nunca-ocurrio',
+      title: 'Todo lo que Nunca Ocurrió',
+      author: 'Aren',
+      zIndex: 20,
+      rotationClass: '-rotate-3 sm:-rotate-[3.5deg]',
+      translateYClass: 'translate-y-3 sm:translate-y-4 md:translate-y-5 lg:translate-y-6',
+      widthClass: 'w-[115px] sm:w-[152px] md:w-[188px] lg:w-[220px]',
+      overlapClass: '-mr-5 sm:-mr-7 md:-mr-9 lg:-mr-11',
+      shadowClass: 'shadow-[0_16px_30px_-6px_rgba(0,0,0,0.22),0_6px_12px_-3px_rgba(0,0,0,0.1)]',
+    },
+    {
+      id: 'la-ultima-persona-despierta',
+      title: 'La Última Persona Despierta',
+      author: 'Elio',
+      zIndex: 30,
+      rotationClass: 'rotate-0',
+      translateYClass: 'translate-y-0',
+      widthClass: 'w-[142px] sm:w-[188px] md:w-[230px] lg:w-[268px]',
+      overlapClass: '',
+      shadowClass: 'shadow-[0_24px_48px_-10px_rgba(0,0,0,0.34),0_10px_20px_-4px_rgba(0,0,0,0.16)]',
+      isCenter: true,
+    },
+    {
+      id: 'si-manana-no-existiera',
+      title: 'Si Mañana No Existiera',
+      author: 'Nilo',
+      zIndex: 20,
+      rotationClass: 'rotate-3 sm:rotate-[3.5deg]',
+      translateYClass: 'translate-y-3 sm:translate-y-4 md:translate-y-5 lg:translate-y-6',
+      widthClass: 'w-[115px] sm:w-[152px] md:w-[188px] lg:w-[220px]',
+      overlapClass: '-ml-5 sm:-ml-7 md:-ml-9 lg:-ml-11',
+      shadowClass: 'shadow-[0_16px_30px_-6px_rgba(0,0,0,0.22),0_6px_12px_-3px_rgba(0,0,0,0.1)]',
+    },
+    {
+      id: 'siete-minutos-sin-mentir',
+      title: 'Siete Minutos Sin Mentir',
+      author: 'Vera',
+      zIndex: 10,
+      rotationClass: 'rotate-6 sm:rotate-7',
+      translateYClass: 'translate-y-6 sm:translate-y-8 md:translate-y-10 lg:translate-y-12',
+      widthClass: 'w-[92px] sm:w-[122px] md:w-[152px] lg:w-[182px]',
+      overlapClass: '-ml-5 sm:-ml-7 md:-ml-9 lg:-ml-11',
+      shadowClass: 'shadow-[0_10px_20px_-5px_rgba(0,0,0,0.18),0_4px_8px_-2px_rgba(0,0,0,0.08)]',
+    },
   ];
 
-  const [activeIndex, setActiveIndex] = useState(2); // Central: La Última Persona Despierta
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
-  const handleBookClick = (bookData: { id: string; title: string; author: string }, idx: number) => {
-    setActiveIndex(idx);
+  const handleBookClick = (bookData: { id: string; title: string; author: string }) => {
     const found = allBooks.find((b) => b.id === bookData.id || b.slug === bookData.id);
     if (found) {
       onSelectBook(found);
@@ -37,9 +100,14 @@ export const Hero: React.FC<HeroProps> = ({
   };
 
   return (
-    <section id="hero" className="relative pt-16 sm:pt-24 pb-16 overflow-hidden bg-white text-center">
+    <section id="hero" className="relative pt-16 sm:pt-24 pb-20 sm:pb-28 overflow-hidden bg-white text-center w-full">
       
-      {/* Contenedor del titular principal */}
+      {/* 1. TEXTURA TOPOGRÁFICA DE FONDO: 100% SCREEN WIDTH (EDGE-TO-EDGE) */}
+      <div className="absolute inset-x-0 bottom-0 w-full pointer-events-none select-none z-0">
+        <TopographicWave height={340} opacity={0.65} />
+      </div>
+
+      {/* 2. CONTENEDOR DEL TITULAR PRINCIPAL Y CTAs */}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Titular exacto e inmutable */}
@@ -71,49 +139,50 @@ export const Hero: React.FC<HeroProps> = ({
         </div>
       </div>
 
-      {/* Exhibición editorial de portadas en abanico con pedestal sutil */}
-      <div className="relative mt-12 sm:mt-16 w-full max-w-6xl mx-auto">
+      {/* 3. EXHIBICIÓN EDITORIAL DE PORTADAS: PROPUESTA A · ABANICO EDITORIAL */}
+      <div className="relative mt-12 sm:mt-16 w-full z-10 flex flex-col items-center">
         
-        {/* Onda topográfica discreta de fondo */}
-        <div className="absolute inset-x-0 -top-12 sm:-top-16 z-0 pointer-events-none opacity-60">
-          <TopographicWave height={240} opacity={0.6} />
-        </div>
-
-        {/* Galería de libros centrada */}
-        <div className="relative z-10 flex items-end justify-center gap-3 sm:gap-6 md:gap-7 px-4 pt-6 pb-6 overflow-x-auto no-scrollbar">
+        {/* Contenedor central del abanico con padding suficiente para que respire */}
+        <div className="w-full flex items-end justify-center pt-4 pb-8 sm:pb-12 px-2 select-none overflow-x-clip sm:overflow-visible">
           {heroBooks.map((item, idx) => {
-            const isCenter = idx === activeIndex;
-            const distance = Math.abs(idx - activeIndex);
-
-            let scaleClass = 'scale-90 opacity-80';
-            let zIndexClass = 'z-10';
-            if (distance === 0) {
-              scaleClass = 'scale-105 sm:scale-110 opacity-100';
-              zIndexClass = 'z-30';
-            } else if (distance === 1) {
-              scaleClass = 'scale-95 sm:scale-100 opacity-90';
-              zIndexClass = 'z-20';
-            }
+            const isHovered = hoveredIdx === idx;
+            // Al hacer hover en un libro, se eleva temporalmente a z-40 para apreciarse por completo
+            const effectiveZIndex = isHovered ? 40 : item.zIndex;
 
             return (
               <div
                 key={item.id}
-                onClick={() => handleBookClick(item, idx)}
-                className={`transition-all duration-300 transform cursor-pointer flex-shrink-0 ${scaleClass} ${zIndexClass}`}
+                onClick={() => handleBookClick(item)}
+                onMouseEnter={() => setHoveredIdx(idx)}
+                onMouseLeave={() => setHoveredIdx(null)}
+                tabIndex={0}
+                role="button"
+                aria-label={`Ver libro ${item.title} por ${item.author}`}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleBookClick(item);
+                  }
+                }}
+                className={`group relative flex-shrink-0 cursor-pointer outline-none transition-all duration-300 transform-gpu ${item.widthClass} ${item.overlapClass}`}
+                style={{ zIndex: effectiveZIndex }}
               >
-                <div className="relative group flex flex-col items-center">
-                  <ReplicaBookCover
-                    id={item.id}
-                    title={item.title}
-                    author={item.author}
-                    size={isCenter ? 'hero' : 'md'}
-                    showShadow
-                    className="group-hover:-translate-y-2 transition-transform duration-300"
-                  />
-                  {/* Máscara de desvanecimiento inferior suave */}
-                  <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-white via-white/20 to-transparent pointer-events-none opacity-50" />
-                  {/* Sombra de apoyo en pedestal */}
-                  <div className="w-4/5 h-2 bg-black/10 blur-sm rounded-full mt-2 transition-opacity duration-300" />
+                {/* Envoltorio con rotación y traslación vertical del abanico */}
+                <div
+                  className={`flex flex-col items-center transition-all duration-300 ${item.rotationClass} ${item.translateYClass} group-hover:-translate-y-2 group-hover:scale-[1.02]`}
+                >
+                  {/* Portada Editorial Completa y Minimalista */}
+                  <div className={`w-full rounded-[3px] transition-shadow duration-300 ${item.shadowClass} group-hover:shadow-[0_28px_56px_-10px_rgba(0,0,0,0.38)]`}>
+                    <HeroBookCover
+                      id={item.id}
+                      title={item.title}
+                      author={item.author}
+                      isCenter={item.isCenter}
+                    />
+                  </div>
+
+                  {/* Sombra de apoyo en el suelo / pedestal (por debajo del libro, nunca tapando la portada) */}
+                  <div className="w-4/5 h-2.5 sm:h-3 bg-black/15 blur-md rounded-full mt-3 sm:mt-4 transition-opacity duration-300 group-hover:opacity-60 pointer-events-none" />
                 </div>
               </div>
             );
